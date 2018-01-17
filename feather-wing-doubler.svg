@@ -1,0 +1,1161 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="888.0px" height="853.6px" version="1.1"
+  xmlns="http://www.w3.org/2000/svg">
+  <rect x="100.0px" y="100.0px" rx="37.84" ry="37.84" width="688.0px" height="653.6px"
+    fill="white" stroke="black" stroke-width="3px"/>
+  <line x1="220.4px" y1="117.2px" x2="220.4px" y2="323.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="220.4px" y1="358.0px" x2="220.4px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="289.2px" y1="117.2px" x2="289.2px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="323.6px" y1="117.2px" x2="323.6px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="358.0px" y1="117.2px" x2="358.0px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="392.4px" y1="117.2px" x2="392.4px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="426.8px" y1="117.2px" x2="426.8px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="461.2px" y1="117.2px" x2="461.2px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="495.6px" y1="117.2px" x2="495.6px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="530.0px" y1="117.2px" x2="530.0px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="564.4px" y1="117.2px" x2="564.4px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="598.8px" y1="117.2px" x2="598.8px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="633.2px" y1="117.2px" x2="633.2px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="667.6px" y1="117.2px" x2="667.6px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="702.0px" y1="117.2px" x2="702.0px" y2="151.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="323.6px" y1="461.2px" x2="323.6px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="358.0px" y1="461.2px" x2="358.0px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="392.4px" y1="461.2px" x2="392.4px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="426.8px" y1="461.2px" x2="426.8px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="461.2px" y1="461.2px" x2="461.2px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="495.6px" y1="461.2px" x2="495.6px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="530.0px" y1="461.2px" x2="530.0px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="564.4px" y1="461.2px" x2="564.4px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="598.8px" y1="461.2px" x2="598.8px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="633.2px" y1="461.2px" x2="633.2px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="667.6px" y1="461.2px" x2="667.6px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="702.0px" y1="461.2px" x2="702.0px" y2="495.6px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="186.0px" y1="358.0px" x2="186.0px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="254.8px" y1="358.0px" x2="254.8px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="289.2px" y1="358.0px" x2="289.2px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="323.6px" y1="358.0px" x2="323.6px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="358.0px" y1="358.0px" x2="358.0px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="392.4px" y1="358.0px" x2="392.4px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="426.8px" y1="358.0px" x2="426.8px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="461.2px" y1="358.0px" x2="461.2px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="495.6px" y1="358.0px" x2="495.6px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="530.0px" y1="358.0px" x2="530.0px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="564.4px" y1="358.0px" x2="564.4px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="598.8px" y1="358.0px" x2="598.8px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="633.2px" y1="358.0px" x2="633.2px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="667.6px" y1="358.0px" x2="667.6px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="702.0px" y1="358.0px" x2="702.0px" y2="392.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="186.0px" y1="702.0px" x2="186.0px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="220.4px" y1="702.0px" x2="220.4px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="254.8px" y1="702.0px" x2="254.8px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="289.2px" y1="702.0px" x2="289.2px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="323.6px" y1="702.0px" x2="323.6px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="358.0px" y1="702.0px" x2="358.0px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="392.4px" y1="702.0px" x2="392.4px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="426.8px" y1="702.0px" x2="426.8px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="461.2px" y1="702.0px" x2="461.2px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="495.6px" y1="702.0px" x2="495.6px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="530.0px" y1="702.0px" x2="530.0px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="564.4px" y1="702.0px" x2="564.4px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="598.8px" y1="702.0px" x2="598.8px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="633.2px" y1="702.0px" x2="633.2px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="667.6px" y1="702.0px" x2="667.6px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="702.0px" y1="702.0px" x2="702.0px" y2="736.4px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <line x1="220.4px" y1="323.6px" x2="220.4px" y2="358.0px" style="stroke:rgb(0,0,0);stroke-width:2"/>
+  <circle cx="186.0" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="117.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="117.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="151.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="151.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="186.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="186.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="220.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="220.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="254.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="254.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="289.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="289.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="323.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="323.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="358.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="358.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="392.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="392.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="461.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="461.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="495.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="530.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="564.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="564.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="598.8" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="598.8" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="633.2" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="633.2" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="117.2" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="151.6" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="736.4" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="667.6" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="770.8" cy="667.6" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="702.0" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="702.0" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="186.0" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="220.4" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="254.8" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="289.2" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="323.6" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="358.0" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="392.4" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="426.8" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="461.2" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="495.6" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="530.0" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="564.4" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="598.8" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="633.2" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="667.6" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="736.4" r="12.9px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="702.0" cy="736.4" r="9.03px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="134.4" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="134.4" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="134.4" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="134.4" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="375.2" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="375.2" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="375.2" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="375.2" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="478.4" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="478.4" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="478.4" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="478.4" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="719.2" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="134.4" cy="719.2" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="719.2" r="25.8px" stroke="black" stroke-width="2" fill="white" />
+  <circle cx="753.6" cy="719.2" r="18.06px" stroke="black" stroke-width="2" fill="white" />
+  <rect x="203.2px" y="100.0px" width="34.4px" height="240.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="203.2px" y="340.8px" width="34.4px" height="412.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="237.6px" y="100.0px" width="34.4px" height="309.6px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="237.6px" y="444.0px" width="34.4px" height="309.6px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="272.0px" y="100.0px" width="34.4px" height="653.6px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="306.4px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="340.8px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="375.2px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="409.6px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="444.0px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="478.4px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="512.8px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="547.2px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="581.6px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="616.0px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="650.4px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="684.8px" y="100.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="306.4px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="340.8px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="375.2px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="409.6px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="444.0px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="478.4px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="512.8px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="547.2px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="581.6px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="616.0px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="650.4px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="684.8px" y="444.0px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="168.8px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="237.6px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="272.0px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="306.4px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="340.8px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="375.2px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="409.6px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="444.0px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="478.4px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="512.8px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="547.2px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="581.6px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="616.0px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="650.4px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="684.8px" y="340.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="168.8px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="203.2px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="237.6px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="272.0px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="306.4px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="340.8px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="375.2px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="409.6px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="444.0px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="478.4px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="512.8px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="547.2px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="581.6px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="616.0px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="650.4px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="684.8px" y="684.8px" width="34.4px" height="68.8px"
+    fill="none" stroke="black" stroke-width="2px"/>
+  <rect x="306.4px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="315.0px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="340.8px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="349.4px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="375.2px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="383.8px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="409.6px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="418.2px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="444.0px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="452.6px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="478.4px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="487.0px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="512.8px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="521.4px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="547.2px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="555.8px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="581.6px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="590.2px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="616.0px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="624.6px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="650.4px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="659.0px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="684.8px" y="100.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="693.4px" y="108.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="168.8px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="177.4px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="203.2px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="211.8px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="237.6px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="246.2px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="272.0px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="280.6px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="306.4px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="315.0px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="340.8px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="349.4px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="375.2px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="383.8px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="409.6px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="418.2px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="444.0px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="452.6px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="478.4px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="487.0px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="512.8px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="521.4px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="547.2px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="555.8px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="581.6px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="590.2px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="616.0px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="624.6px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="650.4px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="659.0px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="684.8px" y="375.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="693.4px" y="383.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="306.4px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="315.0px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="340.8px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="349.4px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="375.2px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="383.8px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="409.6px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="418.2px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="444.0px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="452.6px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="478.4px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="487.0px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="512.8px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="521.4px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="547.2px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="555.8px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="581.6px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="590.2px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="616.0px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="624.6px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="650.4px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="659.0px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="684.8px" y="444.0px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="693.4px" y="452.6px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="168.8px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="177.4px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="203.2px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="211.8px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="237.6px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="246.2px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="272.0px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="280.6px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="306.4px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="315.0px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="340.8px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="349.4px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="375.2px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="383.8px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="409.6px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="418.2px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="444.0px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="452.6px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="478.4px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="487.0px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="512.8px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="521.4px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="547.2px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="555.8px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="581.6px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="590.2px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="616.0px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="624.6px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="650.4px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="659.0px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <rect x="684.8px" y="719.2px" width="34.4px" height="34.4px"
+    fill="grey" stroke="black" stroke-width="1"/>
+  <rect x="693.4px" y="727.8px" width="17.2px" height="17.2px"
+    fill="white" stroke="black" stroke-width="1"/>
+  <g>
+    <line stroke-linecap="round" x1="702.0px" y1="495.6px" x2="702.0px" y2="530.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="702.0px" y1="530.0px" x2="805.2px" y2="530.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="805.2px" y1="530.0px" x2="805.2px" y2="186.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="805.2px" y1="186.0px" x2="702.0px" y2="186.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="702.0px" y1="186.0px" x2="702.0px" y2="151.6px" style="stroke:white;stroke-width:9"/>
+    <circle cx="702.0" cy="495.6" r="9.03px" stroke="blue" stroke-width="2" fill="blue" />
+    <circle cx="702.0" cy="151.6" r="9.03px" stroke="blue" stroke-width="2" fill="blue" />
+    <line stroke-linecap="round" x1="702.0px" y1="495.6px" x2="702.0px" y2="530.0px" style="stroke:blue;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="702.0px" y1="530.0px" x2="805.2px" y2="530.0px" style="stroke:blue;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="805.2px" y1="530.0px" x2="805.2px" y2="186.0px" style="stroke:blue;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="805.2px" y1="186.0px" x2="702.0px" y2="186.0px" style="stroke:blue;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="702.0px" y1="186.0px" x2="702.0px" y2="151.6px" style="stroke:blue;stroke-width:4.5"/>
+  </g>
+  <g>
+    <line stroke-linecap="round" x1="667.6px" y1="495.6px" x2="667.6px" y2="564.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="667.6px" y1="564.4px" x2="839.6px" y2="564.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="839.6px" y1="564.4px" x2="839.6px" y2="220.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="839.6px" y1="220.4px" x2="667.6px" y2="220.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="667.6px" y1="220.4px" x2="667.6px" y2="151.6px" style="stroke:white;stroke-width:9"/>
+    <circle cx="667.6" cy="495.6" r="9.03px" stroke="red" stroke-width="2" fill="red" />
+    <circle cx="667.6" cy="151.6" r="9.03px" stroke="red" stroke-width="2" fill="red" />
+    <line stroke-linecap="round" x1="667.6px" y1="495.6px" x2="667.6px" y2="564.4px" style="stroke:red;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="667.6px" y1="564.4px" x2="839.6px" y2="564.4px" style="stroke:red;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="839.6px" y1="564.4px" x2="839.6px" y2="220.4px" style="stroke:red;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="839.6px" y1="220.4px" x2="667.6px" y2="220.4px" style="stroke:red;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="667.6px" y1="220.4px" x2="667.6px" y2="151.6px" style="stroke:red;stroke-width:4.5"/>
+  </g>
+  <g>
+    <line stroke-linecap="round" x1="530.0px" y1="495.6px" x2="530.0px" y2="530.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="530.0px" y1="530.0px" x2="289.2px" y2="530.0px" style="stroke:white;stroke-width:9"/>
+    <circle cx="530.0" cy="495.6" r="9.03px" stroke="black" stroke-width="2" fill="black" />
+    <circle cx="289.2" cy="530.0" r="9.03px" stroke="black" stroke-width="2" fill="black" />
+    <line stroke-linecap="round" x1="530.0px" y1="495.6px" x2="530.0px" y2="530.0px" style="stroke:black;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="530.0px" y1="530.0px" x2="289.2px" y2="530.0px" style="stroke:black;stroke-width:4.5"/>
+  </g>
+  <g>
+    <line stroke-linecap="round" x1="495.6px" y1="495.6px" x2="495.6px" y2="598.8px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="495.6px" y1="598.8px" x2="874.0px" y2="598.8px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="874.0px" y1="598.8px" x2="874.0px" y2="254.8px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="874.0px" y1="254.8px" x2="495.6px" y2="254.8px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="495.6px" y1="254.8px" x2="495.6px" y2="151.6px" style="stroke:white;stroke-width:9"/>
+    <circle cx="495.6" cy="495.6" r="9.03px" stroke="green" stroke-width="2" fill="green" />
+    <circle cx="495.6" cy="151.6" r="9.03px" stroke="green" stroke-width="2" fill="green" />
+    <line stroke-linecap="round" x1="495.6px" y1="495.6px" x2="495.6px" y2="598.8px" style="stroke:green;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="495.6px" y1="598.8px" x2="874.0px" y2="598.8px" style="stroke:green;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="874.0px" y1="598.8px" x2="874.0px" y2="254.8px" style="stroke:green;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="874.0px" y1="254.8px" x2="495.6px" y2="254.8px" style="stroke:green;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="495.6px" y1="254.8px" x2="495.6px" y2="151.6px" style="stroke:green;stroke-width:4.5"/>
+  </g>
+  <g>
+    <line stroke-linecap="round" x1="461.2px" y1="495.6px" x2="461.2px" y2="598.8px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="461.2px" y1="598.8px" x2="82.8px" y2="598.8px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="82.8px" y1="598.8px" x2="82.8px" y2="220.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="82.8px" y1="220.4px" x2="461.2px" y2="220.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="461.2px" y1="220.4px" x2="461.2px" y2="151.6px" style="stroke:white;stroke-width:9"/>
+    <circle cx="461.2" cy="495.6" r="9.03px" stroke="purple" stroke-width="2" fill="purple" />
+    <circle cx="461.2" cy="151.6" r="9.03px" stroke="purple" stroke-width="2" fill="purple" />
+    <line stroke-linecap="round" x1="461.2px" y1="495.6px" x2="461.2px" y2="598.8px" style="stroke:purple;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="461.2px" y1="598.8px" x2="82.8px" y2="598.8px" style="stroke:purple;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="82.8px" y1="598.8px" x2="82.8px" y2="220.4px" style="stroke:purple;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="82.8px" y1="220.4px" x2="461.2px" y2="220.4px" style="stroke:purple;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="461.2px" y1="220.4px" x2="461.2px" y2="151.6px" style="stroke:purple;stroke-width:4.5"/>
+  </g>
+  <g>
+    <line stroke-linecap="round" x1="426.8px" y1="495.6px" x2="426.8px" y2="564.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="426.8px" y1="564.4px" x2="48.4px" y2="564.4px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="48.4px" y1="564.4px" x2="48.4px" y2="186.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="48.4px" y1="186.0px" x2="426.8px" y2="186.0px" style="stroke:white;stroke-width:9"/>
+    <line stroke-linecap="round" x1="426.8px" y1="186.0px" x2="426.8px" y2="151.6px" style="stroke:white;stroke-width:9"/>
+    <circle cx="426.8" cy="495.6" r="9.03px" stroke="orange" stroke-width="2" fill="orange" />
+    <circle cx="426.8" cy="151.6" r="9.03px" stroke="orange" stroke-width="2" fill="orange" />
+    <line stroke-linecap="round" x1="426.8px" y1="495.6px" x2="426.8px" y2="564.4px" style="stroke:orange;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="426.8px" y1="564.4px" x2="48.4px" y2="564.4px" style="stroke:orange;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="48.4px" y1="564.4px" x2="48.4px" y2="186.0px" style="stroke:orange;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="48.4px" y1="186.0px" x2="426.8px" y2="186.0px" style="stroke:orange;stroke-width:4.5"/>
+    <line stroke-linecap="round" x1="426.8px" y1="186.0px" x2="426.8px" y2="151.6px" style="stroke:orange;stroke-width:4.5"/>
+  </g>
+</svg>
