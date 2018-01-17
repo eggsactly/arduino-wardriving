@@ -130,22 +130,6 @@ int countNetworks() {
     }
   }
 }
-int isOnFile(String mac) {
-  File netFile = SD.open(logFileName);
-  String currentNetwork;
-  if(netFile) {
-    while(netFile.available()) {
-      currentNetwork = netFile.readStringUntil('\n');
-      if (currentNetwork.indexOf(mac) != -1) {
-        SerialMonitor.println("The network was already found");
-        netFile.close();
-        return currentNetwork.indexOf(mac);
-      }
-    }
-    netFile.close();
-    return currentNetwork.indexOf(mac);
-  }
-}
 
 byte logGPSData() {
   int n = WiFi.scanNetworks(); 
@@ -153,7 +137,7 @@ byte logGPSData() {
     SerialMonitor.println("no networks found");
   } else {
     for (uint8_t i = 1; i <= n; ++i) {
-      if ((isOnFile(WiFi.BSSIDstr(i)) == -1) && (WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) { //Avoid erroneous channels
+      if ((WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) { //Avoid erroneous channels
         File logFile = SD.open(logFileName, FILE_WRITE);
         SerialMonitor.println("New network found");
         logFile.print(tinyGPS.location.lat(), 6);
