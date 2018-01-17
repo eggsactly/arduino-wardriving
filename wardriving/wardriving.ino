@@ -1,12 +1,14 @@
-
 #include <SPI.h>
 #include <SD.h>
 #include <TinyGPS++.h>
-#include "ESP8266WiFi.h"
+#include <ESP8266WiFi.h>
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
- 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <SoftwareSerial.h>
+
+Adafruit_SSD1306 lcd = Adafruit_SSD1306();
+
 #define ARDUINO_USD_CS 15 // Pin D8
 #define LOG_FILE_PREFIX "gpslog"
 #define MAX_LOG_FILES 100
@@ -22,10 +24,11 @@ unsigned long lastLog = 0;
 
 TinyGPSPlus tinyGPS;
 #define GPS_BAUD 9600 // GPS module's default baud rate
+#define SD_CARD_CHIP_SELECT 15
 
-#include <SoftwareSerial.h>
-#define ARDUINO_GPS_RX 2 // Pin D4
-#define ARDUINO_GPS_TX 0 // Pin D3
+
+#define ARDUINO_GPS_RX 16
+#define ARDUINO_GPS_TX 2
 SoftwareSerial ssGPS(ARDUINO_GPS_TX, ARDUINO_GPS_RX);
 #define gpsPort ssGPS 
 int display = 1;
@@ -37,17 +40,20 @@ void setup() {
   gpsPort.begin(GPS_BAUD);
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
-  lcd.init();
-  lcd.backlight();
+  // initialize with the I2C addr 0x3C (for the 128x32)
+  lcd.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
+  lcd.clearDisplay();
+  lcd.display();
   lcd.setCursor(0, 0);
   lcd.print("Setting up SD card.");
+  lcd.display();
   SerialMonitor.println("Setting up SD card.");
   delay(200);
-  lcd.clear();
-  if (!SD.begin(ARDUINO_USD_CS)) {
-    lcd.clear();
-    lcd.setCursor(0, 1);
+  lcd.clearDisplay();
+  if (!SD.begin(SD_CARD_CHIP_SELECT)) {
+    lcd.setCursor(0, 0);
     lcd.print("Error initializing SD card.");
+    lcd.display();
     SerialMonitor.println("Error initializing SD card.");
   }
   updateFileName();
@@ -68,21 +74,23 @@ void loop() {
         SerialMonitor.print("Seen networks: ");
         SerialMonitor.println(countNetworks());
         if (display == 1) {
-          lcd.clear();
+          lcd.clearDisplay();
           lcd.setCursor(0, 0);
           lcd.print("Lat: ");
           lcd.print(tinyGPS.location.lat(), 6);
           lcd.setCursor(0, 1);
           lcd.print("Lon: ");
           lcd.print(tinyGPS.location.lng(), 6);
+          lcd.display();
           display = 0;
         } else {
-          lcd.clear();
+          lcd.clearDisplay();
           lcd.setCursor(0, 0);
           lcd.print("Seen: ");
           lcd.print(countNetworks());
           lcd.setCursor(0, 1);
           lcd.print("networks");
+          lcd.display();
           display = 1;
         }
         lastLog = millis();
@@ -91,11 +99,13 @@ void loop() {
         SerialMonitor.println("Failed to log new GPS data.");
       }
     } else {
+      lcd.clearDisplay();
       lcd.setCursor(0, 0);
       lcd.print("No GPS data");
       lcd.setCursor(0, 1);
       lcd.print("Sats: ");
       lcd.print(tinyGPS.satellites.value());
+      lcd.display();
       SerialMonitor.print("No GPS data. Sats: ");
       SerialMonitor.println(tinyGPS.satellites.value());
       delay(100);
