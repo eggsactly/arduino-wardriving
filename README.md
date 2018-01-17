@@ -10,7 +10,6 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * [$8.95](https://www.adafruit.com/product/2922) Adalogger FeatherWing - RTC + SD Add-on For All Feather Boards
 * [$39.95](https://www.adafruit.com/product/3133) Adafruit Ultimate GPS FeatherWing
 * [$14.95](https://www.adafruit.com/product/2900) FeatherWing OLED
-* [$1.25](http://www.ebay.com/itm/332023213881) USB powerbank
 * [$7.50](https://www.adafruit.com/product/2890) FeatherWing Doubler for hooking the circuit together
 * [$0.95](https://www.adafruit.com/product/2886) Feather Female Header Set
 * [$1.25](https://www.adafruit.com/product/2830) Feather Stacking Header Set
