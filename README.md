@@ -31,6 +31,11 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * ~~A PCB design that I'm working on~~
 * A better antenna for GPS and WiFi, that will help to speed up satellite lock-up and enlarge WiFi coverage
 
+## What is different in this fork ##
+* Used parts from one vendor, Adafruit, for A E S T H E T I C purposes and to eliminate need to make custom circuit board.
+* Took out previously recorded check, I felt checking to see if an AP was already recorded would become inefficient over time, so it was removed. 
+* Put the output CSV into Wigle CSV format.
+
 ## What do you need to configure?
 Nothing, but you can:
 * Setup CS pin for SD card module on *ARDUINO_USD_CS* variable
@@ -40,7 +45,7 @@ Nothing, but you can:
 * Define GPS TX/RX pins on *ARDUINO_GPS_RX* and *ARDUINO_GPS_TX*
 
 ## Electric setup
-Below is how the FeatherWing doubler should be wired for this project. 
+The diagram below shows how the FeatherWing doubler should be wired for this project. 
 ![](feather-wing-doubler.svg)
 The ESP8266 and GPS module should be stacked on the top portion and the Data Logger and LCD screen should be stacked on the bottom portion. 
 
