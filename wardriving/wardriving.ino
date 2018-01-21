@@ -25,7 +25,7 @@ unsigned long lastLog = 0;
 
 TinyGPSPlus tinyGPS;
 #define GPS_BAUD 9600 // GPS module's default baud rate
-#define SD_CARD_CHIP_SELECT 15
+
 
 
 #define ARDUINO_GPS_RX 16
@@ -51,7 +51,7 @@ void setup() {
   SerialMonitor.println("Setting up SD card.");
   delay(200);
   lcd.clearDisplay();
-  if (!SD.begin(SD_CARD_CHIP_SELECT)) {
+  if (!SD.begin()) {
     lcd.setCursor(0, 0);
     lcd.print("Error initializing SD card.");
     lcd.display();
