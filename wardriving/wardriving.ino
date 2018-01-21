@@ -15,8 +15,9 @@ Adafruit_SSD1306 lcd = Adafruit_SSD1306();
 #define LOG_FILE_SUFFIX "csv" 
 char logFileName[13];
 #define LOG_COLUMN_COUNT 13
+const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=SCH-I545,release=5.0.1,device=jfltevzw,display=LRX22C.I545VRSGPL1,board=MSM8960,brand=Verizon";
 char * log_col_names[LOG_COLUMN_COUNT] = {
-  "Latitude", "Longitude", "Altitude", "Speed", "Course", "Date", "Time (UTC)", "Satellites", "SSID", "Power", "Channel", "Encryption", "BSSID"
+  "MAC" ,"SSID", "AuthMode", "FirstSeen", "Channel" ,"RSSI", "CurrentLatitude", "CurrentLongitude", "AltitudeMeters", "AccuracyMeters", "Type"
 };
 
 #define LOG_RATE 2000
@@ -140,40 +141,37 @@ byte logGPSData() {
       if ((WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) { //Avoid erroneous channels
         File logFile = SD.open(logFileName, FILE_WRITE);
         SerialMonitor.println("New network found");
-        logFile.print(tinyGPS.location.lat(), 6);
+        logFile.print(WiFi.BSSIDstr(i));
         logFile.print(',');
-        logFile.print(tinyGPS.location.lng(), 6);
+        logFile.print(WiFi.SSID(i));
         logFile.print(',');
-        logFile.print(tinyGPS.altitude.meters(), 1);
+        logFile.print(getEncryption(i));
         logFile.print(',');
-        logFile.print(tinyGPS.speed.kmph(), 1);
-        logFile.print(',');
-        logFile.print(tinyGPS.course.deg(), 1);
-        logFile.print(',');
-        logFile.print(tinyGPS.date.month());
-        logFile.print('/');
-        logFile.print(tinyGPS.date.day());
-        logFile.print('/');
         logFile.print(tinyGPS.date.year());
-        logFile.print(',');
+        logFile.print('-');
+        logFile.print(tinyGPS.date.month());
+        logFile.print('-');
+        logFile.print(tinyGPS.date.day());
+        logFile.print(' ');
         logFile.print(tinyGPS.time.hour());
         logFile.print(':');
         logFile.print(tinyGPS.time.minute());
         logFile.print(':');
         logFile.print(tinyGPS.time.second());
         logFile.print(',');
-        int sat = tinyGPS.satellites.value();
-        logFile.print(sat);
-        logFile.print(',');
-        logFile.print(WiFi.SSID(i));
+        logFile.print(WiFi.channel(i));
         logFile.print(',');
         logFile.print(WiFi.RSSI(i));
         logFile.print(',');
-        logFile.print(WiFi.channel(i));
+        logFile.print(tinyGPS.location.lat(), 6);
         logFile.print(',');
-        logFile.print(getEncryption(i));
+        logFile.print(tinyGPS.location.lng(), 6);
         logFile.print(',');
-        logFile.print(WiFi.BSSIDstr(i));
+        logFile.print(tinyGPS.altitude.meters(), 1);
+        logFile.print(',');
+        Serial.println(tinyGPS.hdop.value());
+        logFile.print(',');
+        logFile.print("WIFI");
         logFile.println();
         logFile.close();
       }
@@ -185,6 +183,7 @@ void printHeader() {
   File logFile = SD.open(logFileName, FILE_WRITE);
   if (logFile) {
     int i = 0;
+    logFile.print(csvHeader);
     for (; i < LOG_COLUMN_COUNT; i++) {
       logFile.print(log_col_names[i]);
       if (i < LOG_COLUMN_COUNT - 1)
@@ -216,14 +215,14 @@ String getEncryption(uint8_t network) {
   byte encryption = WiFi.encryptionType(network);
   switch (encryption) {
     case 2:
-      return "WPA (TKIP)";
+      return "[WPA-PSK-TKIP]";
     case 5:
-      return "WEP";
+      return "[WEP]";
     case 4:
-      return "WPA (CCMP)";
+      return "[WPA-PSK-CCMP]";
     case 7:
-      return "NONE";
+      return "[NONE]";
     case 8:
-      return "AUTO";
+      return "[AUTO]";
   }
 }
