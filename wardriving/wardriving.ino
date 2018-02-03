@@ -28,9 +28,10 @@ TinyGPSPlus tinyGPS;
 int display = 1;
 
 #define SerialMonitor Serial
+#define gpsSerial Serial
 
 void setup() {
-  Serial.begin(GPS_BAUD);
+  gpsSerial.begin(GPS_BAUD);
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
   // initialize with the I2C addr 0x3C (for the 128x32)
@@ -54,8 +55,8 @@ void setup() {
 }
 
 void loop() {
-//  while (Serial.available() > 0)
-//    tinyGPS.encode(Serial.read());
+//  while (gpsSerial.available() > 0)
+//    tinyGPS.encode(gpsSerial.read());
     
   if ((lastLog + LOG_RATE) <= millis()) {
     if (tinyGPS.location.isUpdated()) {
@@ -104,8 +105,8 @@ void loop() {
       delay(100);
     }
   }
-  while (Serial.available())
-    tinyGPS.encode(Serial.read());
+  while (gpsSerial.available())
+    tinyGPS.encode(gpsSerial.read());
 }
 int countNetworks() {
   File netFile = SD.open(logFileName);
