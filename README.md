@@ -32,7 +32,7 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * A better antenna for GPS and WiFi, that will help to speed up satellite lock-up and enlarge WiFi coverage
 
 ## What is different in this fork 
-* Used parts from one vendor, Adafruit, for the A E S T H E T I C. This eliminates need to make custom circuit board as well.
+* Used parts from one vendor, Adafruit, for the A E S T H E T I C. This eliminates need to make a custom circuit board as well.
 * Took out previously recorded check, I felt checking to see if an AP was already recorded would become inefficient over time, so it was removed. 
 * Put the output CSV into Wigle CSV format.
 * Added way to verify we have a fix on GPS location. 
