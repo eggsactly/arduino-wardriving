@@ -19,6 +19,29 @@ char * log_col_names[LOG_COLUMN_COUNT] = {
   "MAC" ,"SSID", "AuthMode", "FirstSeen", "Channel" ,"RSSI", "CurrentLatitude", "CurrentLongitude", "AltitudeMeters", "AccuracyMeters", "Type"
 };
 
+// Keeps track of the GPS unavailable time
+unsigned long long gpsUnavailableTime;
+// The number of time allowed between no gps input
+const unsigned long long gpsUnavailableCheckInterval = 1000;
+// Digital pin 16 is for detecting the GPS fix
+const int fixPin = 16;
+// Amount of time to sample the fix pin
+const unsigned long long fixSamplePeriod = 1000; // Milliseconds
+// The maximum amount of time allowed to pass over the sample period
+const unsigned long long fixSamplePeriodOverShoot = 500; // Milliseconds
+// Used to store the last time the fix pin was sampled
+unsigned long long fixSampleTime;
+// Indicates if there is a fix pin
+bool hasFix;
+// Stores samples of the record 
+byte fixRecordArray[4];
+// Holds current index of the record array
+byte fixRecordIndex;
+// fullSampleCycle indicates when fixRecordArray has been fully populated with values
+bool fullSampleCycle;
+// Indicates if the GPS is outputting values
+bool isGpsAvailable = true;
+
 #define LOG_RATE 2000
 unsigned long lastLog = 0;
 
@@ -30,15 +53,86 @@ int display = 1;
 #define SerialMonitor Serial
 #define gpsSerial Serial
 
+void zeroOutFixRecordArray(){
+  for(fixRecordIndex = 0; fixRecordIndex < sizeof(fixRecordArray)/sizeof(byte); fixRecordIndex++){
+    fixRecordArray[fixRecordIndex] = 0;
+  }
+  fixRecordIndex = 0;
+  fullSampleCycle = false;
+}
+
+byte updateFixRecordIndex(byte fixRecordVar){
+  if(fixRecordVar + 1 >= sizeof(fixRecordArray)/sizeof(byte))
+  {
+    fullSampleCycle = true;
+    return 0;
+  }
+  else {
+    return fixRecordVar + 1;
+  }
+}
+
+void checkFix(){
+  // Get and store current time
+  unsigned long long currentTime = millis();
+  //Serial.println(millis());
+  // If one fixSamplePeriod period has transpired since our last sample and 
+  if((fixSampleTime + fixSamplePeriod <= currentTime) && 
+    (fixSampleTime + fixSamplePeriod + fixSamplePeriodOverShoot >= currentTime))
+  {
+    // Calculate the new time to sample
+    fixSampleTime = currentTime + fixSamplePeriod - (currentTime - fixSampleTime - fixSamplePeriod);
+    fixRecordArray[fixRecordIndex] = digitalRead(fixPin);
+    //Serial.println(fixRecordArray[fixRecordIndex]);
+    fixRecordIndex = updateFixRecordIndex(fixRecordIndex);
+  }
+  // Zero everything out if we overshot our sample time
+  else if(fixSampleTime + fixSamplePeriod + fixSamplePeriodOverShoot < currentTime)
+  {
+    zeroOutFixRecordArray();
+  }
+
+  byte oneCount = 0;
+  if(fullSampleCycle)
+  {
+    // Check if more than two samples are one, then we have no fix
+    for(byte i = 0; i < sizeof(fixRecordArray)/sizeof(byte); i++)
+    {
+      if(fixRecordArray[i] == 1)
+      {
+        oneCount++;
+      }
+    }
+  
+    if(oneCount > 1)
+    {
+      hasFix = false;
+    }
+    else
+    {
+      hasFix = true;
+    }
+  }
+}
+
 void setup() {
   gpsSerial.begin(GPS_BAUD);
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
+
+  pinMode(fixPin, INPUT_PULLDOWN_16);
+  zeroOutFixRecordArray();
+  hasFix = false;
+  fixSampleTime = millis();
+  gpsUnavailableTime = millis();
+  isGpsAvailable = false;
+  
   // initialize with the I2C addr 0x3C (for the 128x32)
   lcd.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
   lcd.clearDisplay();
   lcd.display();
   lcd.setCursor(0, 0);
+  
   lcd.print("Setting up SD card.");
   lcd.display();
   SerialMonitor.println("Setting up SD card.");
@@ -57,9 +151,11 @@ void setup() {
 void loop() {
 //  while (gpsSerial.available() > 0)
 //    tinyGPS.encode(gpsSerial.read());
-    
+
+  checkFix();
+  
   if ((lastLog + LOG_RATE) <= millis()) {
-    if (tinyGPS.location.isUpdated()) {
+    if (tinyGPS.location.isUpdated() && hasFix) {
       if (logGPSData()) {
         SerialMonitor.print("GPS logged ");
         SerialMonitor.print(tinyGPS.location.lat(), 6);
@@ -93,20 +189,39 @@ void loop() {
         SerialMonitor.println("Failed to log new GPS data.");
       }
     } else {
-      lcd.clearDisplay();
-      lcd.setCursor(0, 0);
-      lcd.print("No GPS data");
-      lcd.setCursor(0, 1);
-      lcd.print("Sats: ");
-      lcd.print(tinyGPS.satellites.value());
-      lcd.display();
-      SerialMonitor.print("No GPS data. Sats: ");
-      SerialMonitor.println(tinyGPS.satellites.value());
+      if(hasFix == false)
+      {
+        lcd.clearDisplay();
+        lcd.setCursor(0, 0);
+        lcd.print("Acquiring GPS fix");
+        lcd.display();
+      }
+      else
+      {
+        lcd.clearDisplay();
+        lcd.setCursor(0, 0);
+        lcd.print("No GPS data");
+        lcd.setCursor(0, 1);
+        lcd.print("Sats: ");
+        lcd.print(tinyGPS.satellites.value());
+        lcd.display();
+        SerialMonitor.print("No GPS data. Sats: ");
+        SerialMonitor.println(tinyGPS.satellites.value());
+      }
       delay(100);
     }
   }
-  while (gpsSerial.available())
+  if(gpsSerial.available() == 0 && isGpsAvailable){
+    gpsUnavailableTime = millis();
+    isGpsAvailable = false;
+  }
+  if(gpsSerial.available() > 0){
+    isGpsAvailable = true;
+  }
+  while (gpsSerial.available() > 0){
     tinyGPS.encode(gpsSerial.read());
+  }
+
 }
 int countNetworks() {
   File netFile = SD.open(logFileName);
