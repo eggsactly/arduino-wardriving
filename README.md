@@ -23,7 +23,7 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * Collects all WiFi signals on 2.4Ghz on every (configurable) GPS sample
 * Stores this information as a CSV file
 
-## What does this doesn't do?
+## What does this not do?
 * This doesn't capture pcap files due power limitations
 * This doesn't attack any network
 
