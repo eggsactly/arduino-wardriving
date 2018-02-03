@@ -5,7 +5,6 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <SoftwareSerial.h>
 
 Adafruit_SSD1306 lcd = Adafruit_SSD1306();
 
@@ -26,19 +25,12 @@ unsigned long lastLog = 0;
 TinyGPSPlus tinyGPS;
 #define GPS_BAUD 9600 // GPS module's default baud rate
 
-
-
-#define ARDUINO_GPS_RX 16
-#define ARDUINO_GPS_TX 2
-SoftwareSerial ssGPS(ARDUINO_GPS_TX, ARDUINO_GPS_RX);
-#define gpsPort ssGPS 
 int display = 1;
 
 #define SerialMonitor Serial
 
 void setup() {
-  SerialMonitor.begin(115200);
-  gpsPort.begin(GPS_BAUD);
+  Serial.begin(GPS_BAUD);
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
   // initialize with the I2C addr 0x3C (for the 128x32)
@@ -62,8 +54,8 @@ void setup() {
 }
 
 void loop() {
-//  while (gpsPort.available() > 0)
-//    tinyGPS.encode(gpsPort.read());
+//  while (Serial.available() > 0)
+//    tinyGPS.encode(Serial.read());
     
   if ((lastLog + LOG_RATE) <= millis()) {
     if (tinyGPS.location.isUpdated()) {
@@ -112,8 +104,8 @@ void loop() {
       delay(100);
     }
   }
-  while (gpsPort.available())
-    tinyGPS.encode(gpsPort.read());
+  while (Serial.available())
+    tinyGPS.encode(Serial.read());
 }
 int countNetworks() {
   File netFile = SD.open(logFileName);
@@ -169,7 +161,7 @@ byte logGPSData() {
         logFile.print(',');
         logFile.print(tinyGPS.altitude.meters(), 1);
         logFile.print(',');
-        Serial.println(tinyGPS.hdop.value());
+        logFile.println(max(tinyGPS.hdop.value(), 1));
         logFile.print(',');
         logFile.print("WIFI");
         logFile.println();
