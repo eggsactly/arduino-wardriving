@@ -14,7 +14,7 @@ Adafruit_SSD1306 lcd = Adafruit_SSD1306();
 #define LOG_FILE_SUFFIX "csv" 
 char logFileName[13];
 #define LOG_COLUMN_COUNT 13
-const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=SCH-I545,release=5.0.1,device=jfltevzw,display=LRX22C.I545VRSGPL1,board=MSM8960,brand=Verizon";
+const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit";
 char * log_col_names[LOG_COLUMN_COUNT] = {
   "MAC" ,"SSID", "AuthMode", "FirstSeen", "Channel" ,"RSSI", "CurrentLatitude", "CurrentLongitude", "AltitudeMeters", "AccuracyMeters", "Type"
 };
