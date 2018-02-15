@@ -5,8 +5,9 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <Adafruit_FeatherOLED.h>
 
-Adafruit_SSD1306 lcd = Adafruit_SSD1306();
+Adafruit_FeatherOLED lcd = Adafruit_FeatherOLED();
 
 #define ARDUINO_USD_CS 15 // Pin D8
 #define LOG_FILE_PREFIX "gpslog"
@@ -44,6 +45,10 @@ bool isGpsAvailable = true;
 
 #define LOG_RATE 2000
 unsigned long lastLog = 0;
+
+unsigned long long batteryCheck;
+// Update battery level every 15 seconds
+const unsigned long long batteryCheckPeriod = 15000;
 
 TinyGPSPlus tinyGPS;
 #define GPS_BAUD 9600 // GPS module's default baud rate
@@ -115,6 +120,27 @@ void checkFix(){
   }
 }
 
+void battery_level() {
+ 
+  // read the battery level from the ESP8266 analog in pin.
+  // analog read level is 10 bit 0-1023 (0V-1V).
+  // our 100k & 22K voltage divider takes the max
+  // lipo value of 4.2V and drops it to 0.758V max.
+  // this means our min analog read value should be 580 (3.14V)
+  // and the max analog read value should be 774 (4.2V).
+  int level = analogRead(A0);
+  float vbat;
+  // convert battery level to percent
+  vbat = map(level, 580, 774, 3.4f, 4.26f);
+  level = map(level, 580, 774, 0, 100);
+
+  lcd.clearDisplay();
+  lcd.setBattery(level);
+  lcd.renderBattery();
+  lcd.display();
+ 
+}
+
 void setup() {
   gpsSerial.begin(GPS_BAUD);
   WiFi.mode(WIFI_STA);
@@ -127,11 +153,16 @@ void setup() {
   gpsUnavailableTime = millis();
   isGpsAvailable = false;
   
-  // initialize with the I2C addr 0x3C (for the 128x32)
+  // initialize with the I2C addr 0x3C (for the 128x32 display)
   lcd.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
+  lcd.init();
   lcd.clearDisplay();
+  lcd.setBatteryIcon(true);
+  lcd.renderBattery();
+  lcd.clearMsgArea();
   lcd.display();
   lcd.setCursor(0, 0);
+  batteryCheck = millis();
   
   lcd.print("Setting up SD card.");
   lcd.display();
@@ -153,6 +184,13 @@ void loop() {
 //    tinyGPS.encode(gpsSerial.read());
 
   checkFix();
+
+  // Only update the battery every 15 Seconds
+  if(millis() - batteryCheck > batteryCheckPeriod) 
+  {
+    battery_level();
+    batteryCheck = millis();
+  }
   
   if ((lastLog + LOG_RATE) <= millis()) {
     if (tinyGPS.location.isUpdated() && hasFix) {
