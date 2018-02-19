@@ -9,6 +9,9 @@
 
 Adafruit_FeatherOLED lcd = Adafruit_FeatherOLED();
 
+#define BUTTON_A 0
+#define BUTTON_C 2
+
 #define ARDUINO_USD_CS 15 // Pin D8
 #define LOG_FILE_PREFIX "gpslog"
 #define MAX_LOG_FILES 100
@@ -163,6 +166,10 @@ void setup() {
   lcd.display();
   lcd.setCursor(0, 0);
   batteryCheck = millis();
+
+  // Set up the input buttons, we don't use B because it conflicts with the fix line for GPS
+  pinMode(BUTTON_A, INPUT_PULLUP);
+  pinMode(BUTTON_C, INPUT_PULLUP);
   
   lcd.print("Setting up SD card.");
   lcd.display();
@@ -191,7 +198,16 @@ void loop() {
     battery_level();
     batteryCheck = millis();
   }
-  
+
+  // Scan Buttons
+  // A quick press of button A means to start/stop recording
+  // A long press means to open settings
+  if (! digitalRead(BUTTON_A)){
+    
+    
+  }
+
+  // Log GPS data
   if ((lastLog + LOG_RATE) <= millis()) {
     if (tinyGPS.location.isUpdated() && hasFix) {
       if (logGPSData()) {
@@ -249,6 +265,8 @@ void loop() {
       delay(100);
     }
   }
+
+  // Get the GPS information
   if(gpsSerial.available() == 0 && isGpsAvailable){
     gpsUnavailableTime = millis();
     isGpsAvailable = false;
