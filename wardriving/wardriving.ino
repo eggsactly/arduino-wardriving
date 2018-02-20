@@ -23,6 +23,50 @@ char * log_col_names[LOG_COLUMN_COUNT] = {
   "MAC" ,"SSID", "AuthMode", "FirstSeen", "Channel" ,"RSSI", "CurrentLatitude", "CurrentLongitude", "AltitudeMeters", "AccuracyMeters", "Type"
 };
 
+
+const unsigned long long longPressTime = 2000;
+
+unsigned long long buttonAPressTime;
+byte buttonALastSample;
+
+unsigned long long buttonCPressTime;
+byte buttonCLastSample;
+
+typedef enum  {
+  SLOW_RECORD = 0,
+  MEDIUM_RECORD = 1,
+  FAST_RECORD = 2
+} RecordingSpeedStates;
+
+typedef struct {
+  RecordingSpeedStates speedSetting;
+  unsigned int timePeriod;
+} RecordingSpeedStruct;
+
+typedef enum {
+  PAUSED_RECORDING = 0,
+  RECORDING = 1
+} RecordingStates;
+
+typedef enum {
+  NOT_IN_SETTINGS = 0,
+  IN_SETTINGS_MENU = 1
+} SettingStates;
+
+typedef enum {
+  EXIT_SETTINGS = 0,
+  SET_TIMEZONE = 1,
+  SET_TIMEZONE_ACTIVE = 2
+} SettingMenuOptions;
+
+RecordingStates      recordingState;
+SettingStates        settingState;
+SettingMenuOptions   settingMenuState;
+RecordingSpeedStates recordingSpeed;
+
+// This array of struct contains a record of the association between speed setting and time period between records
+const RecordingSpeedStruct recordingSpeedRecord[] = {{SLOW_RECORD, 5000}, {MEDIUM_RECORD, 3000}, {FAST_RECORD, 2000}};
+
 // Keeps track of the GPS unavailable time
 unsigned long long gpsUnavailableTime;
 // The number of time allowed between no gps input
@@ -46,7 +90,6 @@ bool fullSampleCycle;
 // Indicates if the GPS is outputting values
 bool isGpsAvailable = true;
 
-#define LOG_RATE 2000
 unsigned long lastLog = 0;
 
 unsigned long long batteryCheck;
@@ -60,6 +103,54 @@ int display = 1;
 
 #define SerialMonitor Serial
 #define gpsSerial Serial
+
+void toggleRecordingState()
+{
+  switch(recordingState)
+  {
+    case RECORDING:
+      recordingState = PAUSED_RECORDING;
+      break;
+    case PAUSED_RECORDING:
+      recordingState = RECORDING;
+      break;
+    default:
+      recordingState = PAUSED_RECORDING;
+  }
+}
+
+void cycleThroughSettings()
+{
+  switch(settingMenuState)
+  {
+    case EXIT_SETTINGS:
+      settingMenuState = SET_TIMEZONE;
+      break;
+    case SET_TIMEZONE:
+      settingMenuState = EXIT_SETTINGS;
+      break;
+    default:
+      settingMenuState = EXIT_SETTINGS;
+  }
+}
+
+void cycleRecordingSpeed()
+{
+  switch(recordingSpeed)
+  {
+    case SLOW_RECORD:
+      recordingSpeed = MEDIUM_RECORD;
+      break;
+    case MEDIUM_RECORD:
+      recordingSpeed = FAST_RECORD;
+      break;
+    case FAST_RECORD:
+      recordingSpeed = SLOW_RECORD;
+      break;
+    default:
+      recordingSpeed = SLOW_RECORD;
+  }
+}
 
 void zeroOutFixRecordArray(){
   for(fixRecordIndex = 0; fixRecordIndex < sizeof(fixRecordArray)/sizeof(byte); fixRecordIndex++){
@@ -145,6 +236,15 @@ void battery_level() {
 }
 
 void setup() {
+  recordingState = PAUSED_RECORDING;
+  settingState = NOT_IN_SETTINGS;
+  settingMenuState = EXIT_SETTINGS;
+  recordingSpeed = SLOW_RECORD;
+  buttonALastSample = 1;
+  buttonCLastSample = 1;
+  buttonAPressTime = millis();
+  buttonCPressTime = millis();
+  
   gpsSerial.begin(GPS_BAUD);
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
@@ -200,15 +300,57 @@ void loop() {
   }
 
   // Scan Buttons
-  // A quick press of button A means to start/stop recording
-  // A long press means to open settings
-  if (! digitalRead(BUTTON_A)){
-    
-    
+  // This if statement detects the button release of A
+  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0){
+    // A quick press of button A means to start/stop recording or cycle through settings options
+    if(millis() <= buttonAPressTime + longPressTime) 
+    {
+      // Toggle recording on/off
+      if(settingState == NOT_IN_SETTINGS)
+      {
+        toggleRecordingState();
+      }
+      // Cycle to next setting option
+      else
+      {
+        cycleThroughSettings();
+      }
+    }
+  }
+
+  // If the A button has been pressed longer than longPressTime then go into settings
+  if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0){
+    settingState = IN_SETTINGS_MENU;
+    settingMenuState = EXIT_SETTINGS;
+    buttonAPressTime = millis();
+  }
+
+  // If button C was released
+  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0){
+    cycleRecordingSpeed();
+    cycleThroughSettings();
+    // Reset recording time
+    lastLog = millis();
+  }
+
+  // Detect Button A transition
+  if(digitalRead(BUTTON_A) != buttonALastSample)
+  {
+    buttonALastSample = digitalRead(BUTTON_A);
+    buttonAPressTime = millis();
+  }
+
+  // Detect Button C transition
+  if(digitalRead(BUTTON_C) != buttonCLastSample)
+  {
+    buttonCLastSample = digitalRead(BUTTON_C);
+    buttonCPressTime = millis();
   }
 
   // Log GPS data
-  if ((lastLog + LOG_RATE) <= millis()) {
+  if (recordingState == PAUSED_RECORDING && 
+    (lastLog + recordingSpeedRecord[recordingSpeed].timePeriod) <= millis()) 
+    {
     if (tinyGPS.location.isUpdated() && hasFix) {
       if (logGPSData()) {
         SerialMonitor.print("GPS logged ");
