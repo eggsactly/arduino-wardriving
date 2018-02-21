@@ -16,8 +16,8 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * [$0.95](https://www.adafruit.com/product/380) CR1220 Coin Battery for Holding GPS Ephermeris 
 * [$9.95](https://www.adafruit.com/product/1781) Cylindrical Lithium Ion Battery
 * [$2.95](https://www.adafruit.com/product/2671) 2mm Pitch Break-apart Male Headers
-* One 22k Ohm Resistor
-* One 100k Ohm Resistor
+* [$0.75](https://www.adafruit.com/product/2785) 22k Ohm Resistor
+* [$0.75](https://www.adafruit.com/product/2787) 100k Ohm Resistor
 
 ## What does this do?
 * Checks for a working SD Card
