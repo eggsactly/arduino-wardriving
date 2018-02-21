@@ -49,7 +49,9 @@ Nothing, but you can:
 * Define GPS TX/RX pins on *ARDUINO_GPS_RX* and *ARDUINO_GPS_TX*
 
 ## Electric setup
-The diagram below shows how the FeatherWing doubler should be wired for this project. 
+The diagram below shows how the FeatherWing doubler should be wired for this project.
+ 
 ![](FeatherWingDoubler_bb.svg)
+
 The ESP8266 and GPS module should be stacked on the top portion and the Data Logger and LCD screen should be stacked on the bottom portion. 
 
