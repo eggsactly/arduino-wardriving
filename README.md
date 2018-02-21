@@ -16,8 +16,8 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * [$0.95](https://www.adafruit.com/product/380) CR1220 Coin Battery for Holding GPS Ephermeris 
 * [$9.95](https://www.adafruit.com/product/1781) Cylindrical Lithium Ion Battery
 * [$2.95](https://www.adafruit.com/product/2671) 2mm Pitch Break-apart Male Headers
-* One 220k Ohm Resistor
-* One 1M Ohm Resistor
+* One 22k Ohm Resistor
+* One 100k Ohm Resistor
 
 ## What does this do?
 * Checks for a working SD Card
@@ -50,6 +50,6 @@ Nothing, but you can:
 
 ## Electric setup
 The diagram below shows how the FeatherWing doubler should be wired for this project. 
-![](feather-wing-doubler.svg)
+![](FeatherWingDoubler_bb.svg)
 The ESP8266 and GPS module should be stacked on the top portion and the Data Logger and LCD screen should be stacked on the bottom portion. 
 
