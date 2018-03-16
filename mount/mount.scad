@@ -22,13 +22,19 @@ threadLength = 11;
 // Intermediate calculations
 plateHeight = threadLength - solderHeight + heightMargin;
 
+  
 // Draw the elements
 difference() 
 {
     union()
     {
         // Draw the main body
-        cube([featherWingDoublerWidth + 2 * bodyMargin, featherWingDoublerLength + 2 * bodyMargin, plateHeight], center = true);
+        minkowski()
+        {
+            cube([featherWingDoublerWidth, featherWingDoublerLength, plateHeight/2], center = true);
+            cylinder(h = plateHeight/2, r = bodyMargin, center = true, $fn = 360);
+        }
+        
         // Draw the stacks
         for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
         {
