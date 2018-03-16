@@ -29,18 +29,21 @@ difference()
     union()
     {
         // Draw the main body
-        minkowski()
+        translate(v = [-featherWingDoublerWidth/2, -featherWingDoublerLength/2, 0])
         {
-            cube([featherWingDoublerWidth, featherWingDoublerLength, plateHeight/2], center = true);
-            cylinder(h = plateHeight/2, r = bodyMargin, center = true, $fn = 360);
+            minkowski()
+            {
+                cube([featherWingDoublerWidth, featherWingDoublerLength, plateHeight/2], center = false);
+                cylinder(h = plateHeight/2, r = bodyMargin, center = false, $fn = 360);
+            }
         }
         
-        // Draw the stacks
+        // Draw the risers
         for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
         {
             for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
-                translate(v = [i, j, plateHeight/2 + solderHeight/2]) {
-                    cylinder(h = solderHeight, r = screwHoleCenterFromEdge, center = true, $fn = 360);
+                translate(v = [i, j, plateHeight]) {
+                    cylinder(h = solderHeight, r = screwHoleCenterFromEdge, center = false, $fn = 360);
                 }
             }  
         }
@@ -51,8 +54,8 @@ difference()
     for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
     {
         for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
-            translate(v = [i, j, solderHeight/2]) {
-                cylinder(h = plateHeight+solderHeight+1, d = m3InnerThreadDiameter, center = true, $fn = 360);
+            translate(v = [i, j, -0.5]) {
+                cylinder(h = plateHeight+solderHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
             }
         }  
     }  
