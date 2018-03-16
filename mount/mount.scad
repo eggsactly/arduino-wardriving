@@ -12,6 +12,11 @@ bodyMargin = 10;
 heightMargin = 5;
 solderHeight = 4;
 
+// Battery Dimensions
+batteryDiameter = 18;
+batteryLength = 69;
+batteryMargin = 5;
+
 // Screw Dimensions
 m3ThreadDiameter = 3.00;
 m3InnerThreadDiameter = 2;
@@ -21,7 +26,8 @@ threadLength = 11;
 
 // Intermediate calculations
 plateHeight = threadLength - solderHeight + heightMargin;
-
+plateWidth = max(batteryLength, featherWingDoublerWidth);
+plateLength = featherWingDoublerLength + batteryDiameter + 2 * batteryMargin;
   
 // Draw the elements
 difference() 
@@ -29,11 +35,11 @@ difference()
     union()
     {
         // Draw the main body
-        translate(v = [-featherWingDoublerWidth/2, -featherWingDoublerLength/2, 0])
+        translate(v = [-plateWidth/2, -plateLength/2, 0])
         {
             minkowski()
             {
-                cube([featherWingDoublerWidth, featherWingDoublerLength, plateHeight/2], center = false);
+                cube([plateWidth, plateLength, plateHeight/2], center = false);
                 cylinder(h = plateHeight/2, r = bodyMargin, center = false, $fn = 360);
             }
         }
@@ -42,7 +48,7 @@ difference()
         for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
         {
             for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
-                translate(v = [i, j, plateHeight]) {
+                translate(v = [i, j - batteryDiameter/2 - batteryMargin, plateHeight]) {
                     cylinder(h = solderHeight, r = screwHoleCenterFromEdge, center = false, $fn = 360);
                 }
             }  
@@ -54,7 +60,7 @@ difference()
     for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
     {
         for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
-            translate(v = [i, j, -0.5]) {
+            translate(v = [i, j - batteryDiameter/2 - batteryMargin, -0.5]) {
                 cylinder(h = plateHeight+solderHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
             }
         }  
