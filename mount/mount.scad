@@ -8,6 +8,7 @@ mmPerIn = 25.4;
 featherWingDoublerWidth = 2 * mmPerIn;
 featherWingDoublerLength = 1.85 * mmPerIn; 
 screwHoleCenterFromEdge = 0.1 * mmPerIn;
+riserBase = 2 * screwHoleCenterFromEdge;
 bodyMargin = 10;
 heightMargin = 5;
 solderHeight = 4;
@@ -24,10 +25,12 @@ m3HeadDiameter = 6.00;
 m3HeadHeight = 3.00;
 threadLength = 11;
 
-// Intermediate calculations
+// Intermediate calculations 
+// NOTE: These should not need to be changed if you're just adjusting the parameters above
 plateHeight = threadLength - solderHeight + heightMargin;
 plateWidth = max(batteryLength, featherWingDoublerWidth);
 plateLength = featherWingDoublerLength + batteryDiameter + 2 * batteryMargin;
+minBodyMargin = max(bodyMargin, riserBase/2);
   
 // Draw the elements
 difference() 
@@ -40,7 +43,7 @@ difference()
             minkowski()
             {
                 cube([plateWidth, plateLength, plateHeight/2], center = false);
-                cylinder(h = plateHeight/2, r = bodyMargin, center = false, $fn = 360);
+                cylinder(h = plateHeight/2, r = minBodyMargin, center = false, $fn = 360);
             }
         }
         
@@ -49,7 +52,7 @@ difference()
         {
             for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
                 translate(v = [i, j - batteryDiameter/2 - batteryMargin, plateHeight]) {
-                    cylinder(h = solderHeight, r = screwHoleCenterFromEdge, center = false, $fn = 360);
+                    cylinder(h = solderHeight, r1 = riserBase, r2 = screwHoleCenterFromEdge, center = false, $fn = 360);
                 }
             }  
         }
