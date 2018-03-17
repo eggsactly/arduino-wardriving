@@ -17,6 +17,8 @@ solderHeight = 4;
 batteryDiameter = 18;
 batteryLength = 69;
 batteryMargin = 5;
+batterySheathRadius = 3;
+batterySheathLength = batteryLength/2;
 
 // Screw Dimensions
 m3ThreadDiameter = 3.00;
@@ -38,3 +40,5 @@ plateLength = featherWingDoublerLength + batteryDiameter + 2 * batteryMargin;
 minBodyMargin = max(bodyMargin, riserBase/2);
 attachAdaptorWidthActual = min(featherWingDoublerWidth - attachAdaptorBezzelRad - 3 * riserBase - 2 * screwMargin, attachAdaptorWidth);
 attachAdaptorScrewOffset = (attachAdaptorWidthActual + attachAdaptorBezzelRad)/2 + m3HeadDiameter/2 + abs(screwMargin - attachAdaptorBezzelRad);
+batteryPlankWidth = batteryDiameter + 2 * batterySheathRadius + 2 * m3HeadDiameter + 4 * screwMargin;
+batteryPlankThickness = 2 * m3HeadHeight;
