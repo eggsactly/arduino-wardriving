@@ -23,7 +23,12 @@ m3ThreadDiameter = 3.00;
 m3InnerThreadDiameter = 2;
 m3HeadDiameter = 6.00; 
 m3HeadHeight = 3.00;
-threadLength = 11;
+threadLength = 10;
+screwMargin = 2; // Min distance between screws
+
+// Attachment Adaptor Dimensions
+attachAdaptorWidth = 20;
+attachAdaptorBezzelRad = 2;
 
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
@@ -31,7 +36,9 @@ plateHeight = threadLength - solderHeight + heightMargin;
 plateWidth = max(batteryLength, featherWingDoublerWidth);
 plateLength = featherWingDoublerLength + batteryDiameter + 2 * batteryMargin;
 minBodyMargin = max(bodyMargin, riserBase/2);
-  
+
+attachAdaptorWidthActual = min(featherWingDoublerWidth - attachAdaptorBezzelRad - 3 * riserBase - 2 * screwMargin, attachAdaptorWidth);
+attachAdaptorScrewOffset = (attachAdaptorWidthActual + attachAdaptorBezzelRad)/2 + m3HeadDiameter/2 + abs(screwMargin - attachAdaptorBezzelRad);
 // Draw the elements
 difference() 
 {
@@ -67,6 +74,29 @@ difference()
                 cylinder(h = plateHeight+solderHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
             }
         }  
-    }  
+    } 
+   
+    // Draw the attachment adaptor hole
+    translate(v = [-(attachAdaptorWidthActual - attachAdaptorBezzelRad)/2, -(attachAdaptorWidthActual - attachAdaptorBezzelRad)/2, -0.5]) 
+    {
+        minkowski()
+        {
+            cube([attachAdaptorWidthActual - attachAdaptorBezzelRad, attachAdaptorWidthActual - attachAdaptorBezzelRad, plateHeight/2 + 1], center = false);
+            cylinder(h = plateHeight/2 + 1, r = attachAdaptorBezzelRad, center = false, $fn = 360);
+        } 
+    }
+    
+    // Draw the attachment adaptor screw holes
+    for (i = [-attachAdaptorScrewOffset, attachAdaptorScrewOffset])
+    {
+        for(j = [-attachAdaptorScrewOffset, attachAdaptorScrewOffset]){
+            translate(v = [i, j, -0.5]) {
+                cylinder(h = plateHeight+solderHeight+1, d = m3ThreadDiameter, center = false, $fn = 360);
+            }
+            translate(v = [i, j, plateHeight - m3HeadHeight]) {
+                cylinder(h = plateHeight+solderHeight+1, d = m3HeadDiameter, center = false, $fn = 360);
+            }
+        }  
+    } 
 }
 
