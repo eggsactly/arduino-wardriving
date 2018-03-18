@@ -6,7 +6,7 @@ difference()
     union()
     {
         // Draw the main body
-        translate(v = [-plateWidth/2, -plateLength/2, 0])
+        translate(v = [-plateWidth/2, -featherWingDoublerWidth/2 -minBodyMargin - screwHoleCenterFromEdge, 0])
         {
             minkowski()
             {
@@ -38,11 +38,11 @@ difference()
     } 
    
     // Draw the attachment adaptor hole
-    translate(v = [-(attachAdaptorWidthActual - attachAdaptorBezzelRad)/2, -(attachAdaptorWidthActual - attachAdaptorBezzelRad)/2, -0.5]) 
+    translate(v = [-(attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad)/2, -(attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad)/2, -0.5]) 
     {
         minkowski()
         {
-            cube([attachAdaptorWidthActual - attachAdaptorBezzelRad, attachAdaptorWidthActual - attachAdaptorBezzelRad, plateHeight/2 + 1], center = false);
+            cube([attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad, attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad, plateHeight/2 + 1], center = false);
             cylinder(h = plateHeight/2 + 1, r = attachAdaptorBezzelRad, center = false, $fn = 360);
         } 
     }
@@ -59,5 +59,18 @@ difference()
             }
         }  
     } 
+    
+    // Draw the battery attachment holes
+    for(i = [batteryPlateOffsetY + m3HeadDiameter/2 + screwMargin, batteryPlateOffsetY + batterySheathLength - m3HeadDiameter/2 - screwMargin])
+        for(j = [batteryPlankWidth/2 - m3HeadDiameter/2 - screwMargin, - batteryPlankWidth/2 + m3HeadDiameter/2 + screwMargin])
+        {
+            translate(v = [j, i, -0.5]) cylinder(h = plateHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
+        }
 }
 
+
+/*
+translate(v = [-batteryPlankWidth/2, batteryPlateOffsetY, plateHeight]) {
+    cube([batteryPlankWidth, batterySheathLength, batteryPlankThickness], center = false);
+}
+*/
