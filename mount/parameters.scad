@@ -34,6 +34,10 @@ screwMargin = 2; // Min distance between screws
 attachAdaptorWidth = 20;
 attachAdaptorBezzelRad = 2;
 
+// Handlebar Dimensions
+handleBarDiameter = 25;
+bikeMountHeight = 10;
+
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
 plateHeight = threadLength;
