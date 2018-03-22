@@ -9,6 +9,7 @@ sliderSupportHeight = (attachAdaptorWidthActual + bikeMountWidth)/2;
 
 difference()
 {
+    // Draw the main block
     translate([-attachAdaptorWidthActual/2 - (m3HeadDiameter + screwMargin), 0, 0])
     {
         cube([bikeMountWidth, bikeMountHeight, bikeMountWidth]);
@@ -27,13 +28,15 @@ difference()
         } 
     }
     
-    translate([-sliderSupportWidth/2, bikeMountHeight - SliderSupportLength - 0.5, bikeMountWidth - sliderSupportHeight + 0.5])
+    // Put in the slider support
+    translate([-sliderSupportWidth/2, bikeMountHeight - SliderSupportLength - 0.5, (bikeMountWidth - sliderSupportHeight)/2])
     {
-        cube([SliderSupportLength, sliderSupportWidth + 1, sliderSupportHeight + 1]);
+        cube([SliderSupportLength, sliderSupportWidth + 1, sliderSupportHeight + 1 + (bikeMountWidth - sliderSupportHeight)/2]);
 
     }
 }
 
+// Draw the mount insert
 translate([0, 0, attachAdaptorWidthActual/2 + m3HeadDiameter + screwMargin])
 {
     rotate([90, 0, 0])
