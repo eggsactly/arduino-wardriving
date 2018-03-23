@@ -36,7 +36,7 @@ attachAdaptorBezzelRad = 2;
 
 // Handlebar Dimensions
 handleBarDiameter = 25;
-bikeMountHeight = 10;
+bikeMountHeight = 20;
 
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
