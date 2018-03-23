@@ -1,16 +1,5 @@
 include <parameters.scad>;
 
-sliderLipWidth = 12;
-sliderLipLength = 3;
-sliderSupportWidth = 5;
-SliderSupportLength = 2.5;
-
-
-bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
-sliderSupportHeight = 20;
-sliderSupportHeightPlusSlideLength = sliderSupportHeight + (bikeMountWidth - sliderSupportHeight)/2;
-SliderScrewHolePos = bikeMountWidth/2 + sliderSupportHeight/2 + m3HeadDiameter/2;
-
 difference()
 {
     translate([-attachAdaptorWidthActual/2 - (m3HeadDiameter + screwMargin), 0, 0])

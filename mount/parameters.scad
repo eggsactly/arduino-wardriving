@@ -38,6 +38,12 @@ attachAdaptorBezzelRad = 2;
 handleBarDiameter = 25;
 bikeMountHeight = 20;
 
+sliderLipWidth = 12;
+sliderLipLength = 3;
+sliderSupportWidth = 5;
+SliderSupportLength = 2.5;
+sliderSupportHeight = 20;
+
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
 plateHeight = threadLength;
@@ -51,3 +57,7 @@ batteryPlankThickness = 2 * m3HeadHeight;
 plateLength = featherWingDoublerLength + batteryPlankWidth + batteryMargin;
 
 batteryPlateOffsetY = attachAdaptorScrewOffset + m3HeadDiameter/2 + batteryMargin + bodyMargin/2;
+
+bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
+sliderSupportHeightPlusSlideLength = sliderSupportHeight + (bikeMountWidth - sliderSupportHeight)/2;
+SliderScrewHolePos = bikeMountWidth/2 + sliderSupportHeight/2 + m3HeadDiameter/2;
