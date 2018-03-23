@@ -2,9 +2,14 @@ include <parameters.scad>;
 
 difference()
 {
-    translate([-attachAdaptorWidthActual/2 - (m3HeadDiameter + screwMargin), 0, 0])
+    translate([-attachAdaptorWidthActual/2 + attachAdaptorBezzelRad - (m3HeadDiameter + screwMargin), attachAdaptorBezzelRad, 0])
     {
-        cube([bikeMountWidth, bikeMountHeight, bikeMountWidth]);
+        minkowski()
+        {
+            cube([bikeMountWidth- 2*attachAdaptorBezzelRad, bikeMountHeight - 2*attachAdaptorBezzelRad, bikeMountWidth/2]);
+            cylinder(h = bikeMountWidth/2, r = attachAdaptorBezzelRad, center = false, $fn = 360);
+            
+        }
     }
     
     // Draw the attachment adaptor screw holes
