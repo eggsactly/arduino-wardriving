@@ -37,13 +37,12 @@ difference()
         cube([sliderLipWidth, sliderLipLength, sliderSupportHeightPlusSlideLength]);
     }
     
-    #translate([0, bikeMountHeight - threadLength - sliderLipLength - SliderSupportLength - 0.5, SliderScrewHolePos])
+    translate([0, bikeMountHeight - threadLength - sliderLipLength - SliderSupportLength - 0.5, SliderScrewHolePos])
         rotate([-90, 0, 0])
             cylinder(h = threadLength + 1, d = m3InnerThreadDiameter, center = false, $fn = 360);
 }
 
-
-
+// Draw the mount insert
 translate([0, 0, attachAdaptorWidthActual/2 + m3HeadDiameter + screwMargin])
 {
     rotate([90, 0, 0])
