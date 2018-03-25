@@ -24,7 +24,7 @@ batterySheathLength = batteryLength/2;
 
 // Screw Dimensions
 m3ThreadDiameter = 3.00;
-m3InnerThreadDiameter = 2;
+m3InnerThreadDiameter = 2.6;
 m3HeadDiameter = 6.00; 
 m3HeadHeight = 3.00;
 threadLength = 10;
