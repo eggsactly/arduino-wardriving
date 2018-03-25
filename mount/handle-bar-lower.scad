@@ -1,11 +1,5 @@
 include <parameters.scad>;
 
-handleBarMountThickness = 5;
-m3NutWidth = sqrt(3) * 5.47 / 2 + 0.25;
-m3NutHeight = 2.29;
-handleBarScrewMountWidth = m3HeadDiameter + 2 * screwMargin + handleBarMountThickness;
-handleBarMatingPlateThickness = max(2*m3NutHeight, 2*m3HeadHeight);
-
 difference()
 {
     union()

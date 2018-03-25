@@ -29,6 +29,8 @@ m3HeadDiameter = 6.00;
 m3HeadHeight = 3.00;
 threadLength = 10;
 screwMargin = 2; // Min distance between screws
+m3NutWidth = 2 * 5.47 / sqrt(3);
+m3NutHeight = 2.29;
 
 // Attachment Adaptor Dimensions
 attachAdaptorWidth = 20;
@@ -43,6 +45,8 @@ sliderLipLength = 3;
 sliderSupportWidth = 5;
 SliderSupportLength = 2.5;
 sliderSupportHeight = 20;
+
+handleBarMountThickness = 5;
 
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
@@ -61,3 +65,6 @@ batteryPlateOffsetY = attachAdaptorScrewOffset + m3HeadDiameter/2 + batteryMargi
 bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
 sliderSupportHeightPlusSlideLength = sliderSupportHeight + (bikeMountWidth - sliderSupportHeight)/2;
 SliderScrewHolePos = bikeMountWidth/2 + sliderSupportHeight/2 + m3HeadDiameter/2;
+
+handleBarScrewMountWidth = m3HeadDiameter + 2 * screwMargin + handleBarMountThickness;
+handleBarMatingPlateThickness = max(2*m3NutHeight, 2*m3HeadHeight);

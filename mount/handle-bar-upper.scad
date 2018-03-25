@@ -6,8 +6,6 @@ m3NutHeight = 2.29;
 handleBarScrewMountWidth = m3HeadDiameter + 2 * screwMargin + handleBarMountThickness;
 handleBarMatingPlateThickness = max(2*m3NutHeight, 2*m3HeadHeight);
 
-echo(m3NutWidth);
-
 difference()
 {
     union()
