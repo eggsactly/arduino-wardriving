@@ -24,10 +24,10 @@ difference()
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
         
         // Draw slider support
-        translate([-sliderSupportWidth/2, handleBarDiameter/2 + handleBarMountThickness, 0]) cube([sliderSupportWidth, SliderSupportLength + 0.5, sliderSupportHeight]);
+        translate([-sliderSupportWidth/2, handleBarDiameter/2 + handleBarMountThickness, 0]) cube([sliderSupportWidth, SliderSupportLength, sliderSupportHeight]);
         
         // Draw slider lip
-        translate([-sliderLipWidth/2, handleBarDiameter/2+handleBarMountThickness + sliderLipLength, 0])cube([sliderLipWidth, sliderLipLength, sliderSupportHeight]);
+        translate([-sliderLipWidth/2, handleBarDiameter/2+handleBarMountThickness + SliderSupportLength, 0])cube([sliderLipWidth, sliderLipLength, sliderSupportHeight]);
 
     }
     

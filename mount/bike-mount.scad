@@ -26,15 +26,15 @@ difference()
     }
     
     // Draw slider support
-    translate([-sliderSupportWidth/2, bikeMountHeight - SliderSupportLength - 0.5, bikeMountWidth - sliderSupportHeightPlusSlideLength + 0.5])
+    translate([-sliderSupportWidth/2, bikeMountHeight - SliderSupportLength - 0.5, bikeMountWidth - sliderSupportHeightPlusSlideLength])
     {
-        cube([sliderSupportWidth, SliderSupportLength + 1, sliderSupportHeightPlusSlideLength + 1]);
+        cube([sliderSupportWidth, SliderSupportLength + 1, sliderSupportHeightPlusSlideLength + 0.5]);
     }
     
     // Draw slider lip
-    translate([-sliderLipWidth/2, bikeMountHeight - sliderLipLength - SliderSupportLength, bikeMountWidth - sliderSupportHeightPlusSlideLength + 0.5])
+    translate([-sliderLipWidth/2, bikeMountHeight - sliderLipLength - SliderSupportLength, bikeMountWidth - sliderSupportHeightPlusSlideLength])
     {
-        cube([sliderLipWidth, sliderLipLength, sliderSupportHeightPlusSlideLength]);
+        cube([sliderLipWidth, sliderLipLength, sliderSupportHeightPlusSlideLength + 0.5]);
     }
     
     translate([0, bikeMountHeight - threadLength - sliderLipLength - SliderSupportLength - 0.5, SliderScrewHolePos])
