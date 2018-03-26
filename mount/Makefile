@@ -5,9 +5,6 @@ OUTPUT := $(patsubst %.scad, %.stl, $(SOURCES))
 
 .PHONY: all
 all: $(OUTPUT) 
-	echo $(SOURCES)
-	echo $(OUTPUT)
-	echo $(PARAMETER_FILE)
 
 %.stl: %.scad $(PARAMETER_FILE)
 	openscad $< -o $@
