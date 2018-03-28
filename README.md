@@ -49,9 +49,9 @@ Nothing, but you can:
 * Define GPS TX/RX pins on *ARDUINO_GPS_RX* and *ARDUINO_GPS_TX*
 
 ## Electric setup
-The diagram below shows how the FeatherWing doubler should be wired for this project.
+The diagrams below show how to configure all the Feather Wings. Please read all instructions carefully. 
  
-### Featherwing Double
+### Feather Wing Doubler
 On the Featherwing Doubler pins a 22K resistor should be attached between the ADC pin and ground. A 100k resistor should be attached between the VBAT pin and the ADC pin. The RX pin should be mapped to the second NC from RX. Pin 4 should be mapper from the third NC pin from RX. 
 
 ![Featherwing Doubler](https://imgur.com/6ZSRHUw.png)
@@ -62,12 +62,12 @@ The Adalogger Feather Wing requires no special configuration, solder on header p
 ![Adalogger](https://imgur.com/OMgErBR.png)
 
 ### OLED Display Feather Wing
-All pins on the OLED Feather Wing should be soldered on except for pin B.
+All pins on the OLED Feather Wing should have 2mm headers soldered on except for pin B.
 
 ![OLED Screen](https://imgur.com/6AdT9cG.png)
 
 ### GPS Feather Wing
-The default TX and RX connections should be cut with a knife on the bottom of the GPS breakout feather wing. The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapper from the third NC pin from TX. 
+The default TX and RX connections should be cut with a knife on the bottom of the GPS breakout feather wing. The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapped from the third NC pin from TX. All pins on the GPS logger should have header pins soldered onto them.
 
 ![GPS breakout](https://imgur.com/pvPheGV.png)
 
