@@ -52,15 +52,19 @@ Nothing, but you can:
 The diagram below shows how the FeatherWing doubler should be wired for this project.
  
 On the Featherwing Doubler pins a 22K resistor should be attached between the ADC pin and ground. A 100k resistor should be attached between the VBAT pin and the ADC pin. The RX pin should be mapped to the second NC from RX. Pin 4 should be mapper from the third NC pin from RX. 
+
 ![Featherwing Doubler](https://imgur.com/6ZSRHUw.png)
 
 The Adalogger Feather Wing requires no special configuration, solder on header pins to all pin locations.
+
 ![Adalogger](https://imgur.com/OMgErBR.png)
 
 All pins on the OLED Feather Wing should be soldered on except for pin B.
+
 ![OLED Screen](https://imgur.com/6AdT9cG.png)
 
 The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapper from the third NC pin from TX. 
+
 ![GPS breakout](https://imgur.com/pvPheGV.png)
 
 The ESP8266 and GPS module should be stacked on the top portion and the Data Logger and LCD screen should be stacked on the bottom portion. 
