@@ -63,7 +63,7 @@ All pins on the OLED Feather Wing should be soldered on except for pin B.
 
 ![OLED Screen](https://imgur.com/6AdT9cG.png)
 
-The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapper from the third NC pin from TX. 
+The default TX and RX connections should be cut with a knife on the bottom of the GPS breakout feather wing. The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapper from the third NC pin from TX. 
 
 ![GPS breakout](https://imgur.com/pvPheGV.png)
 
