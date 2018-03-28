@@ -51,18 +51,22 @@ Nothing, but you can:
 ## Electric setup
 The diagram below shows how the FeatherWing doubler should be wired for this project.
  
+### Featherwing Double
 On the Featherwing Doubler pins a 22K resistor should be attached between the ADC pin and ground. A 100k resistor should be attached between the VBAT pin and the ADC pin. The RX pin should be mapped to the second NC from RX. Pin 4 should be mapper from the third NC pin from RX. 
 
 ![Featherwing Doubler](https://imgur.com/6ZSRHUw.png)
 
+### Adalogger Feather Wing
 The Adalogger Feather Wing requires no special configuration, solder on header pins to all pin locations.
 
 ![Adalogger](https://imgur.com/OMgErBR.png)
 
+### OLED Display Feather Wing
 All pins on the OLED Feather Wing should be soldered on except for pin B.
 
 ![OLED Screen](https://imgur.com/6AdT9cG.png)
 
+### GPS Feather Wing
 The default TX and RX connections should be cut with a knife on the bottom of the GPS breakout feather wing. The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapper from the third NC pin from TX. 
 
 ![GPS breakout](https://imgur.com/pvPheGV.png)
