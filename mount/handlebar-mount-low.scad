@@ -1,4 +1,4 @@
-include <parameters.scad>;
+include <libparameters.scad>;
 
 difference()
 {
