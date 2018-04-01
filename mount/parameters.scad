@@ -23,13 +23,13 @@ batterySheathRadius = 3;
 batterySheathLength = batteryLength/2;
 
 // Screw Dimensions
-m3ThreadDiameter = 3.00;
-m3InnerThreadDiameter = 2.6;
+m3ThreadDiameter = 4.00;
+m3InnerThreadDiameter = 3.00;
 m3HeadDiameter = 6.00; 
 m3HeadHeight = 3.00;
 threadLength = 10;
 screwMargin = 2; // Min distance between screws
-m3NutWidth = 2 * 5.47 / sqrt(3);
+m3NutWidth = 2 * 5.47 / sqrt(3) + 1;
 m3NutHeight = 2.29;
 
 // Attachment Adaptor Dimensions
