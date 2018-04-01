@@ -48,6 +48,8 @@ sliderSupportHeight = 20;
 
 handleBarMountThickness = 5;
 
+handleBarConnectorSeparation = 8;
+
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
 plateHeight = threadLength;
