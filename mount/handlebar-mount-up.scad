@@ -1,12 +1,14 @@
 include <libparameters.scad>;
 use <libcantilever.scad>;
 
-cant_post_height = 20;
-cant_errosion_margin = 3;
-cant_slope_height = 10;
-cant_overhang = 3;
-cant_length = 2;
-cant_length_end = 8;
+cant_post_height = 10;
+cant_errosion_margin = 2;
+cant_slope_height = 6;
+cant_overhang = 2;
+cant_length = 1;
+cant_length_end = 4;
+
+postLength = 20;
 
 difference()
 {
@@ -15,7 +17,7 @@ difference()
         translate([-handleBarDiameter/2 - handleBarMountThickness + attachAdaptorBezzelRad, attachAdaptorBezzelRad  + handleBarConnectorSeparation/2, 0]){
             minkowski()
             {
-                cube([handleBarDiameter + 2*handleBarMountThickness-2*attachAdaptorBezzelRad, handleBarDiameter/2 + handleBarMountThickness - 2*attachAdaptorBezzelRad - handleBarConnectorSeparation/2, bikeMountHeight/2]);
+                cube([handleBarDiameter + 2*handleBarMountThickness-2*attachAdaptorBezzelRad, handleBarDiameter/2 + handleBarMountThickness - 2*attachAdaptorBezzelRad - handleBarConnectorSeparation/2 + postLength, bikeMountHeight/2]);
                 cylinder(h = bikeMountHeight/2, r = attachAdaptorBezzelRad, center = false, $fn = 360);
             }
         }
@@ -26,10 +28,10 @@ difference()
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
             
         // Draw left cantilever
-        translate([bikeMountHeight/2 - cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2, bikeMountHeight])rotate([0, 180, -90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight);
+        translate([bikeMountHeight/2 - cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength, bikeMountHeight])rotate([0, 180, -90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight);
         
        // Draw right cantilever
-       translate([-bikeMountHeight/2 + cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2, 0])rotate([0, 0, 90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight);
+       translate([-bikeMountHeight/2 + cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength, 0])rotate([0, 0, 90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight);
     }
     
     
