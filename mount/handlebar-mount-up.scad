@@ -1,4 +1,12 @@
 include <libparameters.scad>;
+use <libcantilever.scad>;
+
+cant_post_height = 20;
+cant_errosion_margin = 3;
+cant_slope_height = 10;
+cant_overhang = 3;
+cant_length = 2;
+cant_length_end = 8;
 
 difference()
 {
@@ -16,14 +24,15 @@ difference()
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
         translate([-handleBarDiameter/2 - handleBarScrewMountWidth,  + handleBarConnectorSeparation/2, 0])
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
+            
+        // Draw left cantilever
+        translate([bikeMountHeight/2 - cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2, bikeMountHeight])rotate([0, 180, -90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight);
         
-        // Draw slider support
-        translate([-sliderSupportWidth/2, handleBarDiameter/2 + handleBarMountThickness, 0]) cube([sliderSupportWidth, SliderSupportLength, sliderSupportHeight]);
-        
-        // Draw slider lip
-        translate([-sliderLipWidth/2, handleBarDiameter/2+handleBarMountThickness + SliderSupportLength, 0])cube([sliderLipWidth, sliderLipLength, sliderSupportHeight]);
-
+       // Draw right cantilever
+       translate([-bikeMountHeight/2 + cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2, 0])rotate([0, 0, 90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight);
     }
+    
+    
     
     // Draw inner hole
     translate([0, 0, -0.5])
