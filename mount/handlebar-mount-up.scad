@@ -13,10 +13,13 @@ postLength = 20;
 
 fitMargin = 0.2;
 
+// Move the whole block to start on the X axis
+translate([0, -handleBarConnectorSeparation/2, 0])
 difference()
 {
     union()
     {
+        // Draw the main block
         translate([-handleBarDiameter/2 - handleBarMountThickness + attachAdaptorBezzelRad, attachAdaptorBezzelRad  + handleBarConnectorSeparation/2, 0]){
             minkowski()
             {
@@ -25,11 +28,14 @@ difference()
             }
         }
         
+        // Draw the left support
         translate([handleBarDiameter/2,  + handleBarConnectorSeparation/2, 0])
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
+        // Draw the right support
         translate([-handleBarDiameter/2 - handleBarScrewMountWidth,  + handleBarConnectorSeparation/2, 0])
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
-          
+        
+        // Draw the neck  
         translate([-bikeMountHeight/2, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength, 0])
             cube([bikeMountHeight, mountFitHeight, bikeMountHeight]);
         
@@ -40,19 +46,19 @@ difference()
        translate([-bikeMountHeight/2 + cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength + mountFitHeight, fitMargin + cant_overhang])rotate([0, 0, 90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight - 2 * fitMargin - 2 * cant_overhang);
     }
     
-    
-    
-    // Draw inner hole
+    // Draw handlebar hole
     translate([0, 0, -0.5])
         cylinder(h = bikeMountHeight+1, d = handleBarDiameter, center = false, $fn = 360);
     
     // Draw left Screw Hole
     translate([handleBarDiameter/2 + handleBarMountThickness + screwMargin + m3HeadDiameter/2, -0.5  + handleBarConnectorSeparation/2, bikeMountHeight/2])rotate([-90, 0, 0]) cylinder(h = handleBarMatingPlateThickness + 1, d = m3ThreadDiameter, center = false, $fn = 360);
     
+    // Draw right nut hole
     translate([handleBarDiameter/2 + handleBarMountThickness + screwMargin + m3HeadDiameter/2, handleBarMatingPlateThickness - m3NutHeight  + handleBarConnectorSeparation/2, bikeMountHeight/2])rotate([-90, 0, 0]) cylinder(h = m3NutHeight + 1, d = m3NutWidth, center = false, $fn = 6);
     
     // Draw Right Screw Hole
     translate([-handleBarDiameter/2 - handleBarMountThickness - screwMargin - m3HeadDiameter/2, -0.5  + handleBarConnectorSeparation/2, bikeMountHeight/2])rotate([-90, 0, 0]) cylinder(h = handleBarMatingPlateThickness + 1, d = m3ThreadDiameter, center = false, $fn = 360);
     
+    // Draw right nut hole
     translate([-handleBarDiameter/2 - handleBarMountThickness - screwMargin - m3HeadDiameter/2, handleBarMatingPlateThickness - m3NutHeight  + handleBarConnectorSeparation/2, bikeMountHeight/2])rotate([-90, 0, 0]) cylinder(h = m3NutHeight + 1, d = m3NutWidth, center = false, $fn = 6);
 }
