@@ -1,6 +1,5 @@
 LIBS := $(wildcard lib*.scad)
-SOURCES := $(wildcard *.scad)
-SOURCES := $(filter-out $(LIBS), $(SOURCES))
+SOURCES := $(filter-out $(LIBS), $(wildcard *.scad))
 OUTPUT := $(patsubst %.scad, %.stl, $(SOURCES))
 
 .PHONY: all
