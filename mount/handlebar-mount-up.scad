@@ -40,10 +40,10 @@ difference()
             cube([bikeMountHeight, mountFitHeight, bikeMountHeight]);
         
         // Draw left cantilever
-        translate([bikeMountHeight/2 - cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength + mountFitHeight, bikeMountHeight - fitMargin - cant_overhang])rotate([0, 180, -90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight  - 2 * fitMargin - 2 * cant_overhang);
+        translate([bikeMountHeight/2 - cant_length_end - cant_overhang, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength + mountFitHeight, bikeMountHeight - cant_overhang])rotate([0, 180, -90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight - 2 * cant_overhang);
         
        // Draw right cantilever
-       translate([-bikeMountHeight/2 + cant_length_end, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength + mountFitHeight, fitMargin + cant_overhang])rotate([0, 0, 90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight - 2 * fitMargin - 2 * cant_overhang);
+       translate([-bikeMountHeight/2 + cant_length_end + cant_overhang, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + postLength + mountFitHeight, cant_overhang])rotate([0, 0, 90])cantilever (cant_post_height, cant_errosion_margin, cant_slope_height, cant_overhang, cant_length, cant_length_end, bikeMountHeight - 2 * cant_overhang);
     }
     
     // Draw handlebar hole
