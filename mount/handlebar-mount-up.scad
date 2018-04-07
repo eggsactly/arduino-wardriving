@@ -5,8 +5,8 @@ cant_post_height = 10;
 cant_errosion_margin = 2;
 cant_slope_height = 6;
 cant_overhang = 2;
-cant_length = 2;
-cant_length_end = 4;
+cant_length = 1.5;
+cant_length_end = 3;
 
 mountFitHeight = 5;
 postLength = 20;
