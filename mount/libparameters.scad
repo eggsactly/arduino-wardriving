@@ -3,6 +3,7 @@
 // All measurements are in mm
 
 mmPerIn = 25.4;
+fitMargin = 0.2;
 
 // Feather Wing Dimensions
 featherWingDoublerWidth = 2 * mmPerIn;
@@ -39,6 +40,8 @@ attachAdaptorBezzelRad = 2;
 // Handlebar Dimensions
 handleBarDiameter = 25;
 bikeMountHeight = 20;
+mountFitHeight = 5;
+mountPostLength = 20;
 
 sliderLipWidth = 12;
 sliderLipLength = 3;
@@ -49,6 +52,14 @@ sliderSupportHeight = 20;
 handleBarMountThickness = 5;
 
 handleBarConnectorSeparation = 8;
+
+// Cantiliver settings for 
+handle_cant_post_height = 10;
+handle_cant_errosion_margin = 2;
+handle_cant_slope_height = 6;
+handle_cant_overhang = 2;
+handle_cant_length = 1.5;
+handle_cant_length_end = 3;
 
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
