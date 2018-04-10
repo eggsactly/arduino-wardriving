@@ -1,10 +1,16 @@
 include <libparameters.scad>;
+use <libcantilever.scad>;
+
+union(){
+// Draw the central cantilever mount
+// For some reason this does not draw inside the union
+for(i=[0 : 90 : 270])rotate([0, 0, i])translate([-(bikeMountHeight + 2 * fitMargin)/2, 0, plateHeight - handle_cant_slope_height - handle_cant_errosion_margin - fitMargin])translate([0, (bikeMountHeight + 2 * fitMargin)/2, 0])rotate([0, 90, -90])cantilever(0, central_cant_errosion_margin, central_cant_slope_height, handle_cant_overhang, 0, 0, bikeMountHeight + 2 * fitMargin);
 
 // Draw the elements
 difference() 
 {
     union()
-    {
+    {   
         // Draw the main body
         translate(v = [-plateWidth/2, -featherWingDoublerWidth/2 -minBodyMargin - screwHoleCenterFromEdge, 0])
         {
@@ -49,4 +55,11 @@ difference()
         {
             translate(v = [j, i, -0.5]) cylinder(h = plateHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
         }
+        
+        // Draw the little holes to put you fingers in
+        for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([i, 0, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
+        for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([0, i, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
+    }
+    
+    
 }

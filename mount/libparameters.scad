@@ -61,9 +61,17 @@ handle_cant_overhang = 2;
 handle_cant_length = 1.5;
 handle_cant_length_end = 3;
 
+fingerHoleRadius = 6;
+
+// The hardcoded value is the actual value, the min max provide the range
+// no larger than the handle bar cantiliver, but no smaller than a 45 dedree
+// slope
+central_cant_slope_height = min(max(4, handle_cant_overhang), handle_cant_slope_height);
+central_cant_errosion_margin = min(2, handle_cant_post_height - central_cant_slope_height - fitMargin);
+
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
-plateHeight = threadLength;
+plateHeight = fitMargin + handle_cant_slope_height + handle_cant_errosion_margin + handle_cant_post_height + mountFitHeight;
 plateWidth = max(batteryLength, featherWingDoublerWidth);
 minBodyMargin = max(bodyMargin, riserBase/2);
 attachAdaptorWidthActual = min(featherWingDoublerWidth - 3 * riserBase - 2 * screwMargin, attachAdaptorWidth);
