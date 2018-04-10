@@ -23,7 +23,7 @@ difference()
         translate([-handleBarDiameter/2 - handleBarScrewMountWidth,  + handleBarConnectorSeparation/2, 0])
             cube([handleBarScrewMountWidth, handleBarMatingPlateThickness, bikeMountHeight]);
         
-        // Draw the neck  
+        // Draw the mount fit
         translate([-bikeMountHeight/2, handleBarDiameter/2 + handleBarMountThickness - handleBarConnectorSeparation/2 + handleBarConnectorSeparation/2 + mountPostLength, 0])
             cube([bikeMountHeight, mountFitHeight, bikeMountHeight]);
         

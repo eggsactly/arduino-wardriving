@@ -38,13 +38,9 @@ difference()
     } 
    
     // Draw the attachment adaptor hole
-    translate(v = [-(attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad)/2, -(attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad)/2, -0.5]) 
+    translate(v = [-(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2, -0.5]) 
     {
-        minkowski()
-        {
-            cube([attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad, attachAdaptorWidthActual - 2 * attachAdaptorBezzelRad, plateHeight/2 + 1], center = false);
-            cylinder(h = plateHeight/2 + 1, r = attachAdaptorBezzelRad, center = false, $fn = 360);
-        } 
+        cube([bikeMountHeight + 2 * fitMargin, bikeMountHeight + 2 * fitMargin, plateHeight + 1], center = false);
     }
     
     // Draw the battery attachment holes
