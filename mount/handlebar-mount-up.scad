@@ -1,18 +1,6 @@
 include <libparameters.scad>;
 use <libcantilever.scad>;
 
-handle_cant_post_height = 10;
-handle_cant_errosion_margin = 2;
-handle_cant_slope_height = 6;
-handle_cant_overhang = 2;
-handle_cant_length = 1.5;
-handle_cant_length_end = 3;
-
-mountFitHeight = 5;
-mountPostLength = 20;
-
-fitMargin = 0.2;
-
 // Move the whole block to start on the X axis
 translate([0, -handleBarConnectorSeparation/2, 0])
 difference()
