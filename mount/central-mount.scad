@@ -47,19 +47,6 @@ difference()
         } 
     }
     
-    // Draw the attachment adaptor screw holes
-    for (i = [-attachAdaptorScrewOffset, attachAdaptorScrewOffset])
-    {
-        for(j = [-attachAdaptorScrewOffset, attachAdaptorScrewOffset]){
-            translate(v = [i, j, -0.5]) {
-                cylinder(h = plateHeight+solderHeight+1, d = m3ThreadDiameter, center = false, $fn = 360);
-            }
-            translate(v = [i, j, plateHeight - m3HeadHeight]) {
-                cylinder(h = plateHeight+solderHeight+1, d = m3HeadDiameter, center = false, $fn = 360);
-            }
-        }  
-    } 
-    
     // Draw the battery attachment holes
     for(i = [batteryPlateOffsetY + m3HeadDiameter/2 + screwMargin, batteryPlateOffsetY + batterySheathLength - m3HeadDiameter/2 - screwMargin])
         for(j = [batteryPlankWidth/2 - m3HeadDiameter/2 - screwMargin, - batteryPlankWidth/2 + m3HeadDiameter/2 + screwMargin])
@@ -67,10 +54,3 @@ difference()
             translate(v = [j, i, -0.5]) cylinder(h = plateHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
         }
 }
-
-
-/*
-translate(v = [-batteryPlankWidth/2, batteryPlateOffsetY, plateHeight]) {
-    cube([batteryPlankWidth, batterySheathLength, batteryPlankThickness], center = false);
-}
-*/
