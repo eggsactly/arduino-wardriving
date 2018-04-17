@@ -1,7 +1,8 @@
 include <libparameters.scad>;
+use <libcantilever.scad>;
 
 
-
+union(){
 // Draw the cylinder
 difference()
 {
@@ -27,14 +28,12 @@ difference()
     {
         cube([batteryPlankThickness, batteryPlankWidth, batterySheathLength], center = false);
     }
+            
+}
 
-    // Draw the cap holes
-    for(i = [m3HeadDiameter/2 + screwMargin, batterySheathLength - m3HeadDiameter/2 - screwMargin])
-        for(j = [batteryPlankWidth/2 - m3HeadDiameter/2 - screwMargin, - batteryPlankWidth/2 + m3HeadDiameter/2 + screwMargin])
-        {
-            translate(v = [batteryDiameter/2-1, j, i]) rotate([0, 90, 0]) cylinder(h = m3HeadHeight+1, d = m3HeadDiameter, center = false, $fn = 360);
-            translate(v = [batteryDiameter/2+0.5, j, i]) rotate([0, 90, 0]) cylinder(h = batteryPlankThickness+1, d = m3ThreadDiameter, center = false, $fn = 360);
-        }
-        
-    
+// Draw left cantilever
+translate([0, -batteryPlankWidth/2, batterySheathLength/2])rotate([0, 0, 0])translate([batteryDiameter/2 + batteryPlankThickness, 0, -batterySheathLength/2])cantilever(handle_cant_post_height, handle_cant_errosion_margin, handle_cant_slope_height, handle_cant_overhang, handle_cant_length, handle_cant_length_end, batterySheathLength);
+
+// Draw right cantilever
+translate([0, batteryPlankWidth/2, batterySheathLength/2])rotate([180, 0, 0])translate([batteryDiameter/2 + batteryPlankThickness, 0, -batterySheathLength/2])cantilever(handle_cant_post_height, handle_cant_errosion_margin, handle_cant_slope_height, handle_cant_overhang, handle_cant_length, handle_cant_length_end, batterySheathLength);
 }
