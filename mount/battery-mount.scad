@@ -26,14 +26,14 @@ difference()
     // Draw the actual block
     translate(v=[batteryDiameter/2, -batteryPlankWidth/2, 0])
     {
-        cube([batteryPlankThickness, batteryPlankWidth, batterySheathLength], center = false);
+        cube([mountFitHeight, batteryPlankWidth, batterySheathLength], center = false);
     }
             
 }
 
 // Draw left cantilever
-translate([0, -batteryPlankWidth/2, batterySheathLength/2])rotate([0, 0, 0])translate([batteryDiameter/2 + batteryPlankThickness, 0, -batterySheathLength/2])cantilever(handle_cant_post_height, handle_cant_errosion_margin, handle_cant_slope_height, handle_cant_overhang, handle_cant_length, handle_cant_length_end, batterySheathLength);
+translate([0, -batteryPlankWidth/2, batterySheathLength/2])rotate([0, 0, 0])translate([batteryDiameter/2 + mountFitHeight, 0, -batterySheathLength/2])cantilever(handle_cant_post_height, handle_cant_errosion_margin, handle_cant_slope_height, handle_cant_overhang, handle_cant_length, handle_cant_length_end, batterySheathLength);
 
 // Draw right cantilever
-translate([0, batteryPlankWidth/2, batterySheathLength/2])rotate([180, 0, 0])translate([batteryDiameter/2 + batteryPlankThickness, 0, -batterySheathLength/2])cantilever(handle_cant_post_height, handle_cant_errosion_margin, handle_cant_slope_height, handle_cant_overhang, handle_cant_length, handle_cant_length_end, batterySheathLength);
+translate([0, batteryPlankWidth/2, batterySheathLength/2])rotate([180, 0, 0])translate([batteryDiameter/2 + mountFitHeight, 0, -batterySheathLength/2])cantilever(handle_cant_post_height, handle_cant_errosion_margin, handle_cant_slope_height, handle_cant_overhang, handle_cant_length, handle_cant_length_end, batterySheathLength);
 }
