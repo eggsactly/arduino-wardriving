@@ -50,7 +50,13 @@ difference()
     }
     
     // Draw the hole foe the battery mount
-    translate([-(batterySheathLength + fitMargin)/2, batteryPlateOffsetY, -0.5])cube([batterySheathLength + fitMargin, batteryPlankWidth + fitMargin, plateHeight + 1]);
+    difference()
+    {
+        translate([-(batterySheathLength + fitMargin)/2, batteryPlateOffsetY, -0.5])cube([batterySheathLength + fitMargin, batteryPlankWidth + fitMargin, plateHeight + 1]);
+        
+        // Draw the battery connect block
+        translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY + (batteryPlankWidth - batteryBlockLength)/2 + fitMargin, 0])cube([batterySheathLength + 2*fitMargin, batteryBlockLength - 2*fitMargin, handle_cant_errosion_margin + handle_cant_slope_height + fitMargin]);
+    }
         
     // Draw the little holes to put you fingers in
     for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([i, 0, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
