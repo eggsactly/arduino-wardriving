@@ -52,10 +52,22 @@ difference()
     // Draw the hole foe the battery mount
     difference()
     {
-        translate([-(batterySheathLength + fitMargin)/2, batteryPlateOffsetY, -0.5])cube([batterySheathLength + fitMargin, batteryPlankWidth + fitMargin, plateHeight + 1]);
+        translate([-(batterySheathLength + 2 * fitMargin)/2, batteryPlateOffsetY + fitMargin, -0.5])cube([batterySheathLength + 2 * fitMargin, batteryPlankWidth - 2 * fitMargin, plateHeight + 1]);
         
         // Draw the battery connect block
-        translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY + (batteryPlankWidth - batteryBlockLength)/2 + fitMargin, 0])cube([batterySheathLength + 2*fitMargin, batteryBlockLength - 2*fitMargin, handle_cant_errosion_margin + handle_cant_slope_height + fitMargin]);
+        translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY + (batteryPlankWidth - batteryBlockLength)/2 + fitMargin, 0])cube([batterySheathLength + 2*fitMargin, batteryBlockLength - 2*fitMargin, handle_cant_errosion_margin + handle_cant_slope_height + handle_cant_post_height]);
+        
+        // Draw the far cantilever fitting
+        translate([0, batteryBlockLength - fitMargin + (batteryPlankWidth - batteryBlockLength)/2, 0])      
+            rotate([0, 0, 0])translate([batterySheathLength/2 + fitMargin, batteryPlateOffsetY, handle_cant_errosion_margin + handle_cant_slope_height + fitMargin])
+                rotate([0, -90, 0])
+                    cantilever(0, 2, handle_cant_post_height - 2 - 2 * fitMargin, handle_cant_overhang - fitMargin, 0, 0, batterySheathLength + 2 * fitMargin);
+        
+        // Draw the near cantilever fitting
+        translate([0, fitMargin + (batteryPlankWidth - batteryBlockLength)/2, 0])      
+            rotate([0, 0, 0])translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY, handle_cant_errosion_margin + handle_cant_slope_height + fitMargin])
+                rotate([0, -90, 180])
+                    cantilever(0, 2, handle_cant_post_height - 2 - 2 * fitMargin, handle_cant_overhang - fitMargin, 0, 0, batterySheathLength + 2 * fitMargin);
     }
         
     // Draw the little holes to put you fingers in
