@@ -49,15 +49,11 @@ difference()
         cube([bikeMountHeight + 2 * fitMargin, bikeMountHeight + 2 * fitMargin, plateHeight + 1], center = false);
     }
     
-    // Draw the battery attachment holes
-    for(i = [batteryPlateOffsetY + m3HeadDiameter/2 + screwMargin, batteryPlateOffsetY + batterySheathLength - m3HeadDiameter/2 - screwMargin])
-        for(j = [batteryPlankWidth/2 - m3HeadDiameter/2 - screwMargin, - batteryPlankWidth/2 + m3HeadDiameter/2 + screwMargin])
-        {
-            translate(v = [j, i, -0.5]) cylinder(h = plateHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
-        }
+    // Draw the hole foe the battery mount
+    translate([-(batterySheathLength + fitMargin)/2, batteryPlateOffsetY, -0.5])cube([batterySheathLength + fitMargin, batteryPlankWidth + fitMargin, plateHeight + 1]);
         
-        // Draw the little holes to put you fingers in
-        for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([i, 0, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
+    // Draw the little holes to put you fingers in
+    for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([i, 0, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
         for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([0, i, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
     }
     

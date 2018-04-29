@@ -80,9 +80,10 @@ attachAdaptorScrewOffset = attachAdaptorWidthActual/2 + m3HeadDiameter/2;
 batteryPlankWidth = batteryBlockLength + 2 * handle_cant_overhang +  2 * fitMargin + 2 * handle_cant_length_end;
 batteryPlankThickness = 2 * m3HeadHeight;
 
-plateLength = featherWingDoublerLength + batteryPlankWidth + batteryMargin;
+batteryPlateOffsetY = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + bodyMargin/2;
 
-batteryPlateOffsetY = attachAdaptorScrewOffset + m3HeadDiameter/2 + batteryMargin + bodyMargin/2;
+plateLength = featherWingDoublerLength + batteryPlateOffsetY + batteryPlankWidth - minBodyMargin;
+
 
 bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
 sliderSupportHeightPlusSlideLength = sliderSupportHeight + (bikeMountWidth - sliderSupportHeight)/2;
