@@ -73,7 +73,7 @@ central_cant_errosion_margin = min(2, handle_cant_post_height - central_cant_slo
 // Intermediate calculations 
 // NOTE: These should not need to be changed if you're just adjusting the parameters above
 plateHeight = fitMargin + handle_cant_slope_height + handle_cant_errosion_margin + handle_cant_post_height + mountFitHeight;
-plateWidth = max(batteryLength, featherWingDoublerWidth);
+plateWidth = max(batterySheathLength, featherWingDoublerWidth);
 minBodyMargin = max(bodyMargin, riserBase/2);
 attachAdaptorWidthActual = min(featherWingDoublerWidth - 3 * riserBase - 2 * screwMargin, attachAdaptorWidth);
 attachAdaptorScrewOffset = attachAdaptorWidthActual/2 + m3HeadDiameter/2;
@@ -82,7 +82,7 @@ batteryPlankThickness = 2 * m3HeadHeight;
 
 batteryPlateOffsetY = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + bodyMargin/2;
 
-plateLength = featherWingDoublerLength + batteryPlateOffsetY + batteryPlankWidth - minBodyMargin;
+plateLength = featherWingDoublerLength + batteryPlateOffsetY + batteryPlankWidth - 2 * minBodyMargin;
 
 
 bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
