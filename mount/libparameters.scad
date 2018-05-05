@@ -9,6 +9,11 @@ fitMargin = 0.2;
 featherWingDoublerWidth = 2 * mmPerIn;
 featherWingDoublerLength = 1.85 * mmPerIn; 
 screwHoleCenterFromEdge = 0.1 * mmPerIn;
+featherBoardThickness=1.5;
+featherHoleRadius=2.5/2;
+
+circularCantLipRad = 3/2 * featherHoleRadius;
+circularCantLen = 2.5/2;
 
 // Base Dimensions
 riserBase = 2 * screwHoleCenterFromEdge;

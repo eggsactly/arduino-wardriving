@@ -1,7 +1,11 @@
 include <libparameters.scad>;
 use <libcantilever.scad>;
+use <libRoundCantilever.scad>;
 
-union(){
+function rotateRoundCant(i, j) = (i == -1) ? (j == -1) ? 315 : 225 : (j == -1) ? 45 : 135;
+
+union()
+{
 // Draw the central cantilever mount
 // For some reason this does not draw inside the union
 for(i=[0 : 90 : 270])rotate([0, 0, i])translate([-(bikeMountHeight + 2 * fitMargin)/2, 0, plateHeight - handle_cant_slope_height - handle_cant_errosion_margin - fitMargin])translate([0, (bikeMountHeight + 2 * fitMargin)/2, 0])rotate([0, 90, -90])cantilever(0, central_cant_errosion_margin, central_cant_slope_height, handle_cant_overhang, 0, 0, bikeMountHeight + 2 * fitMargin);
@@ -30,18 +34,24 @@ difference()
                 }
             }  
         }
+        // Draw the screw holes
+        a = 0;
+        for (i = [-1, 1])
+        {
+            for(j = [-1, 1])
+            {
+                translate(v = [i * (featherWingDoublerWidth/2 - screwHoleCenterFromEdge), j* (featherWingDoublerLength/2 - screwHoleCenterFromEdge) - batteryDiameter/2 - batteryMargin, plateHeight + solderHeight]) 
+                {
+                    rotate([0, 0, rotateRoundCant(i, j)])circularCantilever(featherBoardThickness, featherHoleRadius, circularCantLipRad, circularCantLen);
+                }
+            }  
+            
+        } 
     }
     
     
-    // Draw the screw holes
-    for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
-    {
-        for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
-            translate(v = [i, j - batteryDiameter/2 - batteryMargin, -0.5]) {
-                cylinder(h = plateHeight+solderHeight+1, d = m3InnerThreadDiameter, center = false, $fn = 360);
-            }
-        }  
-    } 
+    
+    
    
     // Draw the attachment adaptor hole
     translate(v = [-(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2, -0.5]) 
