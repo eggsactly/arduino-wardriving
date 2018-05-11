@@ -16,7 +16,7 @@ difference()
     union()
     {   
         // Draw the main body
-        translate(v = [-plateWidth/2, -featherWingDoublerWidth/2 - screwHoleCenterFromEdge, 0])
+        translate(v = [-plateWidth/2, plateOffsetY, 0])
         {
             minkowski()
             {

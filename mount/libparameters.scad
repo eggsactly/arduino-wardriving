@@ -59,7 +59,7 @@ handleBarMountThickness = 5;
 
 handleBarConnectorSeparation = 8;
 
-// Cantiliver settings for 
+// Cantiliver settings 
 handle_cant_post_height = 10;
 handle_cant_errosion_margin = 2;
 handle_cant_slope_height = 6;
@@ -68,6 +68,18 @@ handle_cant_length = 1.5;
 handle_cant_length_end = 3;
 
 fingerHoleRadius = 6;
+
+// Switch Dimensions
+switchWidth = 10.65;
+switchLength = 5.00;
+switchHeight = 5.75;
+
+// Battery Connector Dimensions
+batConLength = 6.00;
+batConWidth = 6.00;
+batConHeight = 4.85;
+batConLeadMargin = 1.5;
+batConShroudWidth = 3.00;
 
 // The hardcoded value is the actual value, the min max provide the range
 // no larger than the handle bar cantiliver, but no smaller than a 45 dedree
@@ -85,10 +97,11 @@ attachAdaptorScrewOffset = attachAdaptorWidthActual/2 + m3HeadDiameter/2;
 batteryPlankWidth = batteryBlockLength + 2 * handle_cant_overhang +  2 * fitMargin + 2 * handle_cant_length_end;
 batteryPlankThickness = 2 * m3HeadHeight;
 
-batteryPlateOffsetY = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + bodyMargin/2;
+batteryPlateOffsetY = bikeMountHeight/2 + batteryMargin + max(fingerHoleRadius + bodyMargin/2, (featherWingDoublerLength/2 - screwHoleCenterFromEdge) - (batteryDiameter - batteryMargin) + riserBase);
 
-plateLength = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + batteryPlankWidth + featherWingDoublerWidth/2 + screwHoleCenterFromEdge;
+plateLength = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + batteryPlankWidth + featherWingDoublerWidth/2 + screwHoleCenterFromEdge + riserBase;
 
+plateOffsetY = -featherWingDoublerWidth/2 - screwHoleCenterFromEdge - riserBase;
 
 bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
 sliderSupportHeightPlusSlideLength = sliderSupportHeight + (bikeMountWidth - sliderSupportHeight)/2;
