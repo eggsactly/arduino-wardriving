@@ -87,7 +87,7 @@ batteryPlankThickness = 2 * m3HeadHeight;
 
 batteryPlateOffsetY = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + bodyMargin/2;
 
-plateLength = featherWingDoublerLength + batteryPlateOffsetY + batteryPlankWidth - 2 * minBodyMargin;
+plateLength = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + batteryPlankWidth + featherWingDoublerWidth/2 + screwHoleCenterFromEdge;
 
 
 bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
