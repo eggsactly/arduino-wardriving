@@ -34,7 +34,7 @@ difference()
                 }
             }  
         }
-        // Draw the screw holes
+        // Draw the circular cantilevers for the featherwing
         a = 0;
         for (i = [-1, 1])
         {
@@ -59,7 +59,7 @@ difference()
         cube([bikeMountHeight + 2 * fitMargin, bikeMountHeight + 2 * fitMargin, plateHeight + 1], center = false);
     }
     
-    // Draw the hole foe the battery mount
+    // Draw the hole for the battery mount
     difference()
     {
         translate([-(batterySheathLength + 2 * fitMargin)/2, batteryPlateOffsetY + fitMargin, -0.5])cube([batterySheathLength + 2 * fitMargin, batteryPlankWidth - 2 * fitMargin, plateHeight + 1]);
