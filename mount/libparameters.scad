@@ -73,6 +73,8 @@ fingerHoleRadius = 6;
 switchWidth = 10.65;
 switchLength = 5.00;
 switchHeight = 5.75;
+switchTotalWidth = 20.00;
+switchSupportWidth = (switchTotalWidth - switchWidth)/2;
 
 // Battery Connector Dimensions
 batConLength = 6.00;
@@ -99,9 +101,9 @@ batteryPlankThickness = 2 * m3HeadHeight;
 
 batteryPlateOffsetY = bikeMountHeight/2 + batteryMargin + max(fingerHoleRadius + bodyMargin/2, (featherWingDoublerLength/2 - screwHoleCenterFromEdge) - (batteryDiameter - batteryMargin) + riserBase);
 
-plateLength = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + batteryPlankWidth + featherWingDoublerWidth/2 + screwHoleCenterFromEdge + riserBase;
+plateLength = bikeMountHeight/2 + fingerHoleRadius + batteryMargin + batteryPlankWidth + featherWingDoublerWidth/2 + screwHoleCenterFromEdge + riserBase + switchLength + batConLength;
 
-plateOffsetY = -featherWingDoublerWidth/2 - screwHoleCenterFromEdge - riserBase;
+plateOffsetY = -featherWingDoublerWidth/2 - screwHoleCenterFromEdge - riserBase - switchLength - batConLength;
 
 bikeMountWidth = attachAdaptorWidthActual + 2*(m3HeadDiameter + screwMargin);
 sliderSupportHeightPlusSlideLength = sliderSupportHeight + (bikeMountWidth - sliderSupportHeight)/2;

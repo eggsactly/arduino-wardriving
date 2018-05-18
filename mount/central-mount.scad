@@ -47,6 +47,12 @@ difference()
             }  
             
         } 
+        
+        // Draw the switch support
+        translate([0, plateOffsetY + 5*fitMargin, plateHeight]) {
+            translate([-switchWidth/2 - switchSupportWidth, -switchLength - batConLength, 0])cube([switchSupportWidth, switchLength, switchHeight]);
+            translate([switchWidth/2, -switchLength - batConLength, 0])cube([switchSupportWidth, switchLength, switchHeight]);
+        }
     }
     
     
