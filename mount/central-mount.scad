@@ -52,6 +52,12 @@ difference()
         translate([0, plateOffsetY + 5*fitMargin, plateHeight]) {
             translate([-switchWidth/2 - switchSupportWidth, -switchLength - batConLength, 0])cube([switchSupportWidth, switchLength, switchHeight]);
             translate([switchWidth/2, -switchLength - batConLength, 0])cube([switchSupportWidth, switchLength, switchHeight]);
+           
+        }
+        // Draw the battery connector support
+        translate([-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge) - batConWidth/2, -(featherWingDoublerLength/2 - screwHoleCenterFromEdge) - batteryDiameter/2 - batteryMargin - batConShroudWidth - screwHoleCenterFromEdge, plateHeight]) {
+            translate([0, 0, 0])cube([batConWidth, batConShroudWidth, batConHeight]);
+            translate([0, -batConWidth-batConShroudWidth, 0])cube([batConWidth, batConShroudWidth, batConHeight]);
         }
     }
     
