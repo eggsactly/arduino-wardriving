@@ -60,13 +60,10 @@ difference()
         translate([-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge) - batConWidth/2, -(featherWingDoublerLength/2 - screwHoleCenterFromEdge) - batteryDiameter/2 - batteryMargin - batConShroudWidth - screwHoleCenterFromEdge, plateHeight]) {
             translate([0, 0, 0])cube([batConWidth, batConShroudWidth, batConHeight]);
             translate([0, -batConWidth-batConShroudWidth, 0])cube([batConWidth, batConShroudWidth, batConHeight]);
+            translate([batConWidth, - batConWidth - batConShroudWidth, 0])rotate([90, 0, -90])triangle(batConHeight, batConShroudWidth, batConWidth);
         }
     }
-    
-    
-    
-    
-   
+
     // Draw the attachment adaptor hole
     translate(v = [-(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2, -0.5]) 
     {
