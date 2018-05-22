@@ -27,16 +27,19 @@ difference()
         }
         
         // Draw the risers
-        for (i = [-(featherWingDoublerWidth/2 - screwHoleCenterFromEdge), (featherWingDoublerWidth/2 - screwHoleCenterFromEdge)])
+        for (i = [-1, 1])
         {
-            for(j = [-(featherWingDoublerLength/2 - screwHoleCenterFromEdge), (featherWingDoublerLength/2 - screwHoleCenterFromEdge)]){
-                translate(v = [i, j - batteryDiameter/2 - batteryMargin, plateHeight]) {
+            for(j = [-1, 1]){
+                translate(v = [i * (featherWingDoublerWidth/2 - screwHoleCenterFromEdge), j*(featherWingDoublerLength/2 - screwHoleCenterFromEdge) - batteryDiameter/2 - batteryMargin, plateHeight]) {
                     cylinder(h = solderHeight, r1 = riserBase, r2 = screwHoleCenterFromEdge, center = false, $fn = 360);
+                    difference(){
+                        rotate([0, 0, rotateRoundCant(i, j)-135])cube([riserBase, riserBase, solderHeight + circularCantLen + featherBoardThickness]);
+                        translate([0, 0, solderHeight])cylinder(h = solderHeight, r = screwHoleCenterFromEdge, center = false, $fn = 360);
+                    }
                 }
             }  
         }
         // Draw the circular cantilevers for the featherwing
-        a = 0;
         for (i = [-1, 1])
         {
             for(j = [-1, 1])

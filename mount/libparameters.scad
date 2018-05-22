@@ -15,12 +15,6 @@ featherHoleRadius=2.5/2;
 circularCantLipRad = 3/2 * featherHoleRadius;
 circularCantLen = 2.5/2;
 
-// Base Dimensions
-riserBase = 2 * screwHoleCenterFromEdge;
-bodyMargin = 10;
-heightMargin = 5;
-solderHeight = 4;
-
 // Battery Dimensions
 batteryDiameter = 18;
 batteryLength = 69;
@@ -82,6 +76,12 @@ batConWidth = 6.00;
 batConHeight = 4.85;
 batConLeadMargin = 1.5;
 batConShroudWidth = 3.00;
+
+// Base Dimensions
+riserBase = 2 * screwHoleCenterFromEdge;
+bodyMargin = 10;
+heightMargin = 5;
+solderHeight = batConHeight;
 
 // The hardcoded value is the actual value, the min max provide the range
 // no larger than the handle bar cantiliver, but no smaller than a 45 dedree
