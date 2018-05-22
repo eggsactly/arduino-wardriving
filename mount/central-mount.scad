@@ -1,6 +1,7 @@
 include <libparameters.scad>;
 use <libcantilever.scad>;
 use <libRoundCantilever.scad>;
+use <libtriangles.scad>;
 
 function rotateRoundCant(i, j) = (i == -1) ? (j == -1) ? 315 : 225 : (j == -1) ? 45 : 135;
 
@@ -45,12 +46,13 @@ difference()
                     rotate([0, 0, rotateRoundCant(i, j)])circularCantilever(featherBoardThickness, featherHoleRadius, circularCantLipRad, circularCantLen);
                 }
             }  
-            
         } 
         
         // Draw the switch support
         translate([0, plateOffsetY + 6*fitMargin, plateHeight]) {
+            translate([switchWidth/2 + switchSupportWidth, - batConLength, 0])rotate([90, 0, 0])triangle(switchHeight, switchLength, switchSupportWidth + 1/3);
             translate([-switchWidth/2 - switchSupportWidth, -switchLength - batConLength, 0])cube([switchSupportWidth, switchLength, switchHeight]);
+            translate([-switchWidth/2 - switchSupportWidth, - batConLength - switchLength, 0])rotate([90, 0, 180])triangle(switchHeight, switchLength, switchSupportWidth + 1/3);
             translate([switchWidth/2, -switchLength - batConLength, 0])cube([switchSupportWidth, switchLength, switchHeight]);
            
         }
