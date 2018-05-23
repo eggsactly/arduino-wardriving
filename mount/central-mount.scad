@@ -65,6 +65,8 @@ difference()
             translate([0, -batConWidth-batConShroudWidth, 0])cube([batConWidth, batConShroudWidth, batConHeight]);
             translate([batConWidth, - batConWidth - batConShroudWidth, 0])rotate([90, 0, -90])triangle(batConHeight, batConShroudWidth, batConWidth);
         }
+        
+        
     }
 
     // Draw the attachment adaptor hole
@@ -97,6 +99,15 @@ difference()
     // Draw the little holes to put you fingers in
     for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([i, 0, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
         for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([0, i, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
+           
+     // Draw the repo text, lots of nasty hard coding here
+    translate([-plateWidth/2, batteryPlateOffsetY + batteryPlankWidth, plateHeight-textHeight+0.5])
+    {
+        difference(){
+            translate([-2, -27, 0])cube([7, 27, textHeight]);
+            translate([0, 0, -0.5])rotate([0, 0, -90])linear_extrude(height=textHeight+1)text(text=repoURL, size = 4);
+        }
+    } 
     }
     
     

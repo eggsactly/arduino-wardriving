@@ -1,5 +1,8 @@
 // Feather wig doubler dimensions pulled from here: https://learn.adafruit.com/featherwing-proto-and-doubler/downloads
 
+repoURL = "git.io/vhv4i";
+textHeight = 1;
+
 // All measurements are in mm
 
 mmPerIn = 25.4;
