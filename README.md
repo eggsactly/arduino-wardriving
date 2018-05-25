@@ -82,17 +82,21 @@ The mount source files are stored in the mount/ directory as .scad files. They c
 
 ### Central Mount
 Mount for the feather Wing circuit card and has attachments for the battery adaptor and handle bar mount.
+
 ![Central Mount](https://i.imgur.com/oB58eGO.png)
 
 ### Battery Mount
 Mount to attach the battery to the Central Mount.
+
 ![Battery Mount](https://i.imgur.com/FSqcVt1.png)
 
 ### Handle Bar Mount Up
 Mount to attach the Central Mount to the Handle Bar Mount Low.
+
 ![Handle Bar Mount Up](https://i.imgur.com/ZJGiRqP.png)
 
 ### Handle Bar Mount Low
 Mount to attach to the Handle Bar Mount Up to clamp around bicylce handle bars. 
+
 ![Handle Bar Mount Low](https://i.imgur.com/BWr86lf.png)
 
