@@ -56,7 +56,7 @@ Nothing, but you can:
 The diagrams below show how to configure all the Feather Wings. Please read all instructions carefully. 
  
 ### Feather Wing Doubler
-On the Featherwing Doubler pins a 22K resistor should be attached between the ADC pin and ground. A 100k resistor should be attached between the VBAT pin and the ADC pin. The RX pin should be mapped to the second NC from RX. Pin 4 should be mapper from the third NC pin from RX. 
+On the Featherwing Doubler pins a 22K resistor should be attached between the ADC pin and ground. A 100k resistor should be attached between the VBAT pin and the ADC pin. The RX pin should be mapped to the second NC from RX. Pin 4 should be mapped from the third NC pin from RX. 
 
 ![Featherwing Doubler](https://imgur.com/6ZSRHUw.png)
 
