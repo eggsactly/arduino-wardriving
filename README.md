@@ -33,24 +33,11 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * This doesn't capture pcap files due power limitations
 * This doesn't attack any network
 
-## What does this need?
-* Fix some race conditions
-* ~~A PCB design that I'm working on~~
-* A better antenna for GPS and WiFi, that will help to speed up satellite lock-up and enlarge WiFi coverage
-
 ## What is different in this fork 
 * Used parts from one vendor, Adafruit, for the A E S T H E T I C. This eliminates need to make a custom circuit board as well.
 * Took out previously recorded check, I felt checking to see if an AP was already recorded would become inefficient over time, so it was removed. 
 * Put the output CSV into Wigle CSV format.
 * Added way to verify we have a fix on GPS location. 
-
-## What do you need to configure?
-Nothing, but you can:
-* Setup CS pin for SD card module on *ARDUINO_USD_CS* variable
-* Change log file prefix and suffix on *LOG_FILE_PREFIX* and *LOG_FILE_SUFFIX*
-* Remove or add columns to CSV datalog on *log_col_names*
-* Define GPS log rate time on *LOG_RATE* (milliseconds)
-* Define GPS TX/RX pins on *ARDUINO_GPS_RX* and *ARDUINO_GPS_TX*
 
 ## Electric setup
 The diagrams below show how to configure all the Feather Wings. Please read all instructions carefully. 
