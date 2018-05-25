@@ -48,17 +48,17 @@ On the Featherwing Doubler pins a 22K resistor should be attached between the AD
 ![Featherwing Doubler](https://imgur.com/6ZSRHUw.png)
 
 ### Adalogger Feather Wing
-The Adalogger Feather Wing requires no special configuration, solder on header pins to all pin locations.
+The Adalogger Feather Wing requires no special configuration, solder on Feather Stacking Headers to all pin locations.
 
 ![Adalogger](https://imgur.com/OMgErBR.png)
 
 ### OLED Display Feather Wing
-All pins on the OLED Feather Wing should have 2mm headers soldered on except for pin B.
+All pins on the OLED Feather Wing should have the 2mm Pitch Break-apart Male Headers soldered on except for pin B.
 
 ![OLED Screen](https://imgur.com/6AdT9cG.png)
 
 ### GPS Feather Wing
-The default TX and RX connections should be cut with a knife on the bottom of the GPS breakout feather wing. The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapped from the third NC pin from TX. All pins on the GPS logger should have header pins soldered onto them.
+The default TX and RX connections should be cut with a knife on the bottom of the GPS breakout Feather Wing. The TX pin should be mapped to the second NC from TX. The Fix Pin should be mapped from the third NC pin from TX. All pins on the GPS logger should have Feather Stacking Headers soldered onto them.
 
 ![GPS breakout](https://imgur.com/pvPheGV.png)
 
