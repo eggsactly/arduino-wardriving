@@ -32,9 +32,18 @@ union()
                 for(j = [-1, 1]){
                     translate(v = [i * (featherWingDoublerWidth/2 - screwHoleCenterFromEdge), j*(featherWingDoublerLength/2 - screwHoleCenterFromEdge) - batteryDiameter/2 - batteryMargin, plateHeight]) {
                         cylinder(h = solderHeight, r1 = riserBase, r2 = screwHoleCenterFromEdge, center = false, $fn = 360);
+                        // Featherboard support block
                         difference(){
-                            rotate([0, 0, rotateRoundCant(i, j)-135])cube([riserBase, riserBase, solderHeight + circularCantLen + featherBoardThickness]);
+                            // Feather board support
+                            rotate([0, 0, rotateRoundCant(i, j)-135])translate([-screwHoleCenterFromEdge, -screwHoleCenterFromEdge])cube([riserBase + screwHoleCenterFromEdge, riserBase + screwHoleCenterFromEdge, solderHeight + circularCantLen + featherBoardThickness]);
+                            // Circular Cutout
                             translate([0, 0, solderHeight])cylinder(h = solderHeight, r = screwHoleCenterFromEdge, center = false, $fn = 360);
+                            rotate([0, 0, rotateRoundCant(i, j)-135-180]){
+                                translate([0, 0, solderHeight])cube([screwHoleCenterFromEdge + 1, screwHoleCenterFromEdge + 1, solderHeight]);
+                                translate([-screwHoleCenterFromEdge, 0, solderHeight])cube([screwHoleCenterFromEdge + 1, screwHoleCenterFromEdge + 1, solderHeight]);
+                                translate([0, -screwHoleCenterFromEdge, solderHeight])cube([screwHoleCenterFromEdge + 1, screwHoleCenterFromEdge + 1, solderHeight]);
+                                translate([0, 0, 0])cube([screwHoleCenterFromEdge + 1, screwHoleCenterFromEdge + 1, solderHeight + 1]);
+                            }
                         }
                     }
                 }      
