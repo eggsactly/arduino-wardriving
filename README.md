@@ -18,6 +18,9 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * [$2.95](https://www.adafruit.com/product/2671) 2mm Pitch Break-apart Male Headers
 * [$0.75](https://www.adafruit.com/product/2785) 22k Ohm Resistor
 * [$0.75](https://www.adafruit.com/product/2787) 100k Ohm Resistor
+* [$5.50](https://www.amazon.com/Position-Panel-Switch-Solder-SS12F15G3/dp/B008DFYT0Q) SPDT 1P2T Panel Mini Slide Switch (optional)
+* [$7.99](https://www.amazon.com/gp/product/B073X3BJ4D/ref=oh_aui_detailpage_o05_s01?ie=UTF8&psc=1) JST 2.0 PH cables and connector (optional)
+* Access to a 3D Printer for the mount
 
 ## What does this do?
 * Checks for a working SD Card
