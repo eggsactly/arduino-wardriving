@@ -87,22 +87,38 @@ union()
         // Draw the hole for the battery mount
         difference()
         {
-            translate([-(batterySheathLength + 2 * fitMargin)/2, batteryPlateOffsetY + fitMargin, -0.5])cube([batterySheathLength + 2 * fitMargin, batteryPlankWidth - 2 * fitMargin, plateHeight + 1]);
-        
-            // Draw the battery connect block
-            translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY + (batteryPlankWidth - batteryBlockLength)/2 + fitMargin, 0])cube([batterySheathLength + 2*fitMargin, batteryBlockLength - 2*fitMargin, handle_cant_errosion_margin + handle_cant_slope_height + handle_cant_post_height]);
-        
-            // Draw the far cantilever fitting
-            translate([0, batteryBlockLength - fitMargin + (batteryPlankWidth - batteryBlockLength)/2, 0])      
-                rotate([0, 0, 0])translate([batterySheathLength/2 + fitMargin, batteryPlateOffsetY, handle_cant_errosion_margin + handle_cant_slope_height + fitMargin])
-                    rotate([0, -90, 0])
-                        cantilever(0, 2, handle_cant_post_height - 2 - 2 * fitMargin, handle_cant_overhang - fitMargin, 0, 0, batterySheathLength + 2 * fitMargin);
+            // 
+            union(){
+                // Draw the main block
+                translate([-(batterySheathLength + 2 * fitMargin)/2, batteryPlateOffsetY - 2*fitMargin, -0.5])cube([batterySheathLength + 2 * fitMargin, batteryPlankWidth + 2 * fitMargin, plateHeight + 1]);
+                //Draw the near triangle
+                translate([-(batterySheathLength + 2 * fitMargin)/2, batteryPlateOffsetY - 2*fitMargin, 0]){
+                    rotate([0, -90, 180])triangle(4, handle_cant_post_height + handle_cant_slope_height + handle_cant_errosion_margin, batterySheathLength + 2 * fitMargin);
+                    translate([0, -4, -0.5])cube([batterySheathLength + 2 * fitMargin, 4, 1]);
+                    translate([0, -0.5, -0.5])cube([batterySheathLength + 2 * fitMargin, 1, handle_cant_post_height + handle_cant_slope_height + handle_cant_errosion_margin]);
+                }
+                // Draw the far triangle
+                translate([(batterySheathLength + 2 * fitMargin)/2, batteryPlateOffsetY - 2*fitMargin + batteryPlankWidth + 2 * fitMargin, 0])rotate([0, 0, 180]){
+                    rotate([0, -90, 180])triangle(4, handle_cant_post_height + handle_cant_slope_height + handle_cant_errosion_margin, batterySheathLength + 2 * fitMargin);
+                    translate([0, -4, -0.5])cube([batterySheathLength + 2 * fitMargin, 4, 1]);
+                    translate([0, -0.5, -0.5])cube([batterySheathLength + 2 * fitMargin, 1, handle_cant_post_height + handle_cant_slope_height + handle_cant_errosion_margin]);
+                }
+            }
             
-            // Draw the near cantilever fitting
-            translate([0, fitMargin + (batteryPlankWidth - batteryBlockLength)/2, 0])      
-                rotate([0, 0, 0])translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY, handle_cant_errosion_margin + handle_cant_slope_height + fitMargin])
+            // Draw the battery connect block
+            translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY + (batteryPlankWidth - batteryBlockLength)/2 - fitMargin, 0])cube([batterySheathLength + 4*fitMargin, batteryBlockLength, handle_cant_errosion_margin + handle_cant_slope_height + handle_cant_post_height + fitMargin]);
+        
+            // Draw the far cantilever fitting for the batter mount
+            translate([0, batteryBlockLength + (batteryPlankWidth - batteryBlockLength)/2 - fitMargin, 0])      
+                rotate([0, 0, 0])translate([batterySheathLength/2 + fitMargin, batteryPlateOffsetY, handle_cant_errosion_margin + handle_cant_slope_height + 2*fitMargin])
+                    rotate([0, -90, 0])
+                        cantilever(0, 2, handle_cant_post_height - 2 - 2 * fitMargin, handle_cant_overhang, 0, 0, batterySheathLength + 2 * fitMargin);
+            
+            // Draw the near cantilever fitting for the battery mount
+            translate([0, (batteryPlankWidth - batteryBlockLength)/2 - fitMargin, 0])      
+                rotate([0, 0, 0])translate([-batterySheathLength/2 - fitMargin, batteryPlateOffsetY, handle_cant_errosion_margin + handle_cant_slope_height + 2*fitMargin])
                     rotate([0, -90, 180])
-                        cantilever(0, 2, handle_cant_post_height - 2 - 2 * fitMargin, handle_cant_overhang - fitMargin, 0, 0, batterySheathLength + 2 * fitMargin);
+                        cantilever(0, 2, handle_cant_post_height - 2 - 2 * fitMargin, handle_cant_overhang, 0, 0, batterySheathLength + 2 * fitMargin);
         }
         
         // Draw the little holes to put you fingers in
@@ -118,5 +134,5 @@ union()
             }
         } 
     }
-}
 
+}
