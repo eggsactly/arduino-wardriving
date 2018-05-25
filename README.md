@@ -19,8 +19,8 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * [$0.75](https://www.adafruit.com/product/2785) 22k Ohm Resistor
 * [$0.75](https://www.adafruit.com/product/2787) 100k Ohm Resistor
 * [$5.50](https://www.amazon.com/Position-Panel-Switch-Solder-SS12F15G3/dp/B008DFYT0Q) SPDT 1P2T Panel Mini Slide Switch (optional) for on-off switch
-* [$7.99](https://www.amazon.com/gp/product/B073X3BJ4D/ref=oh_aui_detailpage_o05_s01?ie=UTF8&psc=1) JST 2.0 PH cables and connector (optional) for on-off switch 
-* [$9.38](https://www.amazon.com/uxcell-M3x20mm-Socket-Knurled-Screws/dp/B015A30R1I/ref=sr_1_23?s=industrial&ie=UTF8&qid=1527269418&sr=1-23&keywords=m3+socket+head+cap+screw+20mm) two m3 20mm socket cap screws and nuts (optional) for attaching mount to a bike.
+* [$7.99](https://www.amazon.com/gp/product/B073X3BJ4D/) JST 2.0 PH cables and connector (optional) for on-off switch 
+* [$9.38](https://www.amazon.com/uxcell-M3x20mm-Socket-Knurled-Screws/dp/B015A30R1I) two m3 20mm socket cap screws and nuts (optional) for attaching mount to a bike.
 
 * Access to a 3D Printer for the mount
 
