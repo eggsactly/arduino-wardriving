@@ -21,7 +21,6 @@ Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/t
 * [$5.50](https://www.amazon.com/Position-Panel-Switch-Solder-SS12F15G3/dp/B008DFYT0Q) SPDT 1P2T Panel Mini Slide Switch (optional) for on-off switch
 * [$7.99](https://www.amazon.com/gp/product/B073X3BJ4D/) JST 2.0 PH cables and connector (optional) for on-off switch 
 * [$9.38](https://www.amazon.com/uxcell-M3x20mm-Socket-Knurled-Screws/dp/B015A30R1I) two m3 20mm socket cap screws and nuts (optional) for attaching mount to a bike.
-
 * Access to a 3D Printer for the mount
 
 ## What does this do?
@@ -77,4 +76,23 @@ The default TX and RX connections should be cut with a knife on the bottom of th
 ![GPS breakout](https://imgur.com/pvPheGV.png)
 
 The ESP8266 and GPS module should be stacked on the top portion and the Data Logger and LCD screen should be stacked on the bottom portion. 
+
+## Mount
+The mount source files are stored in the mount/ directory as .scad files. They can be converted to .stl files to be 3D printed by running make in the mount directory. OpenSCAD is required for the build process. The directory contains four design files. The mounts were designed to have cantilevers so they can snap together without screws. The exception being the connection between the handle bar mounts. 
+
+### Central Mount
+Mount for the feather Wing circuit card and has attachments for the battery adaptor and handle bar mount.
+![Central Mount](https://i.imgur.com/oB58eGO.png)
+
+### Battery Mount
+Mount to attach the battery to the Central Mount.
+![Battery Mount](https://i.imgur.com/FSqcVt1.png)
+
+### Handle Bar Mount Up
+Mount to attach the Central Mount to the Handle Bar Mount Low.
+![Handle Bar Mount Up](https://i.imgur.com/ZJGiRqP.png)
+
+### Handle Bar Mount Low
+Mount to attach to the Handle Bar Mount Up to clamp around bicylce handle bars. 
+![Handle Bar Mount Low](https://i.imgur.com/BWr86lf.png)
 
