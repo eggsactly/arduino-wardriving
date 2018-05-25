@@ -110,9 +110,9 @@ union()
             for(i = [(bikeMountHeight + 2 * fitMargin)/2, -(bikeMountHeight + 2 * fitMargin)/2])translate([0, i, plateHeight])sphere(r=fingerHoleRadius, $fn = 30);
            
          // Draw the repo text, lots of nasty hard coding here
-        translate([-plateWidth/2, batteryPlateOffsetY + batteryPlankWidth, plateHeight-textHeight+0.5])
+        translate([plateWidth/2, batteryPlateOffsetY, plateHeight-textHeight+0.5])
         {
-            difference(){
+            rotate([0, 0, 180])difference(){
                 translate([-2, -27, 0])cube([7, 27, textHeight]);
                 translate([0, 0, -0.5])rotate([0, 0, -90])linear_extrude(height=textHeight+1)text(text=repoURL, size = 4);
             }
