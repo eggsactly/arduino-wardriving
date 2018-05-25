@@ -16,11 +16,24 @@ Adafruit_FeatherOLED lcd = Adafruit_FeatherOLED();
 #define LOG_FILE_PREFIX "gpslog"
 #define MAX_LOG_FILES 100
 #define LOG_FILE_SUFFIX "csv" 
-char logFileName[13];
 #define LOG_COLUMN_COUNT 13
+
+char logFileName[13];
+
 const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit";
+
 char * log_col_names[LOG_COLUMN_COUNT] = {
-  "MAC" ,"SSID", "AuthMode", "FirstSeen", "Channel" ,"RSSI", "CurrentLatitude", "CurrentLongitude", "AltitudeMeters", "AccuracyMeters", "Type"
+  "MAC" ,
+  "SSID", 
+  "AuthMode", 
+  "FirstSeen", 
+  "Channel",
+  "RSSI", 
+  "CurrentLatitude", 
+  "CurrentLongitude", 
+  "AltitudeMeters", 
+  "AccuracyMeters", 
+  "Type"
 };
 
 
@@ -32,28 +45,33 @@ byte buttonALastSample;
 unsigned long long buttonCPressTime;
 byte buttonCLastSample;
 
-typedef enum  {
+typedef enum  
+{
   SLOW_RECORD = 0,
   MEDIUM_RECORD = 1,
   FAST_RECORD = 2
 } RecordingSpeedStates;
 
-typedef struct {
+typedef struct 
+{
   RecordingSpeedStates speedSetting;
   unsigned int timePeriod;
 } RecordingSpeedStruct;
 
-typedef enum {
+typedef enum 
+{
   PAUSED_RECORDING = 0,
   RECORDING = 1
 } RecordingStates;
 
-typedef enum {
+typedef enum 
+{
   NOT_IN_SETTINGS = 0,
   IN_SETTINGS_MENU = 1
 } SettingStates;
 
-typedef enum {
+typedef enum 
+{
   EXIT_SETTINGS = 0,
   SET_TIMEZONE = 1,
   SET_TIMEZONE_ACTIVE = 2
@@ -69,24 +87,34 @@ const RecordingSpeedStruct recordingSpeedRecord[] = {{SLOW_RECORD, 5000}, {MEDIU
 
 // Keeps track of the GPS unavailable time
 unsigned long long gpsUnavailableTime;
+
 // The number of time allowed between no gps input
 const unsigned long long gpsUnavailableCheckInterval = 1000;
+
 // Digital pin 16 is for detecting the GPS fix
 const int fixPin = 16;
+
 // Amount of time to sample the fix pin
 const unsigned long long fixSamplePeriod = 1000; // Milliseconds
+
 // The maximum amount of time allowed to pass over the sample period
 const unsigned long long fixSamplePeriodOverShoot = 500; // Milliseconds
+
 // Used to store the last time the fix pin was sampled
 unsigned long long fixSampleTime;
+
 // Indicates if there is a fix pin
 bool hasFix;
+
 // Stores samples of the record 
 byte fixRecordArray[4];
+
 // Holds current index of the record array
 byte fixRecordIndex;
+
 // fullSampleCycle indicates when fixRecordArray has been fully populated with values
 bool fullSampleCycle;
+
 // Indicates if the GPS is outputting values
 bool isGpsAvailable = true;
 
@@ -152,26 +180,31 @@ void cycleRecordingSpeed()
   }
 }
 
-void zeroOutFixRecordArray(){
-  for(fixRecordIndex = 0; fixRecordIndex < sizeof(fixRecordArray)/sizeof(byte); fixRecordIndex++){
+void zeroOutFixRecordArray()
+{
+  for(fixRecordIndex = 0; fixRecordIndex < sizeof(fixRecordArray)/sizeof(byte); fixRecordIndex++)
+  {
     fixRecordArray[fixRecordIndex] = 0;
   }
   fixRecordIndex = 0;
   fullSampleCycle = false;
 }
 
-byte updateFixRecordIndex(byte fixRecordVar){
+byte updateFixRecordIndex(byte fixRecordVar)
+{
   if(fixRecordVar + 1 >= sizeof(fixRecordArray)/sizeof(byte))
   {
     fullSampleCycle = true;
     return 0;
   }
-  else {
+  else 
+  {
     return fixRecordVar + 1;
   }
 }
 
-void checkFix(){
+void checkFix()
+{
   // Get and store current time
   unsigned long long currentTime = millis();
   //Serial.println(millis());
@@ -214,8 +247,8 @@ void checkFix(){
   }
 }
 
-void battery_level() {
- 
+void battery_level() 
+{
   // read the battery level from the ESP8266 analog in pin.
   // analog read level is 10 bit 0-1023 (0V-1V).
   // our 100k & 22K voltage divider takes the max
@@ -235,7 +268,8 @@ void battery_level() {
  
 }
 
-void setup() {
+void setup() 
+{
   recordingState = PAUSED_RECORDING;
   settingState = NOT_IN_SETTINGS;
   settingMenuState = EXIT_SETTINGS;
@@ -276,7 +310,8 @@ void setup() {
   SerialMonitor.println("Setting up SD card.");
   delay(200);
   lcd.clearDisplay();
-  if (!SD.begin()) {
+  if (!SD.begin()) 
+  {
     lcd.setCursor(0, 0);
     lcd.print("Error initializing SD card.");
     lcd.display();
@@ -286,7 +321,8 @@ void setup() {
   printHeader();
 }
 
-void loop() {
+void loop() 
+{
 //  while (gpsSerial.available() > 0)
 //    tinyGPS.encode(gpsSerial.read());
 
@@ -301,7 +337,8 @@ void loop() {
 
   // Scan Buttons
   // This if statement detects the button release of A
-  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0){
+  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
+  {
     // A quick press of button A means to start/stop recording or cycle through settings options
     if(millis() <= buttonAPressTime + longPressTime) 
     {
@@ -319,14 +356,16 @@ void loop() {
   }
 
   // If the A button has been pressed longer than longPressTime then go into settings
-  if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0){
+  if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0)
+  {
     settingState = IN_SETTINGS_MENU;
     settingMenuState = EXIT_SETTINGS;
     buttonAPressTime = millis();
   }
 
   // If button C was released
-  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0){
+  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
+  {
     cycleRecordingSpeed();
     cycleThroughSettings();
     // Reset recording time
@@ -351,15 +390,18 @@ void loop() {
   if (recordingState == PAUSED_RECORDING && 
     (lastLog + recordingSpeedRecord[recordingSpeed].timePeriod) <= millis()) 
     {
-    if (tinyGPS.location.isUpdated() && hasFix) {
-      if (logGPSData()) {
+    if (tinyGPS.location.isUpdated() && hasFix) 
+    {
+      if (logGPSData()) 
+      {
         SerialMonitor.print("GPS logged ");
         SerialMonitor.print(tinyGPS.location.lat(), 6);
         SerialMonitor.print(", ");
         SerialMonitor.println(tinyGPS.location.lng(), 6);
         SerialMonitor.print("Seen networks: ");
         SerialMonitor.println(countNetworks());
-        if (display == 1) {
+        if (display == 1) 
+        {
           lcd.clearDisplay();
           lcd.setCursor(0, 0);
           lcd.print("Lat: ");
@@ -369,7 +411,9 @@ void loop() {
           lcd.print(tinyGPS.location.lng(), 6);
           lcd.display();
           display = 0;
-        } else {
+        } 
+        else 
+        {
           lcd.clearDisplay();
           lcd.setCursor(0, 0);
           lcd.print("Seen: ");
@@ -380,11 +424,15 @@ void loop() {
           display = 1;
         }
         lastLog = millis();
-      } else {
+      } 
+      else 
+      {
         lcd.setCursor(0, 1);
         SerialMonitor.println("Failed to log new GPS data.");
       }
-    } else {
+    } 
+    else 
+    {
       if(hasFix == false)
       {
         lcd.clearDisplay();
@@ -409,42 +457,59 @@ void loop() {
   }
 
   // Get the GPS information
-  if(gpsSerial.available() == 0 && isGpsAvailable){
+  if(gpsSerial.available() == 0 && isGpsAvailable)
+  {
     gpsUnavailableTime = millis();
     isGpsAvailable = false;
   }
-  if(gpsSerial.available() > 0){
+  if(gpsSerial.available() > 0)
+  {
     isGpsAvailable = true;
   }
-  while (gpsSerial.available() > 0){
+  while (gpsSerial.available() > 0)
+  {
     tinyGPS.encode(gpsSerial.read());
   }
 
 }
-int countNetworks() {
+
+int countNetworks() 
+{
   File netFile = SD.open(logFileName);
   int networks = 0;
-  if(netFile) {
-    while(netFile.available()) {
+  if(netFile) 
+  {
+    while(netFile.available()) 
+    {
       netFile.readStringUntil('\n');
       networks++;
     }
     netFile.close();
-    if (networks == 0) {
+    if (networks == 0) 
+    {
       return networks;
-    } else {
-      return (networks-1); //Avoid header count
+    } 
+    else 
+    {
+      //Avoid header count
+      return (networks-1); 
     }
   }
 }
 
-byte logGPSData() {
+byte logGPSData() 
+{
   int n = WiFi.scanNetworks(); 
   if (n == 0) {
     SerialMonitor.println("no networks found");
-  } else {
-    for (uint8_t i = 1; i <= n; ++i) {
-      if ((WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) { //Avoid erroneous channels
+  } 
+  else 
+  {
+    for (uint8_t i = 1; i <= n; ++i) 
+    {
+      //Avoid erroneous channels
+      if ((WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) 
+      { 
         File logFile = SD.open(logFileName, FILE_WRITE);
         SerialMonitor.println("New network found");
         logFile.print(WiFi.BSSIDstr(i));
@@ -485,30 +550,42 @@ byte logGPSData() {
   }
 }
 
-void printHeader() {
+void printHeader() 
+{
   File logFile = SD.open(logFileName, FILE_WRITE);
-  if (logFile) {
+  if (logFile) 
+  {
     int i = 0;
     logFile.print(csvHeader);
-    for (; i < LOG_COLUMN_COUNT; i++) {
+    for (; i < LOG_COLUMN_COUNT; i++) 
+    {
       logFile.print(log_col_names[i]);
       if (i < LOG_COLUMN_COUNT - 1)
+      {
         logFile.print(',');
+      }
       else
+      {
         logFile.println();
+      }
     }
     logFile.close();
   }
 }
 
-void updateFileName() {
+void updateFileName() 
+{
   int i = 0;
-  for (; i < MAX_LOG_FILES; i++) {
+  for (; i < MAX_LOG_FILES; i++) 
+  {
     memset(logFileName, 0, strlen(logFileName));
     sprintf(logFileName, "%s%d.%s", LOG_FILE_PREFIX, i, LOG_FILE_SUFFIX);
-    if (!SD.exists(logFileName)) {
+    if (!SD.exists(logFileName)) 
+    {
       break;
-    } else {
+    } 
+    else 
+    {
       SerialMonitor.print(logFileName);
       SerialMonitor.println(" exists");
     }
@@ -517,9 +594,11 @@ void updateFileName() {
   SerialMonitor.println(logFileName);
 }
 
-String getEncryption(uint8_t network) {
+String getEncryption(uint8_t network) 
+{
   byte encryption = WiFi.encryptionType(network);
-  switch (encryption) {
+  switch (encryption) 
+  {
     case 2:
       return "[WPA-PSK-CCMP+TKIP][ESS]";
     case 5:
