@@ -12,7 +12,7 @@ fitMargin = 0.2;
 featherWingDoublerWidth = 2 * mmPerIn;
 featherWingDoublerLength = 1.85 * mmPerIn; 
 screwHoleCenterFromEdge = (0.1 * mmPerIn) + 0.2;
-echo (screwHoleCenterFromEdge);
+
 featherBoardThickness=1.5;
 featherHoleRadius=2.5/2;
 
