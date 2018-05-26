@@ -277,7 +277,7 @@ byte updateFixRecordIndex(byte fixRecordVar)
 }
 
 /**
- * checkFix() is indicates if the GPS has a fix and updates a global variable 
+ * checkFix() indicates if the GPS has a fix and updates a global variable 
  * hasFix to indicate to the rest of the program whether the GPS has a fix. 
  */
 void checkFix()
@@ -457,11 +457,26 @@ void loop()
     buttonAPressTime = millis();
   }
 
-  // Detect if button C on the OLED board was released.
+  // Detect if button A on the OLED board was released and it was not a
+  // slow press.
   if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
   {
-    cycleRecordingSpeed();
+    if(settingState != IN_SETTINGS_MENU)
+    {
+      cycleRecordingSpeed();
+    }
     cycleThroughSettings();
+    // Reset recording time
+    lastLog = millis();
+  }
+
+  // If button C was released
+  if (digitalRead(BUTTON_C) != buttonCLastSample && digitalRead(BUTTON_C) != 0)
+  {
+    if(settingState != IN_SETTINGS_MENU)
+    {
+      toggleRecordingState();
+    }
     // Reset recording time
     lastLog = millis();
   }
@@ -473,7 +488,7 @@ void loop()
     buttonAPressTime = millis();
   }
 
-  // Detect Button C transition to detext button state and time of change 
+  // Detect Button C transition to detect button state and time of change 
   if(digitalRead(BUTTON_C) != buttonCLastSample)
   {
     buttonCLastSample = digitalRead(BUTTON_C);
@@ -482,9 +497,9 @@ void loop()
 
   // Log GPS data if enough time has elapsed since the last sample and 
   // we have a GPS fix and updated GPS information
-  if (recordingState == PAUSED_RECORDING && 
+  if (recordingState == RECORDING && 
     (lastLog + recordingSpeedRecord[recordingSpeed].timePeriod) <= millis()) 
-    {
+  {
     if (tinyGPS.location.isUpdated() && hasFix) 
     {
       if (logGPSData()) 
