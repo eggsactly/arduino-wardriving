@@ -7,83 +7,136 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_FeatherOLED.h>
 
+// Added this pound define to get around compiler error
+// https://github.com/neu-rah/ArduinoMenu/issues/68 
+#define typeof(x) __typeof__(x)
+
 Adafruit_FeatherOLED lcd = Adafruit_FeatherOLED();
 
+// Define the pin locations of the OLED buttons
 #define BUTTON_A 0
 #define BUTTON_C 2
 
-#define ARDUINO_USD_CS 15 // Pin D8
+// Pin D8
+#define ARDUINO_USD_CS 15 
+
+// These three defines indicate the name of the log file 
 #define LOG_FILE_PREFIX "gpslog"
-#define MAX_LOG_FILES 100
+#define MAX_LOG_FILES 10000
 #define LOG_FILE_SUFFIX "csv" 
-#define LOG_COLUMN_COUNT 13
 
-char logFileName[13];
+// logFileName contains the name of the log file 
+char logFileName[15];
 
+// csvHeader contains the first line of text in the csv log file
 const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit";
 
-char * log_col_names[LOG_COLUMN_COUNT] = {
+// log_col_names contains the text of the first row of the log file
+const char * log_col_names[] = {
   "MAC" ,
-  "SSID", 
-  "AuthMode", 
-  "FirstSeen", 
+  "SSID",
+  "AuthMode",
+  "FirstSeen",
   "Channel",
-  "RSSI", 
-  "CurrentLatitude", 
-  "CurrentLongitude", 
-  "AltitudeMeters", 
-  "AccuracyMeters", 
+  "RSSI",
+  "CurrentLatitude",
+  "CurrentLongitude",
+  "AltitudeMeters",
+  "AccuracyMeters",
   "Type"
 };
 
+// longPressTime defines how many milliseconds the user must press a button on 
+// the OLED screen for it to be considered a long press 
+const uint64_t longPressTime = 2000;
 
-const unsigned long long longPressTime = 2000;
+// buttonAPressTime records when button A was pressed
+uint64_t buttonAPressTime;
 
-unsigned long long buttonAPressTime;
+// buttonALastSample indicates the state button A was put in when it last 
+// transitioned state
 byte buttonALastSample;
 
-unsigned long long buttonCPressTime;
+// buttonCPressTime records when button C was pressed
+uint64_t buttonCPressTime;
+
+// buttonCLastSample indicates the state button C was put in when it last 
+// transitioned state
 byte buttonCLastSample;
 
+// RecordingSpeedStates indicates the heuristic for recording speed 
 typedef enum  
 {
   SLOW_RECORD = 0,
   MEDIUM_RECORD = 1,
-  FAST_RECORD = 2
+  FAST_RECORD = 2,
+  RECORDING_SPEED_STATES_COUNT
 } RecordingSpeedStates;
 
-typedef struct 
-{
-  RecordingSpeedStates speedSetting;
-  unsigned int timePeriod;
-} RecordingSpeedStruct;
-
+// RecordingStates indicates whether the arduino should be recording or not
 typedef enum 
 {
   PAUSED_RECORDING = 0,
-  RECORDING = 1
+  RECORDING = 1,
+
+  // RECORDING_STATES_COUNT should always be last 
+  RECORDING_STATES_COUNT
 } RecordingStates;
 
+// SettingStates enum indicates whether the OLED display should show the user is
+// in a menu option 
 typedef enum 
 {
   NOT_IN_SETTINGS = 0,
-  IN_SETTINGS_MENU = 1
+  IN_SETTINGS_MENU = 1,
+
+  // SETTING_STATES_COUNT should always be last
+  SETTING_STATES_COUNT 
 } SettingStates;
 
+// SettingMenuOptions enum indicates what the menu option the user is in
 typedef enum 
 {
   EXIT_SETTINGS = 0,
   SET_TIMEZONE = 1,
-  SET_TIMEZONE_ACTIVE = 2
+  SET_TIMEZONE_ACTIVE = 2,
+
+  // SETTING_MENU_OPTIONS_COUNT should always be last
+  SETTING_MENU_OPTIONS_COUNT 
 } SettingMenuOptions;
 
+// RecordingSpeedStruct holds associations between the speed settings and 
+// the time periods between recording of the speed 
+typedef struct 
+{
+  // speedSetting is an enum representing the heuristic speed setting
+  RecordingSpeedStates speedSetting;
+  // timePeriod indicates the number of milliseconds for what the heuristic 
+  // actually means 
+  unsigned int timePeriod;
+} RecordingSpeedStruct;
+
+// recordingState keeps track of whether the arduino is recording or not
 RecordingStates      recordingState;
+
+// settingState keeps track of whether the settings menu should be displayed or
+// not.
 SettingStates        settingState;
+
+// settingMenuState indicates what setting menu the user is in if they are in
+// the setting menu indicated by settingState.
 SettingMenuOptions   settingMenuState;
+
+// recordingSpeed indicates the current index of the recordingSpeedRecord array
 RecordingSpeedStates recordingSpeed;
 
-// This array of struct contains a record of the association between speed setting and time period between records
-const RecordingSpeedStruct recordingSpeedRecord[] = {{SLOW_RECORD, 5000}, {MEDIUM_RECORD, 3000}, {FAST_RECORD, 2000}};
+// This array of struct contains a record of the associations between speed 
+// setting and time period between records
+const RecordingSpeedStruct recordingSpeedRecord[] = {
+  {SLOW_RECORD,   5000}, 
+  {MEDIUM_RECORD, 3000}, 
+  {FAST_RECORD,   2000}
+};
 
 // Keeps track of the GPS unavailable time
 unsigned long long gpsUnavailableTime;
@@ -118,7 +171,8 @@ bool fullSampleCycle;
 // Indicates if the GPS is outputting values
 bool isGpsAvailable = true;
 
-unsigned long lastLog = 0;
+// lastLog indicates the time in milliseconds of the last file log
+uint64_t lastLog = 0;
 
 unsigned long long batteryCheck;
 // Update battery level every 15 seconds
@@ -127,11 +181,16 @@ const unsigned long long batteryCheckPeriod = 15000;
 TinyGPSPlus tinyGPS;
 #define GPS_BAUD 9600 // GPS module's default baud rate
 
-int display = 1;
+// Display indicates whether the lat/long or Wifi info should be printed on the
+// OLED screen.
+byte display = 1;
 
 #define SerialMonitor Serial
 #define gpsSerial Serial
 
+/**
+ * toggleRecordingState() transitions the enum recordingState to the next state.
+ */
 void toggleRecordingState()
 {
   switch(recordingState)
@@ -147,6 +206,10 @@ void toggleRecordingState()
   }
 }
 
+/**
+ * cycleThroughSettings() transitions the enum settingMenuState to the next 
+ * state.
+ */
 void cycleThroughSettings()
 {
   switch(settingMenuState)
@@ -162,6 +225,9 @@ void cycleThroughSettings()
   }
 }
 
+/**
+ * cycleRecordingSpeed() transitions the enum recordingSpeed to the next state.
+ */
 void cycleRecordingSpeed()
 {
   switch(recordingSpeed)
@@ -180,6 +246,9 @@ void cycleRecordingSpeed()
   }
 }
 
+/**
+ * zeroOutFixRecordArray() is used by checkFix() to zero out the fixRecordArray.
+ */
 void zeroOutFixRecordArray()
 {
   for(fixRecordIndex = 0; fixRecordIndex < sizeof(fixRecordArray)/sizeof(byte); fixRecordIndex++)
@@ -190,6 +259,10 @@ void zeroOutFixRecordArray()
   fullSampleCycle = false;
 }
 
+/**
+ * updateFixRecordIndex() is used by checkFix() as a function that updates the 
+ * fixRecordVar counter.
+ */
 byte updateFixRecordIndex(byte fixRecordVar)
 {
   if(fixRecordVar + 1 >= sizeof(fixRecordArray)/sizeof(byte))
@@ -203,6 +276,10 @@ byte updateFixRecordIndex(byte fixRecordVar)
   }
 }
 
+/**
+ * checkFix() is indicates if the GPS has a fix and updates a global variable 
+ * hasFix to indicate to the rest of the program whether the GPS has a fix. 
+ */
 void checkFix()
 {
   // Get and store current time
@@ -247,6 +324,9 @@ void checkFix()
   }
 }
 
+/**
+ * battery_level() updates the OLED screens battery level indicator 
+ */
 void battery_level() 
 {
   // read the battery level from the ESP8266 analog in pin.
@@ -268,6 +348,9 @@ void battery_level()
  
 }
 
+/**
+ * setup() is called at the beginning of the program, it is a reserved function.
+ */
 void setup() 
 {
   recordingState = PAUSED_RECORDING;
@@ -321,14 +404,22 @@ void setup()
   printHeader();
 }
 
+/** loop gets called in an infinite loop
+ * loop() is a reserved function that is called in an infinite loop and is 
+ * called after setup(). loop() is the center of the program and corridinates 
+ * all the interaction between hardware
+ */
 void loop() 
 {
 //  while (gpsSerial.available() > 0)
 //    tinyGPS.encode(gpsSerial.read());
 
+  // Call checkFix() to see if the 1pps is only giving a pulse ever second, 
+  // this tells us that we have GPS lock with the global variable hasFix.
   checkFix();
 
-  // Only update the battery every 15 Seconds
+  // This if statement checks to see when 15 seconds have elapsed to update the 
+  // battery level indicator.
   if(millis() - batteryCheck > batteryCheckPeriod) 
   {
     battery_level();
@@ -336,10 +427,11 @@ void loop()
   }
 
   // Scan Buttons
-  // This if statement detects the button release of A
+  // This if statement detects the button release of button A on the OLED board
   if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
   {
-    // A quick press of button A means to start/stop recording or cycle through settings options
+    // A quick press of button A means to start/stop recording or cycle through 
+    // settings options
     if(millis() <= buttonAPressTime + longPressTime) 
     {
       // Toggle recording on/off
@@ -355,7 +447,9 @@ void loop()
     }
   }
 
-  // If the A button has been pressed longer than longPressTime then go into settings
+  // If the A button on the OLED board has been pressed longer than 
+  // longPressTime then we have a long press condition, so we should go into 
+  // the settings menu.
   if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0)
   {
     settingState = IN_SETTINGS_MENU;
@@ -363,7 +457,7 @@ void loop()
     buttonAPressTime = millis();
   }
 
-  // If button C was released
+  // Detect if button C on the OLED board was released.
   if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
   {
     cycleRecordingSpeed();
@@ -372,21 +466,22 @@ void loop()
     lastLog = millis();
   }
 
-  // Detect Button A transition
+  // Detect Button A transition to detect button state and time of change
   if(digitalRead(BUTTON_A) != buttonALastSample)
   {
     buttonALastSample = digitalRead(BUTTON_A);
     buttonAPressTime = millis();
   }
 
-  // Detect Button C transition
+  // Detect Button C transition to detext button state and time of change 
   if(digitalRead(BUTTON_C) != buttonCLastSample)
   {
     buttonCLastSample = digitalRead(BUTTON_C);
     buttonCPressTime = millis();
   }
 
-  // Log GPS data
+  // Log GPS data if enough time has elapsed since the last sample and 
+  // we have a GPS fix and updated GPS information
   if (recordingState == PAUSED_RECORDING && 
     (lastLog + recordingSpeedRecord[recordingSpeed].timePeriod) <= millis()) 
     {
@@ -394,12 +489,16 @@ void loop()
     {
       if (logGPSData()) 
       {
+        uint8_t networkCount = countNetworks();
+
         SerialMonitor.print("GPS logged ");
         SerialMonitor.print(tinyGPS.location.lat(), 6);
         SerialMonitor.print(", ");
         SerialMonitor.println(tinyGPS.location.lng(), 6);
         SerialMonitor.print("Seen networks: ");
-        SerialMonitor.println(countNetworks());
+        SerialMonitor.println(networkCount);
+
+        // Alternate displaying current lat, long and number of networks seen
         if (display == 1) 
         {
           lcd.clearDisplay();
@@ -417,7 +516,7 @@ void loop()
           lcd.clearDisplay();
           lcd.setCursor(0, 0);
           lcd.print("Seen: ");
-          lcd.print(countNetworks());
+          lcd.print(networkCount);
           lcd.setCursor(0, 1);
           lcd.print("networks");
           lcd.display();
@@ -473,10 +572,13 @@ void loop()
 
 }
 
-int countNetworks() 
+/**
+ * countNetworks() returns the number of networks found.
+ */
+uint8_t countNetworks() 
 {
   File netFile = SD.open(logFileName);
-  int networks = 0;
+  uint8_t networks = 0;
   if(netFile) 
   {
     while(netFile.available()) 
@@ -497,10 +599,14 @@ int countNetworks()
   }
 }
 
+/**
+ * logGPSData() is called by loop() to write update sampled gps and wifi data.
+ */
 byte logGPSData() 
 {
   int n = WiFi.scanNetworks(); 
-  if (n == 0) {
+  if (n == 0) 
+  {
     SerialMonitor.println("no networks found");
   } 
   else 
@@ -550,6 +656,10 @@ byte logGPSData()
   }
 }
 
+/**
+ * printHeader() is used in setup() to print the first line of the .csv output
+ * log file.
+ */
 void printHeader() 
 {
   File logFile = SD.open(logFileName, FILE_WRITE);
@@ -557,10 +667,10 @@ void printHeader()
   {
     int i = 0;
     logFile.print(csvHeader);
-    for (; i < LOG_COLUMN_COUNT; i++) 
+    for (; i < sizeof(log_col_names)/sizeof(typeof(log_col_names)); i++) 
     {
       logFile.print(log_col_names[i]);
-      if (i < LOG_COLUMN_COUNT - 1)
+      if (i < sizeof(log_col_names)/sizeof(typeof(log_col_names)) - 1)
       {
         logFile.print(',');
       }
@@ -573,13 +683,17 @@ void printHeader()
   }
 }
 
+/**
+ * updateFileName() tries to find a unique name to name the log file. 
+ * Used in setup().
+ */
 void updateFileName() 
 {
-  int i = 0;
+  uint16_t i = 0;
   for (; i < MAX_LOG_FILES; i++) 
   {
     memset(logFileName, 0, strlen(logFileName));
-    sprintf(logFileName, "%s%d.%s", LOG_FILE_PREFIX, i, LOG_FILE_SUFFIX);
+    sprintf(logFileName, "%s%04d.%s", LOG_FILE_PREFIX, i, LOG_FILE_SUFFIX);
     if (!SD.exists(logFileName)) 
     {
       break;
@@ -594,6 +708,10 @@ void updateFileName()
   SerialMonitor.println(logFileName);
 }
 
+/**
+ * Given the network type ID getEncryption returns a string for the network type
+ * for printouts to the logfile.
+ */
 String getEncryption(uint8_t network) 
 {
   byte encryption = WiFi.encryptionType(network);
@@ -611,3 +729,4 @@ String getEncryption(uint8_t network)
       return "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]";
   }
 }
+
