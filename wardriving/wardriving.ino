@@ -70,6 +70,8 @@ typedef enum
   SLOW_RECORD = 0,
   MEDIUM_RECORD = 1,
   FAST_RECORD = 2,
+
+  // RECORDING_SPEED_STATES_COUNT should always be last
   RECORDING_SPEED_STATES_COUNT
 } RecordingSpeedStates;
 
@@ -105,17 +107,6 @@ typedef enum
   SETTING_MENU_OPTIONS_COUNT 
 } SettingMenuOptions;
 
-// RecordingSpeedStruct holds associations between the speed settings and 
-// the time periods between recording of the speed 
-typedef struct 
-{
-  // speedSetting is an enum representing the heuristic speed setting
-  RecordingSpeedStates speedSetting;
-  // timePeriod indicates the number of milliseconds for what the heuristic 
-  // actually means 
-  unsigned int timePeriod;
-} RecordingSpeedStruct;
-
 // recordingState keeps track of whether the arduino is recording or not
 RecordingStates      recordingState;
 
@@ -132,10 +123,10 @@ RecordingSpeedStates recordingSpeed;
 
 // This array of struct contains a record of the associations between speed 
 // setting and time period between records
-const RecordingSpeedStruct recordingSpeedRecord[] = {
-  {SLOW_RECORD,   5000}, 
-  {MEDIUM_RECORD, 3000}, 
-  {FAST_RECORD,   2000}
+const uint16_t recordingSpeedRecord[RECORDING_SPEED_STATES_COUNT] = {
+  5000, // SLOW_RECORD
+  3000, // MEDIUM_RECORD
+  2000, // FAST_RECORD
 };
 
 // Keeps track of the GPS unavailable time
@@ -498,7 +489,7 @@ void loop()
   // Log GPS data if enough time has elapsed since the last sample and 
   // we have a GPS fix and updated GPS information
   if (recordingState == RECORDING && 
-    (lastLog + recordingSpeedRecord[recordingSpeed].timePeriod) <= millis()) 
+    (lastLog + recordingSpeedRecord[recordingSpeed]) <= millis()) 
   {
     if (tinyGPS.location.isUpdated() && hasFix) 
     {
