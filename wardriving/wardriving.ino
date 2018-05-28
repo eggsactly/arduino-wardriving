@@ -430,8 +430,8 @@ void loop()
       {
         toggleRecordingState();
       }
-      // Cycle to next setting option
-      else
+      // Cycle to next settings option if we're not setting the time zone and we're in the settings menu
+      else if(settingMenuState == SET_TIMEZONE || settingMenuState == EXIT_SETTINGS)
       {
         cycleThroughSettings();
       }
@@ -448,28 +448,25 @@ void loop()
     buttonAPressTime = millis();
   }
 
-  // Detect if button A on the OLED board was released and it was not a
-  // slow press.
-  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
+  // If button C was released cycle the recording speed if we're not in settings
+  // and if we are in settings use it to select the option and if we're 
+  if (digitalRead(BUTTON_C) != buttonCLastSample && digitalRead(BUTTON_C) != 0)
   {
-    if(settingState != IN_SETTINGS_MENU)
+    if(settingState == NOT_IN_SETTINGS)
     {
       cycleRecordingSpeed();
     }
-    cycleThroughSettings();
-    // Reset recording time
-    lastLog = millis();
-  }
-
-  // If button C was released
-  if (digitalRead(BUTTON_C) != buttonCLastSample && digitalRead(BUTTON_C) != 0)
-  {
-    if(settingState != IN_SETTINGS_MENU)
+    else 
     {
-      toggleRecordingState();
+      if(settingMenuState == EXIT_SETTINGS)
+      {
+        settingState == NOT_IN_SETTINGS;
+      }
+      else if(settingMenuState == SET_TIMEZONE)
+      {
+        settingState = SET_TIMEZONE_ACTIVE
+      }
     }
-    // Reset recording time
-    lastLog = millis();
   }
 
   // Detect Button A transition to detect button state and time of change
