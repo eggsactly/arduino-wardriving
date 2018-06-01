@@ -117,7 +117,7 @@ difference()
     translate([plateWidth/2 + 7, -22, plateHeight-textHeight+0.5])
     {
         rotate([0, 0, 180]){
-            translate([0, 0, -0.5])rotate([0, 0, -90])linear_extrude(height=textHeight+1)text(text=repoURL, size = 4);
+            translate([0, 0, -0.5])rotate([0, 0, -90])linear_extrude(height=textHeight+1)text(text=repoURL, size = 4.5);
         }
     } 
 }
