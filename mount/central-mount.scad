@@ -1,6 +1,5 @@
 include <libparameters.scad>;
 use <libcantilever.scad>;
-use <libRoundCantilever.scad>;
 use <libtriangles.scad>;
 
 function rotateRoundCant(i, j) = (i == -1) ? (j == -1) ? 315 : 225 : (j == -1) ? 45 : 135;
@@ -42,17 +41,7 @@ difference()
                 }
             }      
         }
-        // Draw the circular cantilevers for the featherwing
-        for (i = [-1, 1])
-        {
-            for(j = [-1, 1])
-            {
-                translate(v = [i * (featherWingDoublerWidth/2 - screwHoleCenterFromEdge), j* (featherWingDoublerLength/2 - screwHoleCenterFromEdge) - batteryDiameter/2 - batteryMargin, plateHeight + solderHeight]) 
-                {
-                    rotate([0, 0, rotateRoundCant(i, j)])circularCantilever(featherBoardThickness, featherHoleRadius, circularCantLipRad, circularCantLen);
-                }
-            }  
-        } 
+         
     
         // Draw the switch support
         translate([0, plateOffsetY + 6*fitMargin, plateHeight]) {
