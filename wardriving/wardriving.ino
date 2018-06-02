@@ -85,27 +85,18 @@ typedef enum
   RECORDING_STATES_COUNT
 } RecordingStates;
 
-// SettingStates enum indicates whether the OLED display should show the user is
-// in a menu option 
-typedef enum 
+
+// New setting state to replace SettingStates and SettingMenuOptions
+typedef enum
 {
-  NOT_IN_SETTINGS = 0,
-  IN_SETTINGS_MENU = 1,
+  MAIN_MENU,
+  EXIT_SETTINGS,
+  SET_TIMEZONE,
+  DISPLAY_TIMEZONE,
 
   // SETTING_STATES_COUNT should always be last
   SETTING_STATES_COUNT 
 } SettingStates;
-
-// SettingMenuOptions enum indicates what the menu option the user is in
-typedef enum 
-{
-  EXIT_SETTINGS = 0,
-  SET_TIMEZONE = 1,
-  SET_TIMEZONE_ACTIVE = 2,
-
-  // SETTING_MENU_OPTIONS_COUNT should always be last
-  SETTING_MENU_OPTIONS_COUNT 
-} SettingMenuOptions;
 
 // recordingState keeps track of whether the arduino is recording or not
 RecordingStates      recordingState;
@@ -113,10 +104,6 @@ RecordingStates      recordingState;
 // settingState keeps track of whether the settings menu should be displayed or
 // not.
 SettingStates        settingState;
-
-// settingMenuState indicates what setting menu the user is in if they are in
-// the setting menu indicated by settingState.
-SettingMenuOptions   settingMenuState;
 
 // recordingSpeed indicates the current index of the recordingSpeedRecord array
 RecordingSpeedStates recordingSpeed;
@@ -198,25 +185,6 @@ void toggleRecordingState()
 }
 
 /**
- * cycleThroughSettings() transitions the enum settingMenuState to the next 
- * state.
- */
-void cycleThroughSettings()
-{
-  switch(settingMenuState)
-  {
-    case EXIT_SETTINGS:
-      settingMenuState = SET_TIMEZONE;
-      break;
-    case SET_TIMEZONE:
-      settingMenuState = EXIT_SETTINGS;
-      break;
-    default:
-      settingMenuState = EXIT_SETTINGS;
-  }
-}
-
-/**
  * cycleRecordingSpeed() transitions the enum recordingSpeed to the next state.
  */
 void cycleRecordingSpeed()
@@ -234,6 +202,73 @@ void cycleRecordingSpeed()
       break;
     default:
       recordingSpeed = SLOW_RECORD;
+  }
+}
+
+/** 
+ * handleSettingStates determines the value of settingState
+ * @param a indicates if button a is released
+ * @param b indicates if button b is released
+ * @param longA indicates  if button A was pressed for a long time
+ * @param longB indicates if button B was pressed for a long time 
+ */
+void handleSettingStates(bool a, bool c, bool longA, bool longC)
+{
+  switch(settingState)
+  {
+    case MAIN_MENU:
+      if(longA)
+      {
+        settingState = EXIT_SETTINGS;
+      }
+      else
+      {
+        settingState = MAIN_MENU;
+      }
+      break;
+    case EXIT_SETTINGS:
+      if(a)
+      {
+        settingState = SET_TIMEZONE;
+      }
+      else if(c)
+      {
+        settingState = MAIN_MENU;
+      }
+      else
+      {
+        settingState = EXIT_SETTINGS;
+      }
+      break;
+    // When the user selects this option they will be allowed to set the time zone
+    case SET_TIMEZONE:
+      if(a)
+      {
+        settingState = EXIT_SETTINGS;
+      }
+      else if(c)
+      {
+        settingState = DISPLAY_TIMEZONE;
+      }
+      else
+      {
+        settingState = SET_TIMEZONE;
+      }
+      break;
+    // DISPLAY_TIMEZONE lets the user select which timezone to use
+    case DISPLAY_TIMEZONE:
+      if(a)
+      {
+        settingState = SET_TIMEZONE;
+      }
+      else
+      {
+        settingState = DISPLAY_TIMEZONE;
+      }
+      break;
+    // Unknown state, default back to the main menu
+    default:
+      settingState = MAIN_MENU;
   }
 }
 
@@ -345,8 +380,7 @@ void battery_level()
 void setup() 
 {
   recordingState = PAUSED_RECORDING;
-  settingState = NOT_IN_SETTINGS;
-  settingMenuState = EXIT_SETTINGS;
+  settingState = MAIN_MENU;
   recordingSpeed = SLOW_RECORD;
   buttonALastSample = 1;
   buttonCLastSample = 1;
@@ -405,6 +439,10 @@ void loop()
 //  while (gpsSerial.available() > 0)
 //    tinyGPS.encode(gpsSerial.read());
 
+  bool aRelease = false;
+  bool cRelease = false;
+  bool aLongPress = false;
+
   // Call checkFix() to see if the 1pps is only giving a pulse ever second, 
   // this tells us that we have GPS lock with the global variable hasFix.
   checkFix();
@@ -421,20 +459,16 @@ void loop()
   // This if statement detects the button release of button A on the OLED board
   if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
   {
-    // A quick press of button A means to start/stop recording or cycle through 
+    // A quick release of button A means to start/stop recording or cycle through 
     // settings options
     if(millis() <= buttonAPressTime + longPressTime) 
     {
       // Toggle recording on/off
-      if(settingState == NOT_IN_SETTINGS)
+      if(settingState == MAIN_MENU)
       {
         toggleRecordingState();
       }
-      // Cycle to next settings option if we're not setting the time zone and we're in the settings menu
-      else if(settingMenuState == SET_TIMEZONE || settingMenuState == EXIT_SETTINGS)
-      {
-        cycleThroughSettings();
-      }
+      aRelease = true;
     }
   }
 
@@ -443,30 +477,19 @@ void loop()
   // the settings menu.
   if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0)
   {
-    settingState = IN_SETTINGS_MENU;
-    settingMenuState = EXIT_SETTINGS;
     buttonAPressTime = millis();
+    aLongPress = true;
   }
 
   // If button C was released cycle the recording speed if we're not in settings
   // and if we are in settings use it to select the option and if we're 
   if (digitalRead(BUTTON_C) != buttonCLastSample && digitalRead(BUTTON_C) != 0)
   {
-    if(settingState == NOT_IN_SETTINGS)
+    if(settingState == MAIN_MENU)
     {
       cycleRecordingSpeed();
     }
-    else 
-    {
-      if(settingMenuState == EXIT_SETTINGS)
-      {
-        settingState == NOT_IN_SETTINGS;
-      }
-      else if(settingMenuState == SET_TIMEZONE)
-      {
-        settingState = SET_TIMEZONE_ACTIVE
-      }
-    }
+    cRelease = true;
   }
 
   // Detect Button A transition to detect button state and time of change
@@ -482,6 +505,9 @@ void loop()
     buttonCLastSample = digitalRead(BUTTON_C);
     buttonCPressTime = millis();
   }
+
+  // Change the setting state based on the user input from the buttons
+  handleSettingStates(aRelease, cRelease, aLongPress, false);
 
   // Log GPS data if enough time has elapsed since the last sample and 
   // we have a GPS fix and updated GPS information
