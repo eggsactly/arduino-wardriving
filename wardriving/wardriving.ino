@@ -6,6 +6,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_FeatherOLED.h>
+#include "RTClib.h"
+
 
 // Added this pound define to get around compiler error
 // https://github.com/neu-rah/ArduinoMenu/issues/68 
@@ -21,12 +23,13 @@ Adafruit_FeatherOLED lcd = Adafruit_FeatherOLED();
 #define ARDUINO_USD_CS 15 
 
 // These three defines indicate the name of the log file 
-#define LOG_FILE_PREFIX "gpslog"
-#define MAX_LOG_FILES 10000
-#define LOG_FILE_SUFFIX "csv" 
+const char LOG_FILE_PREFIX[] = "gpslog";
+const uint16_t MAX_LOG_FILES = 10000;
+const char LOG_FILE_SUFFIX[] = "csv";
 
-// logFileName contains the name of the log file 
-char logFileName[15];
+// logFileName contains the name of the log file
+// which will be in the format gpslog-YYYY-MM-DD-XXXX.csv
+char logFileName[32];
 
 // csvHeader contains the first line of text in the csv log file
 const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit";
@@ -156,6 +159,7 @@ unsigned long long batteryCheck;
 // Update battery level every 15 seconds
 const unsigned long long batteryCheckPeriod = 15000;
 
+// Create the gps connection 
 TinyGPSPlus tinyGPS;
 #define GPS_BAUD 9600 // GPS module's default baud rate
 
@@ -165,6 +169,9 @@ byte display = 1;
 
 #define SerialMonitor Serial
 #define gpsSerial Serial
+
+// Create the realtime clock
+RTC_PCF8523 rtc;
 
 /**
  * toggleRecordingState() transitions the enum recordingState to the next state.
@@ -409,9 +416,31 @@ void setup()
   lcd.setCursor(0, 0);
   batteryCheck = millis();
 
+  uint16_t year = 0;
+  uint8_t month = 0;
+  uint8_t day = 0;
+
   // Set up the input buttons, we don't use B because it conflicts with the fix line for GPS
   pinMode(BUTTON_A, INPUT_PULLUP);
   pinMode(BUTTON_C, INPUT_PULLUP);
+
+  // Set up Real Time Clock
+  if (! rtc.begin()) {
+    SerialMonitor.println("Couldn't find RTC");
+  }
+
+  if (rtc.initialized()) {
+    DateTime now = rtc.now();
+    year = now.year();
+    month = now.month();
+    day = now.day();
+  }
+  else
+  {
+    year = 0;
+    month = 0;
+    day = 0;
+  }
   
   lcd.print("Setting up SD card.");
   lcd.display();
@@ -425,7 +454,8 @@ void setup()
     lcd.display();
     SerialMonitor.println("Error initializing SD card.");
   }
-  updateFileName();
+  
+  updateFileName(year, month, day);
   printHeader();
 }
 
@@ -443,7 +473,7 @@ void loop()
   bool cRelease = false;
   bool aLongPress = false;
 
-  // Call checkFix() to see if the 1pps is only giving a pulse ever second, 
+  // Call checkFix() to see if the 1pps is only giving a pulse every second, 
   // this tells us that we have GPS lock with the global variable hasFix.
   checkFix();
 
@@ -715,14 +745,17 @@ void printHeader()
 /**
  * updateFileName() tries to find a unique name to name the log file. 
  * Used in setup().
+ * @param year the current year
+ * @param month the current month
+ * @param day the current day
  */
-void updateFileName() 
+void updateFileName(uint16_t year, uint8_t month, uint8_t day) 
 {
   uint16_t i = 0;
   for (; i < MAX_LOG_FILES; i++) 
   {
     memset(logFileName, 0, strlen(logFileName));
-    sprintf(logFileName, "%s%04d.%s", LOG_FILE_PREFIX, i, LOG_FILE_SUFFIX);
+    sprintf(logFileName, "%s-%04u-%02u-%02u-%04d.%s", LOG_FILE_PREFIX, year, month, day, i, LOG_FILE_SUFFIX);
     if (!SD.exists(logFileName)) 
     {
       break;
