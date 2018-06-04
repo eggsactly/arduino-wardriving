@@ -638,7 +638,14 @@ void loop()
   // Update the time on the RTC if it hasn't been updated since we turned on
   if(isGpsAvailable && hasFix && updatedDate == false)
   {
-    rtc.adjust(DateTime(tinyGPS.date.year(), tinyGPS.date.month(), tinyGPS.date.day(), tinyGPS.time.hour(), tinyGPS.time.minute(), tinyGPS.time.second()));
+    rtc.adjust(DateTime(
+      tinyGPS.date.year(), 
+      tinyGPS.date.month(), 
+      tinyGPS.date.day(), 
+      tinyGPS.time.hour(), 
+      tinyGPS.time.minute(), 
+      tinyGPS.time.second())
+    );
     updatedDate = true;
   }
 }
