@@ -155,6 +155,9 @@ bool isGpsAvailable = true;
 // lastLog indicates the time in milliseconds of the last file log
 uint64_t lastLog = 0;
 
+// Indicates if the GPS has updated the RTC time
+bool updatedDate;
+
 unsigned long long batteryCheck;
 // Update battery level every 15 seconds
 const unsigned long long batteryCheckPeriod = 15000;
@@ -404,6 +407,7 @@ void setup()
   fixSampleTime = millis();
   gpsUnavailableTime = millis();
   isGpsAvailable = false;
+  updatedDate = false;
   
   // initialize with the I2C addr 0x3C (for the 128x32 display)
   lcd.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
@@ -591,6 +595,7 @@ void loop()
     } 
     else 
     {
+      // If we don't have gps data and we don't have a fix
       if(hasFix == false)
       {
         lcd.clearDisplay();
@@ -598,6 +603,7 @@ void loop()
         lcd.print("Acquiring GPS fix");
         lcd.display();
       }
+      // If we don't have gps data and we do have a fix
       else
       {
         lcd.clearDisplay();
@@ -629,6 +635,12 @@ void loop()
     tinyGPS.encode(gpsSerial.read());
   }
 
+  // Update the time on the RTC if it hasn't been updated since we turned on
+  if(isGpsAvailable && hasFix && updatedDate == false)
+  {
+    rtc.adjust(DateTime(tinyGPS.date.year(), tinyGPS.date.month(), tinyGPS.date.day(), tinyGPS.time.hour(), tinyGPS.time.minute(), tinyGPS.time.second()));
+    updatedDate = true;
+  }
 }
 
 /**
@@ -661,7 +673,7 @@ uint8_t countNetworks()
 /**
  * logGPSData() is called by loop() to write update sampled gps and wifi data.
  */
-byte logGPSData() 
+bool logGPSData() 
 {
   int n = WiFi.scanNetworks(); 
   if (n == 0) 
@@ -713,6 +725,7 @@ byte logGPSData()
       }
     }
   }
+  return true;
 }
 
 /**
