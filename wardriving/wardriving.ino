@@ -169,7 +169,9 @@ uint64_t batteryCheck;
 const uint64_t batteryCheckPeriod = 15000;
 
 // Update rate of the LCD, 
-const uint64_t lcdRefresh = 2000;
+const uint64_t lcdRefreshRate = 2000;
+
+uint64_t lcdLastUpdate;
 
 // Create the gps connection 
 TinyGPSPlus tinyGPS;
@@ -177,6 +179,9 @@ TinyGPSPlus tinyGPS;
 // Display indicates whether the lat/long or Wifi info should be printed on the
 // OLED screen.
 byte display = 1;
+
+// Number of wifi networks observed
+int n;
 
 // Create the realtime clock
 RTC_PCF8523 rtc;
@@ -413,6 +418,8 @@ void setup()
   gpsUnavailableTime = millis();
   isGpsAvailable = false;
   updatedDate = false;
+
+  lcdLastUpdate = millis();
   
   // initialize with the I2C addr 0x3C (for the 128x32 display)
   lcd.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
@@ -424,6 +431,7 @@ void setup()
   lcd.display();
   lcd.setCursor(0, 0);
   batteryCheck = millis();
+  n = 0;
 
   uint16_t year = 0;
   uint8_t month = 0;
@@ -566,30 +574,6 @@ void loop()
         SerialMonitor.print("Seen networks: ");
         SerialMonitor.println(networkCount);
 
-        // Alternate displaying current lat, long and number of networks seen
-        if (display == 1) 
-        {
-          lcd.clearDisplay();
-          lcd.setCursor(0, 0);
-          lcd.print("Lat: ");
-          lcd.print(tinyGPS.location.lat(), 6);
-          lcd.setCursor(0, 1);
-          lcd.print("Lon: ");
-          lcd.print(tinyGPS.location.lng(), 6);
-          lcd.display();
-          display = 0;
-        } 
-        else 
-        {
-          lcd.clearDisplay();
-          lcd.setCursor(0, 0);
-          lcd.print("Seen: ");
-          lcd.print(networkCount);
-          lcd.setCursor(0, 1);
-          lcd.print("networks");
-          lcd.display();
-          display = 1;
-        }
         lastLog = millis();
       } 
       else 
@@ -598,31 +582,6 @@ void loop()
         SerialMonitor.println("Failed to log new GPS data.");
       }
     } 
-    else 
-    {
-      // If we don't have gps data and we don't have a fix
-      if(hasFix == false)
-      {
-        lcd.clearDisplay();
-        lcd.setCursor(0, 0);
-        lcd.print("Acquiring GPS fix");
-        lcd.display();
-      }
-      // If we don't have gps data and we do have a fix
-      else
-      {
-        lcd.clearDisplay();
-        lcd.setCursor(0, 0);
-        lcd.print("No GPS data");
-        lcd.setCursor(0, 1);
-        lcd.print("Sats: ");
-        lcd.print(tinyGPS.satellites.value());
-        lcd.display();
-        SerialMonitor.print("No GPS data. Sats: ");
-        SerialMonitor.println(tinyGPS.satellites.value());
-      }
-      delay(100);
-    }
   }
 
   // Get the GPS information
@@ -638,6 +597,49 @@ void loop()
   while (gpsSerial.available() > 0)
   {
     tinyGPS.encode(gpsSerial.read());
+  }
+
+  // Update the screen
+  if(millis() - lcdLastUpdate >= lcdRefreshRate)
+  {
+    lcdLastUpdate = millis();
+
+    lcd.clearDisplay();
+    lcd.setCursor(0, 0);
+
+    // Print the first line
+    if(hasFix == false)
+    {
+      lcd.println("Acquiring GPS fix"); 
+    }
+    else if (!tinyGPS.location.isUpdated())
+    {
+      lcd.println("Updating GPS data"); 
+    }
+    else if(recordingState == PAUSED_RECORDING)
+    {
+      lcd.println("Recording Paused"); 
+    }
+    else
+    {
+      lcd.print("Scanning, period ");
+      lcd.print(recordingSpeedRecord[recordingSpeed]);
+      lcd.println(" ms");
+    }
+
+    // Print the second line
+    lcd.print("Wifi Observed: ");
+    lcd.println(n);
+
+    // Print the third line
+    lcd.print("lat: ");
+    lcd.print(tinyGPS.location.lat(), 6);
+    lcd.print(" lon: ");
+    lcd.print(tinyGPS.location.lng(), 6);
+
+    lcd.display();
+
+    n = 0;
   }
 
   // Update the time on the RTC if it hasn't been updated since we turned on
@@ -688,7 +690,7 @@ uint8_t countNetworks()
  */
 bool logGPSData() 
 {
-  int n = WiFi.scanNetworks(); 
+  n = WiFi.scanNetworks(); 
   if (n == 0) 
   {
     SerialMonitor.println("no networks found");
