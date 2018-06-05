@@ -20,7 +20,47 @@ Adafruit_FeatherOLED lcd = Adafruit_FeatherOLED();
 #define BUTTON_C 2
 
 // Pin D8
-#define ARDUINO_USD_CS 15 
+#define ARDUINO_USD_CS 15
+
+#define SerialMonitor Serial
+#define gpsSerial Serial
+
+#define GPS_BAUD 9600 // GPS module's default baud rate
+
+// RecordingSpeedStates indicates the heuristic for recording speed 
+typedef enum  
+{
+  SLOW_RECORD = 0,
+  MEDIUM_RECORD = 1,
+  FAST_RECORD = 2,
+
+  // RECORDING_SPEED_STATES_COUNT should always be last
+  RECORDING_SPEED_STATES_COUNT
+} RecordingSpeedStates;
+
+// RecordingStates indicates whether the arduino should be recording or not
+typedef enum 
+{
+  PAUSED_RECORDING = 0,
+  RECORDING = 1,
+
+  // RECORDING_STATES_COUNT should always be last 
+  RECORDING_STATES_COUNT
+} RecordingStates;
+
+
+// New setting state to replace SettingStates and SettingMenuOptions
+typedef enum
+{
+  MAIN_MENU,
+  EXIT_SETTINGS,
+  SET_TIMEZONE,
+  DISPLAY_TIMEZONE,
+
+  // SETTING_STATES_COUNT should always be last
+  SETTING_STATES_COUNT 
+} SettingStates;
+
 
 // These three defines indicate the name of the log file 
 const char LOG_FILE_PREFIX[] = "gpslog";
@@ -66,40 +106,6 @@ uint64_t buttonCPressTime;
 // buttonCLastSample indicates the state button C was put in when it last 
 // transitioned state
 byte buttonCLastSample;
-
-// RecordingSpeedStates indicates the heuristic for recording speed 
-typedef enum  
-{
-  SLOW_RECORD = 0,
-  MEDIUM_RECORD = 1,
-  FAST_RECORD = 2,
-
-  // RECORDING_SPEED_STATES_COUNT should always be last
-  RECORDING_SPEED_STATES_COUNT
-} RecordingSpeedStates;
-
-// RecordingStates indicates whether the arduino should be recording or not
-typedef enum 
-{
-  PAUSED_RECORDING = 0,
-  RECORDING = 1,
-
-  // RECORDING_STATES_COUNT should always be last 
-  RECORDING_STATES_COUNT
-} RecordingStates;
-
-
-// New setting state to replace SettingStates and SettingMenuOptions
-typedef enum
-{
-  MAIN_MENU,
-  EXIT_SETTINGS,
-  SET_TIMEZONE,
-  DISPLAY_TIMEZONE,
-
-  // SETTING_STATES_COUNT should always be last
-  SETTING_STATES_COUNT 
-} SettingStates;
 
 // recordingState keeps track of whether the arduino is recording or not
 RecordingStates      recordingState;
@@ -167,14 +173,10 @@ const uint64_t lcdRefresh = 2000;
 
 // Create the gps connection 
 TinyGPSPlus tinyGPS;
-#define GPS_BAUD 9600 // GPS module's default baud rate
 
 // Display indicates whether the lat/long or Wifi info should be printed on the
 // OLED screen.
 byte display = 1;
-
-#define SerialMonitor Serial
-#define gpsSerial Serial
 
 // Create the realtime clock
 RTC_PCF8523 rtc;
