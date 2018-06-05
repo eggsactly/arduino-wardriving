@@ -120,22 +120,22 @@ const uint16_t recordingSpeedRecord[RECORDING_SPEED_STATES_COUNT] = {
 };
 
 // Keeps track of the GPS unavailable time
-unsigned long long gpsUnavailableTime;
+uint64_t gpsUnavailableTime;
 
 // The number of time allowed between no gps input
-const unsigned long long gpsUnavailableCheckInterval = 1000;
+const uint64_t gpsUnavailableCheckInterval = 1000;
 
 // Digital pin 16 is for detecting the GPS fix
 const int fixPin = 16;
 
 // Amount of time to sample the fix pin
-const unsigned long long fixSamplePeriod = 1000; // Milliseconds
+const uint64_t fixSamplePeriod = 1000; // Milliseconds
 
 // The maximum amount of time allowed to pass over the sample period
-const unsigned long long fixSamplePeriodOverShoot = 500; // Milliseconds
+const uint64_t fixSamplePeriodOverShoot = 500; // Milliseconds
 
 // Used to store the last time the fix pin was sampled
-unsigned long long fixSampleTime;
+uint64_t fixSampleTime;
 
 // Indicates if there is a fix pin
 bool hasFix;
@@ -158,9 +158,12 @@ uint64_t lastLog = 0;
 // Indicates if the GPS has updated the RTC time
 bool updatedDate;
 
-unsigned long long batteryCheck;
+uint64_t batteryCheck;
 // Update battery level every 15 seconds
-const unsigned long long batteryCheckPeriod = 15000;
+const uint64_t batteryCheckPeriod = 15000;
+
+// Update rate of the LCD, 
+const uint64_t lcdRefresh = 2000;
 
 // Create the gps connection 
 TinyGPSPlus tinyGPS;
@@ -477,7 +480,7 @@ void loop()
   bool cRelease = false;
   bool aLongPress = false;
 
-  // Call checkFix() to see if the 1pps is only giving a pulse every second, 
+  // Call checkFix() to see if the gps lock is only giving a pulse every 15 seconds, 
   // this tells us that we have GPS lock with the global variable hasFix.
   checkFix();
 
@@ -646,6 +649,7 @@ void loop()
       tinyGPS.time.minute(), 
       tinyGPS.time.second())
     );
+    // Make sure that the date doesn't get updated during the run of the program
     updatedDate = true;
   }
 }
