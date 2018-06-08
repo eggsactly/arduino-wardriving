@@ -459,7 +459,7 @@ void setup()
     month = 0;
     day = 0;
   }
-  
+  lcd.println(" ");
   lcd.print("Setting up SD card.");
   lcd.display();
   SerialMonitor.println("Setting up SD card.");
@@ -612,7 +612,13 @@ void loop()
     lcdLastUpdate = millis();
 
     lcd.clearDisplay();
+
+    lcd.setBattery(level);
+    lcd.renderBattery();
+    
     lcd.setCursor(0, 0);
+
+    lcd.println(" ");
 
     // Print the first line
     if (!hasSdCard)
@@ -633,7 +639,7 @@ void loop()
     }
     else
     {
-      lcd.print("Scanning, period ");
+      lcd.print("Scan, period ");
       lcd.print(recordingSpeedRecord[recordingSpeed]);
       lcd.println(" ms");
     }
@@ -656,13 +662,11 @@ void loop()
     }
     else
     {
-      lcd.print("lat: ");
-      lcd.print(tinyGPS.location.lat(), 6);
-      lcd.print(" lon: ");
-      lcd.print(tinyGPS.location.lng(), 6);
+      lcd.print("pos: ");
+      lcd.print(tinyGPS.location.lat(), 2);
+      lcd.print(", ");
+      lcd.print(tinyGPS.location.lng(), 2);
     }
-    lcd.setBattery(level);
-    lcd.renderBattery();
     
     lcd.display();
 
