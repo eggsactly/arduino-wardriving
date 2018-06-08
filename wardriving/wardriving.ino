@@ -669,8 +669,6 @@ void loop()
     }
     
     lcd.display();
-
-    n = 0;
   }
 
   // Update the time on the RTC if it hasn't been updated since we turned on
