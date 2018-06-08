@@ -171,7 +171,11 @@ const uint64_t batteryCheckPeriod = 15000;
 // Update rate of the LCD, 
 const uint64_t lcdRefreshRate = 2000;
 
+// Time LCD screen was last updated
 uint64_t lcdLastUpdate;
+
+// Indicates if the SD card has been found
+bool hasSdCard;
 
 // Create the gps connection 
 TinyGPSPlus tinyGPS;
@@ -464,11 +468,9 @@ void setup()
   SerialMonitor.println("Setting up SD card.");
   delay(200);
   lcd.clearDisplay();
-  if (!SD.begin()) 
+  hasSdCard = SD.begin();
+  if (!hasSdCard) 
   {
-    lcd.setCursor(0, 0);
-    lcd.print("Error initializing SD card.");
-    lcd.display();
     SerialMonitor.println("Error initializing SD card.");
   }
   
@@ -608,7 +610,11 @@ void loop()
     lcd.setCursor(0, 0);
 
     // Print the first line
-    if(hasFix == false)
+    if (!hasSdCard)
+    {
+      lcd.println("Could not find SD Card");
+    }
+    else if(hasFix == false)
     {
       lcd.println("Acquiring GPS fix"); 
     }
@@ -626,17 +632,30 @@ void loop()
       lcd.print(recordingSpeedRecord[recordingSpeed]);
       lcd.println(" ms");
     }
-
+    
     // Print the second line
-    lcd.print("Wifi Observed: ");
-    lcd.println(n);
+    if (!hasSdCard)
+    {
+      lcd.println("Make sure SD card is in");
+    }
+    else
+    {
+      lcd.print("Wifi Observed: ");
+      lcd.println(n);
+    }
 
     // Print the third line
-    lcd.print("lat: ");
-    lcd.print(tinyGPS.location.lat(), 6);
-    lcd.print(" lon: ");
-    lcd.print(tinyGPS.location.lng(), 6);
-
+    if (!hasSdCard)
+    {
+      lcd.println("Then press Reset");
+    }
+    else
+    {
+      lcd.print("lat: ");
+      lcd.print(tinyGPS.location.lat(), 6);
+      lcd.print(" lon: ");
+      lcd.print(tinyGPS.location.lng(), 6);
+    }
     lcd.display();
 
     n = 0;
