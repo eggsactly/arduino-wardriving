@@ -187,6 +187,9 @@ byte display = 1;
 // Number of wifi networks observed
 int n;
 
+// Battery Level
+int level;
+
 // Create the realtime clock
 RTC_PCF8523 rtc;
 
@@ -385,17 +388,11 @@ void battery_level()
   // lipo value of 4.2V and drops it to 0.758V max.
   // this means our min analog read value should be 580 (3.14V)
   // and the max analog read value should be 774 (4.2V).
-  int level = analogRead(A0);
+  level = analogRead(A0);
   float vbat;
   // convert battery level to percent
   vbat = map(level, 580, 774, 3.4f, 4.26f);
-  level = map(level, 580, 774, 0, 100);
-
-  lcd.clearDisplay();
-  lcd.setBattery(level);
-  lcd.renderBattery();
-  lcd.display();
- 
+  level = map(level, 580, 774, 0, 100); 
 }
 
 /**
@@ -473,9 +470,17 @@ void setup()
   {
     SerialMonitor.println("Error initializing SD card.");
   }
+
+  // Get the battery level
+  battery_level(); 
   
   updateFileName(year, month, day);
-  printHeader();
+
+  // Print the file header 
+  if(hasSdCard)
+  {
+    printHeader();
+  }
 }
 
 /** loop gets called in an infinite loop
@@ -656,6 +661,9 @@ void loop()
       lcd.print(" lon: ");
       lcd.print(tinyGPS.location.lng(), 6);
     }
+    lcd.setBattery(level);
+    lcd.renderBattery();
+    
     lcd.display();
 
     n = 0;
