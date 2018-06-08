@@ -612,7 +612,7 @@ void loop()
     // Print the first line
     if (!hasSdCard)
     {
-      lcd.println("Could not find SD Card");
+      lcd.println("Couldn't find SD Card");
     }
     else if(hasFix == false)
     {
@@ -636,7 +636,7 @@ void loop()
     // Print the second line
     if (!hasSdCard)
     {
-      lcd.println("Make sure SD card is in");
+      lcd.println("Check SD card");
     }
     else
     {
