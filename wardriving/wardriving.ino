@@ -660,13 +660,17 @@ void loop()
     {
       lcd.println("Acquiring GPS fix"); 
     }
-    else if (!tinyGPS.location.isUpdated())
+    else if (!tinyGPS.location.isUpdated() && !buttonPressed)
     {
       lcd.println("Waiting for GPS data"); 
     }
     else if(recordingState == PAUSED_RECORDING)
     {
       lcd.println("Recording Paused"); 
+    }
+    else if (!tinyGPS.location.isUpdated() && buttonPressed)
+    {
+      lcd.println("Waiting for GPS data"); 
     }
     else
     {
