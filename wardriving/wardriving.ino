@@ -190,6 +190,9 @@ int n;
 // Battery Level
 int level;
 
+// Indicates that the file was created
+bool fileExists;
+
 // Create the realtime clock
 RTC_PCF8523 rtc;
 
@@ -420,8 +423,10 @@ void setup()
   isGpsAvailable = false;
   updatedDate = false;
 
-  lcdLastUpdate = millis();
-  
+  // Get the battery level
+  battery_level();
+  batteryCheck = millis();
+
   // initialize with the I2C addr 0x3C (for the 128x32 display)
   lcd.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
   lcd.init();
@@ -431,7 +436,9 @@ void setup()
   lcd.clearMsgArea();
   lcd.display();
   lcd.setCursor(0, 0);
-  batteryCheck = millis();
+  lcdLastUpdate = millis();
+
+  // Set the number of observed wifis to zero
   n = 0;
 
   uint16_t year = 0;
@@ -465,21 +472,46 @@ void setup()
   SerialMonitor.println("Setting up SD card.");
   delay(200);
   lcd.clearDisplay();
+  
   hasSdCard = SD.begin();
   if (!hasSdCard) 
   {
     SerialMonitor.println("Error initializing SD card.");
   }
-
-  // Get the battery level
-  battery_level(); 
   
   updateFileName(year, month, day);
 
   // Print the file header 
   if(hasSdCard)
   {
-    printHeader();
+    // Check to see if the file exists
+    if(SD.exists(logFileName))
+    {
+      // If it exists, do nothing
+    }
+    else
+    {
+      // If it doesn't exist, create the file and print the header
+      File myFile = SD.open(logFileName, FILE_WRITE);
+      myFile.close();
+
+      if(SD.exists(logFileName))
+      {
+        SerialMonitor.print("Created file ");
+        SerialMonitor.println(logFileName);
+        fileExists = true;
+        printHeader();
+      }
+      else
+      {
+        SerialMonitor.print("Could not create file ");
+        SerialMonitor.println(logFileName);
+        fileExists = false;
+      }
+      
+      
+    }
+    
   }
 }
 
@@ -570,24 +602,7 @@ void loop()
   {
     if (tinyGPS.location.isUpdated() && hasFix) 
     {
-      if (logGPSData()) 
-      {
-        uint8_t networkCount = countNetworks();
-
-        SerialMonitor.print("GPS logged ");
-        SerialMonitor.print(tinyGPS.location.lat(), 6);
-        SerialMonitor.print(", ");
-        SerialMonitor.println(tinyGPS.location.lng(), 6);
-        SerialMonitor.print("Seen networks: ");
-        SerialMonitor.println(networkCount);
-
-        lastLog = millis();
-      } 
-      else 
-      {
-        lcd.setCursor(0, 1);
-        SerialMonitor.println("Failed to log new GPS data.");
-      }
+      logGPSData();
     } 
   }
 
@@ -624,6 +639,10 @@ void loop()
     if (!hasSdCard)
     {
       lcd.println("Couldn't find SD Card");
+    }
+    else if (!fileExists)
+    {
+      lcd.println("Can't create log file");
     }
     else if(hasFix == false)
     {
@@ -682,6 +701,15 @@ void loop()
       tinyGPS.time.minute(), 
       tinyGPS.time.second())
     );
+
+    SerialMonitor.print("Setting time to: ");
+    SerialMonitor.print(tinyGPS.date.year());
+    SerialMonitor.print(tinyGPS.date.month()); 
+    SerialMonitor.print(tinyGPS.date.day());
+    SerialMonitor.print(tinyGPS.time.hour());
+    SerialMonitor.print(tinyGPS.time.minute());
+    SerialMonitor.println(tinyGPS.time.second());
+    
     // Make sure that the date doesn't get updated during the run of the program
     updatedDate = true;
   }
@@ -726,47 +754,53 @@ bool logGPSData()
   } 
   else 
   {
-    for (uint8_t i = 1; i <= n; ++i) 
+    File logFile = SD.open(logFileName, FILE_WRITE);
+    if(logFile)
     {
-      //Avoid erroneous channels
-      if ((WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) 
-      { 
-        File logFile = SD.open(logFileName, FILE_WRITE);
-        SerialMonitor.println("New network found");
-        logFile.print(WiFi.BSSIDstr(i));
-        logFile.print(',');
-        logFile.print(WiFi.SSID(i));
-        logFile.print(',');
-        logFile.print(getEncryption(i));
-        logFile.print(',');
-        logFile.print(tinyGPS.date.year());
-        logFile.print('-');
-        logFile.print(tinyGPS.date.month());
-        logFile.print('-');
-        logFile.print(tinyGPS.date.day());
-        logFile.print(' ');
-        logFile.print(tinyGPS.time.hour());
-        logFile.print(':');
-        logFile.print(tinyGPS.time.minute());
-        logFile.print(':');
-        logFile.print(tinyGPS.time.second());
-        logFile.print(',');
-        logFile.print(WiFi.channel(i));
-        logFile.print(',');
-        logFile.print(WiFi.RSSI(i));
-        logFile.print(',');
-        logFile.print(tinyGPS.location.lat(), 6);
-        logFile.print(',');
-        logFile.print(tinyGPS.location.lng(), 6);
-        logFile.print(',');
-        logFile.print(tinyGPS.altitude.meters(), 1);
-        logFile.print(',');
-        logFile.println(max(tinyGPS.hdop.value(), 1));
-        logFile.print(',');
-        logFile.print("WIFI");
-        logFile.println();
-        logFile.close();
+      for (uint8_t i = 1; i <= n; ++i) 
+      {
+        //Avoid erroneous channels
+        if ((WiFi.channel(i) > 0) && (WiFi.channel(i) < 15)) 
+        { 
+          logFile.print(WiFi.BSSIDstr(i));
+          logFile.print(',');
+          logFile.print(WiFi.SSID(i));
+          logFile.print(',');
+          logFile.print(getEncryption(i));
+          logFile.print(',');
+          logFile.print(tinyGPS.date.year());
+          logFile.print('-');
+          logFile.print(tinyGPS.date.month());
+          logFile.print('-');
+          logFile.print(tinyGPS.date.day());
+          logFile.print(' ');
+          logFile.print(tinyGPS.time.hour());
+          logFile.print(':');
+          logFile.print(tinyGPS.time.minute());
+          logFile.print(':');
+          logFile.print(tinyGPS.time.second());
+          logFile.print(',');
+          logFile.print(WiFi.channel(i));
+          logFile.print(',');
+          logFile.print(WiFi.RSSI(i));
+          logFile.print(',');
+          logFile.print(tinyGPS.location.lat(), 6);
+          logFile.print(',');
+          logFile.print(tinyGPS.location.lng(), 6);
+          logFile.print(',');
+          logFile.print(tinyGPS.altitude.meters(), 1);
+          logFile.print(',');
+          logFile.println(max(tinyGPS.hdop.value(), 1));
+          logFile.print(',');
+          logFile.print("WIFI");
+          logFile.println();
+        }
       }
+      logFile.close();
+    }
+    else
+    {
+      return false;
     }
   }
   return true;
@@ -776,7 +810,7 @@ bool logGPSData()
  * printHeader() is used in setup() to print the first line of the .csv output
  * log file.
  */
-void printHeader() 
+bool printHeader() 
 {
   File logFile = SD.open(logFileName, FILE_WRITE);
   if (logFile) 
@@ -796,6 +830,11 @@ void printHeader()
       }
     }
     logFile.close();
+    return true;
+  }
+  else
+  {
+    return false;
   }
 }
 
