@@ -529,6 +529,7 @@ void loop()
   bool aRelease = false;
   bool cRelease = false;
   bool aLongPress = false;
+  bool buttonPressed = false;
 
   // Call checkFix() to see if the gps lock is only giving a pulse every 15 seconds, 
   // this tells us that we have GPS lock with the global variable hasFix.
@@ -556,6 +557,7 @@ void loop()
         toggleRecordingState();
       }
       aRelease = true;
+      buttonPressed = true;
     }
   }
 
@@ -566,6 +568,7 @@ void loop()
   {
     buttonAPressTime = millis();
     aLongPress = true;
+    buttonPressed = true;
   }
 
   // If button C was released cycle the recording speed if we're not in settings
@@ -577,6 +580,7 @@ void loop()
       cycleRecordingSpeed();
     }
     cRelease = true;
+    buttonPressed = true;
   }
 
   // Detect Button A transition to detect button state and time of change
@@ -625,7 +629,8 @@ void loop()
   }
 
   // Update the screen
-  if(millis() - lcdLastUpdate >= lcdRefreshRate)
+  if((millis() - lcdLastUpdate >= lcdRefreshRate)
+    || buttonPressed)
   {
     lcdLastUpdate = millis();
 
@@ -657,7 +662,7 @@ void loop()
     }
     else if (!tinyGPS.location.isUpdated())
     {
-      lcd.println("Updating GPS data"); 
+      lcd.println("Waiting for GPS data"); 
     }
     else if(recordingState == PAUSED_RECORDING)
     {
