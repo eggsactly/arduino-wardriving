@@ -62,9 +62,8 @@ typedef enum
 } SettingStates;
 
 
-// These three defines indicate the name of the log file 
-const char LOG_FILE_PREFIX[] = "gpslog";
-const uint16_t MAX_LOG_FILES = 10000;
+// Define log file parameters
+const uint16_t MAX_LOG_FILES = 100;
 const char LOG_FILE_SUFFIX[] = "csv";
 
 // logFileName contains the name of the log file
@@ -192,6 +191,9 @@ int level;
 
 // Indicates that the file was created
 bool fileExists;
+
+// Indicates if the max number of log files was created for the day
+bool maxLogFilesReached;
 
 // Create the realtime clock
 RTC_PCF8523 rtc;
@@ -478,7 +480,7 @@ void setup()
   {
     SerialMonitor.println("Error initializing SD card.");
   }
-  
+
   updateFileName(year, month, day);
 
   // Print the file header 
@@ -508,7 +510,6 @@ void setup()
         SerialMonitor.println(logFileName);
         fileExists = false;
       }
-      
       
     }
     
@@ -595,6 +596,7 @@ void loop()
   // Change the setting state based on the user input from the buttons
   handleSettingStates(aRelease, cRelease, aLongPress, false);
 
+  
   // Log GPS data if enough time has elapsed since the last sample and 
   // we have a GPS fix and updated GPS information
   if (recordingState == RECORDING && 
@@ -605,7 +607,8 @@ void loop()
       logGPSData();
     } 
   }
-
+  
+  
   // Get the GPS information
   if(gpsSerial.available() == 0 && isGpsAvailable)
   {
@@ -639,6 +642,10 @@ void loop()
     if (!hasSdCard)
     {
       lcd.println("Couldn't find SD Card");
+    }
+    else if (maxLogFilesReached)
+    {
+      lcd.println("Log quota passed 2day");
     }
     else if (!fileExists)
     {
@@ -790,7 +797,7 @@ bool logGPSData()
           logFile.print(',');
           logFile.print(tinyGPS.altitude.meters(), 1);
           logFile.print(',');
-          logFile.println(max(tinyGPS.hdop.value(), 1));
+          logFile.print(max(tinyGPS.hdop.value(), 1));
           logFile.print(',');
           logFile.print("WIFI");
           logFile.println();
@@ -851,7 +858,7 @@ void updateFileName(uint16_t year, uint8_t month, uint8_t day)
   for (; i < MAX_LOG_FILES; i++) 
   {
     memset(logFileName, 0, strlen(logFileName));
-    sprintf(logFileName, "%s-%04u-%02u-%02u-%04d.%s", LOG_FILE_PREFIX, year, month, day, i, LOG_FILE_SUFFIX);
+    sprintf(logFileName, "%02u%02u%02u%02u.%s", (year % 100), month, day, i, LOG_FILE_SUFFIX);
     if (!SD.exists(logFileName)) 
     {
       break;
@@ -862,6 +869,16 @@ void updateFileName(uint16_t year, uint8_t month, uint8_t day)
       SerialMonitor.println(" exists");
     }
   }
+
+  if(i == MAX_LOG_FILES)
+  {
+    maxLogFilesReached = true;
+  }
+  else
+  {
+    maxLogFilesReached = false;
+  }
+  
   SerialMonitor.print("File name: ");
   SerialMonitor.println(logFileName);
 }
