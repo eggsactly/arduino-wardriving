@@ -911,6 +911,8 @@ String getEncryption(uint8_t network)
       return "[ESS]";
     case 8:
       return "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]";
+    default:
+      return "UNKNOWN: " + encryption;
   }
 }
 
