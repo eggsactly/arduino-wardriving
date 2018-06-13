@@ -7,7 +7,7 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_FeatherOLED.h>
 #include "RTClib.h"
-
+#include "user_interface.h"
 
 // Added this pound define to get around compiler error
 // https://github.com/neu-rah/ArduinoMenu/issues/68 
@@ -198,6 +198,12 @@ bool maxLogFilesReached;
 // Create the realtime clock
 RTC_PCF8523 rtc;
 
+// Create the CPU interrupt
+os_timer_t myTimer;
+
+// Holds the period, in milliseconds, to 
+const uint16_t buttonCheckPeriodMs = 100;
+
 /**
  * toggleRecordingState() transitions the enum recordingState to the next state.
  */
@@ -215,6 +221,15 @@ void toggleRecordingState()
       recordingState = PAUSED_RECORDING;
   }
 }
+
+/**
+ * Interrupt handler for timer
+ */
+void timerCallback(void *pArg) {
+
+      // TODO: Button stuff
+
+} // End of timerCallback
 
 /**
  * cycleRecordingSpeed() transitions the enum recordingSpeed to the next state.
@@ -468,6 +483,13 @@ void setup()
     month = 0;
     day = 0;
   }
+
+  // Set up the os timer
+  os_timer_setfn(&myTimer, timerCallback, NULL);
+
+  // Set the timerCallback to get called every 100ms
+  os_timer_arm(&myTimer, buttonCheckPeriodMs, true);
+  
   lcd.println(" ");
   lcd.print("Setting up SD card.");
   lcd.display();
