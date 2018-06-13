@@ -195,6 +195,12 @@ bool fileExists;
 // Indicates if the max number of log files was created for the day
 bool maxLogFilesReached;
 
+// These bools indicate when buttons are pressed
+bool aRelease;
+bool cRelease;
+bool aLongPress;
+bool buttonPressed;
+
 // Create the realtime clock
 RTC_PCF8523 rtc;
 
@@ -227,7 +233,59 @@ void toggleRecordingState()
  */
 void timerCallback(void *pArg) {
 
-      // TODO: Button stuff
+  // Scan Buttons
+  // This if statement detects the button release of button A on the OLED board
+  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
+  {
+    // A quick release of button A means to start/stop recording or cycle through 
+    // settings options
+    if(millis() <= buttonAPressTime + longPressTime) 
+    {
+      // Toggle recording on/off
+      if(settingState == MAIN_MENU)
+      {
+        toggleRecordingState();
+      }
+      aRelease = true;
+      buttonPressed = true;
+    }
+  }
+
+  // If the A button on the OLED board has been pressed longer than 
+  // longPressTime then we have a long press condition, so we should go into 
+  // the settings menu.
+  if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0)
+  {
+    buttonAPressTime = millis();
+    aLongPress = true;
+    buttonPressed = true;
+  }
+
+  // If button C was released cycle the recording speed if we're not in settings
+  // and if we are in settings use it to select the option and if we're 
+  if (digitalRead(BUTTON_C) != buttonCLastSample && digitalRead(BUTTON_C) != 0)
+  {
+    if(settingState == MAIN_MENU)
+    {
+      cycleRecordingSpeed();
+    }
+    cRelease = true;
+    buttonPressed = true;
+  }
+
+  // Detect Button A transition to detect button state and time of change
+  if(digitalRead(BUTTON_A) != buttonALastSample)
+  {
+    buttonALastSample = digitalRead(BUTTON_A);
+    buttonAPressTime = millis();
+  }
+
+  // Detect Button C transition to detect button state and time of change 
+  if(digitalRead(BUTTON_C) != buttonCLastSample)
+  {
+    buttonCLastSample = digitalRead(BUTTON_C);
+    buttonCPressTime = millis();
+  }
 
 } // End of timerCallback
 
@@ -484,6 +542,11 @@ void setup()
     day = 0;
   }
 
+  aRelease = false;
+  cRelease = false;
+  aLongPress = false;
+  buttonPressed = false;
+
   // Set up the os timer
   os_timer_setfn(&myTimer, timerCallback, NULL);
 
@@ -548,11 +611,6 @@ void loop()
 //  while (gpsSerial.available() > 0)
 //    tinyGPS.encode(gpsSerial.read());
 
-  bool aRelease = false;
-  bool cRelease = false;
-  bool aLongPress = false;
-  bool buttonPressed = false;
-
   // Call checkFix() to see if the gps lock is only giving a pulse every 15 seconds, 
   // this tells us that we have GPS lock with the global variable hasFix.
   checkFix();
@@ -565,63 +623,12 @@ void loop()
     batteryCheck = millis();
   }
 
-  // Scan Buttons
-  // This if statement detects the button release of button A on the OLED board
-  if (digitalRead(BUTTON_A) != buttonALastSample && digitalRead(BUTTON_A) != 0)
-  {
-    // A quick release of button A means to start/stop recording or cycle through 
-    // settings options
-    if(millis() <= buttonAPressTime + longPressTime) 
-    {
-      // Toggle recording on/off
-      if(settingState == MAIN_MENU)
-      {
-        toggleRecordingState();
-      }
-      aRelease = true;
-      buttonPressed = true;
-    }
-  }
-
-  // If the A button on the OLED board has been pressed longer than 
-  // longPressTime then we have a long press condition, so we should go into 
-  // the settings menu.
-  if(millis() > buttonAPressTime + longPressTime && buttonALastSample == 0 && digitalRead(BUTTON_A) == 0)
-  {
-    buttonAPressTime = millis();
-    aLongPress = true;
-    buttonPressed = true;
-  }
-
-  // If button C was released cycle the recording speed if we're not in settings
-  // and if we are in settings use it to select the option and if we're 
-  if (digitalRead(BUTTON_C) != buttonCLastSample && digitalRead(BUTTON_C) != 0)
-  {
-    if(settingState == MAIN_MENU)
-    {
-      cycleRecordingSpeed();
-    }
-    cRelease = true;
-    buttonPressed = true;
-  }
-
-  // Detect Button A transition to detect button state and time of change
-  if(digitalRead(BUTTON_A) != buttonALastSample)
-  {
-    buttonALastSample = digitalRead(BUTTON_A);
-    buttonAPressTime = millis();
-  }
-
-  // Detect Button C transition to detect button state and time of change 
-  if(digitalRead(BUTTON_C) != buttonCLastSample)
-  {
-    buttonCLastSample = digitalRead(BUTTON_C);
-    buttonCPressTime = millis();
-  }
-
   // Change the setting state based on the user input from the buttons
   handleSettingStates(aRelease, cRelease, aLongPress, false);
-
+  // Reset the button indicators back to false
+  aRelease = false;
+  cRelease = false;
+  aLongPress = false;
   
   // Log GPS data if enough time has elapsed since the last sample and 
   // we have a GPS fix and updated GPS information
@@ -726,6 +733,7 @@ void loop()
     }
     
     lcd.display();
+    buttonPressed = false;
   }
 
   // Update the time on the RTC if it hasn't been updated since we turned on
