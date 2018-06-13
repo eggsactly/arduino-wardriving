@@ -931,18 +931,23 @@ String getEncryption(uint8_t network)
   byte encryption = WiFi.encryptionType(network);
   switch (encryption) 
   {
+    // TKIP Encryption
     case 2:
-      return "[WPA-PSK-CCMP+TKIP][ESS]";
+      return "[WPA-PSK-TKIP][ESS]";
+    // WEP Encryption
     case 5:
       return "[WEP][ESS]";
+    // CCMP Encryption
     case 4:
-      return "[WPA2-PSK-CCMP+TKIP][ESS]";
+      return "[WPA2-PSK-CCMP][ESS]";
+    // No Encryption
     case 7:
       return "[ESS]";
+    // Auto
     case 8:
       return "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]";
     default:
-      return "UNKNOWN: " + encryption;
+      return "UNKNOWN; us";
   }
 }
 
