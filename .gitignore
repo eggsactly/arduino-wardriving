@@ -3,3 +3,5 @@ parts.db
 *.fzz
 *.stl
 *.png
+*.csv
+*.CSV
