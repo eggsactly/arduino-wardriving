@@ -830,16 +830,16 @@ bool logGPSData()
           logFile.print(',');
           logFile.print(WiFi.RSSI(i));
           logFile.print(',');
-          logFile.print(tinyGPS.location.lat(), 6);
+          logFile.print(tinyGPS.location.lat(), 8);
           logFile.print(',');
-          logFile.print(tinyGPS.location.lng(), 6);
+          logFile.print(tinyGPS.location.lng(), 8);
           logFile.print(',');
           logFile.print(tinyGPS.altitude.meters(), 1);
           logFile.print(',');
           logFile.print(max(tinyGPS.hdop.value(), 1));
           logFile.print(',');
           logFile.print("WIFI");
-          logFile.println();
+          logFile.println("");
         }
       }
       logFile.close();
