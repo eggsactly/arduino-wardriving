@@ -5,3 +5,4 @@ parts.db
 *.png
 *.csv
 *.CSV
+*.kml
