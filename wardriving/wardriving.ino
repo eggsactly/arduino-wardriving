@@ -839,7 +839,7 @@ bool logGPSData()
           logFile.print(max(tinyGPS.hdop.value(), 1));
           logFile.print(',');
           logFile.print("WIFI");
-          logFile.println("");
+          logFile.println(',');
         }
       }
       logFile.close();
