@@ -7,34 +7,46 @@ from argparse import ArgumentParser
 import sys
 from datetime import datetime
 
+# Returns true if string is a valid UTF-8 string
+def isValidUtf8(string):
+    valid_utf8 = True
+    try:
+        string.decode('utf-8')
+    except UnicodeDecodeError:
+        valid_utf8 = False
+    return valid_utf8
+
+# Prints out the wifi if it SSID is a valid UTF-8 string
 def printPlaceMark(f, ap, style):
-    epoch = datetime.utcfromtimestamp(0)
-    f.write("\t<Placemark>\n")
-    f.write("\t\t<name><![CDATA[")
-    f.write(ap[1])
-    f.write("]]></name>\n")
-    f.write("<description><![CDATA[BSSID: <b>")
-    f.write(ap[0])
-    f.write("</b><br/>Capabilities: <b></b><br/>Frequency: <b></b><br/>Level: <b>")
-    f.write(ap[5])
-    f.write("</b><br/>Timestamp: <b>")
-    sampleTime = datetime.strptime(ap[3], '%Y-%m-%d %H:%M:%S')
-    f.write(str(int((sampleTime - epoch).total_seconds())))
-    f.write("</b><br/>Date: <b>")
-    f.write(sampleTime.strftime("%B %d, %Y %I:%M:%S %p"))
-    f.write("</b>]]></description><styleUrl>")
-    f.write(style)
-    f.write("</styleUrl>\n")
-    f.write("\t\t<Point>\n")
-    f.write("\t\t<coordinates>")
-    f.write(ap[7])
-    f.write(",")
-    f.write(ap[6])
-    f.write(",")
-    f.write(ap[8])
-    f.write("</coordinates>\n")
-    f.write("\t\t</Point>\n")
-    f.write("\t</Placemark>\n")
+    # Only print out if SSID is a valid UTF-8 string
+    if isValidUtf8(ap[1]):
+        epoch = datetime.utcfromtimestamp(0)
+        f.write("\t<Placemark>\n")
+        f.write("\t\t<name><![CDATA[")
+        f.write(ap[1])
+        f.write("]]></name>\n")
+        f.write("<description><![CDATA[BSSID: <b>")
+        f.write(ap[0])
+        f.write("</b><br/>Capabilities: <b></b><br/>Frequency: <b></b><br/>Level: <b>")
+        f.write(ap[5])
+        f.write("</b><br/>Timestamp: <b>")
+        sampleTime = datetime.strptime(ap[3], '%Y-%m-%d %H:%M:%S')
+        f.write(str(int((sampleTime - epoch).total_seconds())))
+        f.write("</b><br/>Date: <b>")
+        f.write(sampleTime.strftime("%B %d, %Y %I:%M:%S %p"))
+        f.write("</b>]]></description><styleUrl>")
+        f.write(style)
+        f.write("</styleUrl>\n")
+        f.write("\t\t<Point>\n")
+        f.write("\t\t<coordinates>")
+        f.write(ap[7])
+        f.write(",")
+        f.write(ap[6])
+        f.write(",")
+        f.write(ap[8])
+        f.write("</coordinates>\n")
+        f.write("\t\t</Point>\n")
+        f.write("\t</Placemark>\n")
 
 parser = ArgumentParser()
 parser.add_argument("-i", "--input", dest="inputFile",

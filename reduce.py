@@ -6,6 +6,15 @@
 from argparse import ArgumentParser
 import sys
 
+# Returns true if string is a valid UTF-8 string
+def isValidUtf8(string):
+    valid_utf8 = True
+    try:
+        string.decode('utf-8')
+    except UnicodeDecodeError:
+        valid_utf8 = False
+    return valid_utf8
+
 parser = ArgumentParser()
 parser.add_argument("-i", "--input", dest="inputFile",
                     help="Input file to process", metavar="FILE")
@@ -63,10 +72,11 @@ f = open(args.outputFile, 'w')
 f.write(header.rstrip())
 
 for ap in APs:
-    for elm in ap:
-        f.write(elm)
-        f.write(',')
-    f.write('\n')
+    if isValidUtf8(ap[1]):
+        for elm in ap:
+            f.write(elm)
+            f.write(',')
+        f.write('\n')
 
 f.close()
 
