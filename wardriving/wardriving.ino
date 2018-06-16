@@ -670,7 +670,7 @@ void loop()
     
     lcd.setCursor(0, 0);
 
-    lcd.println(" ");
+    lcd.println("Wardriving");
 
     // Print the first line
     if (!hasSdCard)
@@ -713,6 +713,10 @@ void loop()
     {
       lcd.println("Check SD card");
     }
+    else if(recordingState == PAUSED_RECORDING)
+    {
+      lcd.println("Press A to record");
+    }
     else
     {
       lcd.print("Wifi Observed: ");
@@ -724,12 +728,15 @@ void loop()
     {
       lcd.println("Then press Reset");
     }
+    else if(recordingState == PAUSED_RECORDING)
+    {
+      lcd.println("C to change rec speed");
+    }
     else
     {
-      lcd.print("pos: ");
-      lcd.print(tinyGPS.location.lat(), 2);
-      lcd.print(", ");
-      lcd.print(tinyGPS.location.lng(), 2);
+      lcd.print(tinyGPS.location.lat(), 5);
+      lcd.print(" ");
+      lcd.print(tinyGPS.location.lng(), 5);
     }
     
     lcd.display();
