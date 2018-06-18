@@ -70,9 +70,10 @@ f.closed
 f = open(args.outputFile, 'w')
 
 f.write(header.rstrip())
+f.write('\n')
 
 for ap in APs:
-    if isValidUtf8(ap[1]):
+    if len(ap) > 1 and isValidUtf8(ap[1]):
         for elm in ap:
             f.write(elm)
             f.write(',')
