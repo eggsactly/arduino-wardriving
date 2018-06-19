@@ -1,5 +1,6 @@
 # ESP8266 based Arduino wardriving
 
+![Wardriving Device on Bike](https://i.imgur.com/uU2wVbf.jpg)
 
 ## What is this?
 A simple/~~cheap~~ hardware + software setup to do wardriving trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. This hasn't been tested yet and much of the content will be subject to change till the end of May 2018. The parts are on order. 
