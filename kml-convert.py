@@ -67,13 +67,14 @@ if args.outputFile == None:
 else:
     outputfile = args.outputfile
 
-APs = [[]]
+APs = []
 header = ""
 with open(args.inputFile, "r") as f:
     # Iterate through each line of the file and put it in if it's the strongest
     # Skip the first line because it's a header
     iterLines = iter(f)
     header = iterLines.next()
+    header += iterLines.next()
     for line in iterLines:
         entry = []
         for x in line.split(','):

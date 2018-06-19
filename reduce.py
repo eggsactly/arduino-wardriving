@@ -31,13 +31,14 @@ if args.outputFile == None:
     print "Please provide an output file with -o flag."
     sys.exit()
 
-APs = [[]]
+APs = []
 header = ""
 with open(args.inputFile, "r") as f:
     # Iterate through each line of the file and put it in if it's the strongest
-    # Skip the first line because it's a header
+    # Skip the first two lines because they're headers
     iterLines = iter(f)
     header = iterLines.next()
+    header += iterLines.next()
     for line in iterLines:
         entry = []
         for x in line.split(','):
@@ -74,9 +75,14 @@ f.write('\n')
 
 for ap in APs:
     if len(ap) > 1 and isValidUtf8(ap[1]):
+        outputStr = ""
         for elm in ap:
-            f.write(elm)
-            f.write(',')
+            outputStr += elm
+            outputStr += ','
+
+        outputStr = outputStr.rstrip()
+        outputStr = outputStr.rstrip(',')
+        f.write(outputStr)
         f.write('\n')
 
 f.close()
