@@ -73,8 +73,10 @@ char logFileName[32];
 // csvHeader contains the first line of text in the csv log file
 const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit";
 
+const unsigned csvNumCols = 11;
+
 // log_col_names contains the text of the first row of the log file
-const char * log_col_names[] = {
+const char * log_col_names[csvNumCols] = {
   "MAC" ,
   "SSID",
   "AuthMode",
@@ -845,8 +847,7 @@ bool logGPSData()
           logFile.print(',');
           logFile.print(max(tinyGPS.hdop.value(), 1));
           logFile.print(',');
-          logFile.print("WIFI");
-          logFile.println(',');
+          logFile.println("WIFI");
         }
       }
       logFile.close();
@@ -868,12 +869,13 @@ bool printHeader()
   File logFile = SD.open(logFileName, FILE_WRITE);
   if (logFile) 
   {
-    int i = 0;
-    logFile.print(csvHeader);
-    for (; i < sizeof(log_col_names)/sizeof(typeof(log_col_names)); i++) 
+    logFile.println(csvHeader);
+
+    int i;
+    for (i = 0; i < csvNumCols; i++) 
     {
       logFile.print(log_col_names[i]);
-      if (i < sizeof(log_col_names)/sizeof(typeof(log_col_names)) - 1)
+      if (i < csvNumCols - 1)
       {
         logFile.print(',');
       }
