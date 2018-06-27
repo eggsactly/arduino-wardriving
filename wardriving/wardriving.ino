@@ -71,7 +71,7 @@ const char LOG_FILE_SUFFIX[] = "csv";
 char logFileName[32];
 
 // csvHeader contains the first line of text in the csv log file
-const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit";
+const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit\nMAC,SSID,AuthMode,FirstSeen,Channel,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type";
 
 const unsigned csvNumCols = 11;
 
@@ -871,6 +871,10 @@ bool printHeader()
   {
     logFile.println(csvHeader);
 
+    logFile.close();
+    return true;
+
+    // Return before here because this doesn't work
     int i;
     for (i = 0; i < csvNumCols; i++) 
     {
