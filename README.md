@@ -1,4 +1,4 @@
-# ESP8266 based Arduino wardriving
+# ESP8266 based Arduino ~~wardriving~~ warcycling
 
 ![Wardriving Device on Bike](https://i.imgur.com/uU2wVbf.jpg)
 
