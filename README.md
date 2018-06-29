@@ -3,7 +3,7 @@
 ![Wardriving Device on Bike](https://i.imgur.com/uU2wVbf.jpg)
 
 ## What is this?
-A simple/~~cheap~~ hardware + software setup to do wardriving trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. This hasn't been tested yet and much of the content will be subject to change till the end of May 2018. The parts are on order. 
+A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. This hasn't been tested yet and much of the content will be subject to change till the end of May 2018. The parts are on order. 
 Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/tutorials/gps-logger-shield-hookup-guide/example-sketch-gps-serial-passthrough) guys
 
 ## What do we need?
@@ -87,4 +87,3 @@ Mount to attach the Central Mount to the Handle Bar Mount Low.
 Mount to attach to the Handle Bar Mount Up to clamp around bicylce handle bars. 
 
 ![Handle Bar Mount Low](https://i.imgur.com/o8YOm9J.png)
-
