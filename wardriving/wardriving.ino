@@ -73,23 +73,6 @@ char logFileName[32];
 // csvHeader contains the first line of text in the csv log file
 const String csvHeader = "WigleWifi-1.4,appRelease=2.26,model=Feather,release=0.0.0,device=myDevice,display=3fea5e7,board=esp8266,brand=Adafruit\nMAC,SSID,AuthMode,FirstSeen,Channel,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type";
 
-const unsigned csvNumCols = 11;
-
-// log_col_names contains the text of the first row of the log file
-const char * log_col_names[csvNumCols] = {
-  "MAC" ,
-  "SSID",
-  "AuthMode",
-  "FirstSeen",
-  "Channel",
-  "RSSI",
-  "CurrentLatitude",
-  "CurrentLongitude",
-  "AltitudeMeters",
-  "AccuracyMeters",
-  "Type"
-};
-
 // longPressTime defines how many milliseconds the user must press a button on 
 // the OLED screen for it to be considered a long press 
 const uint64_t longPressTime = 2000;
@@ -206,10 +189,10 @@ bool buttonPressed;
 // Create the realtime clock
 RTC_PCF8523 rtc;
 
-// Create the CPU interrupt
+// Create the CPU interrupt for button checking
 os_timer_t myTimer;
 
-// Holds the period, in milliseconds, to 
+// Holds the period, in milliseconds, to do button checking
 const uint16_t buttonCheckPeriodMs = 100;
 
 /**
@@ -871,23 +854,6 @@ bool printHeader()
   {
     logFile.println(csvHeader);
 
-    logFile.close();
-    return true;
-
-    // Return before here because this doesn't work
-    int i;
-    for (i = 0; i < csvNumCols; i++) 
-    {
-      logFile.print(log_col_names[i]);
-      if (i < csvNumCols - 1)
-      {
-        logFile.print(',');
-      }
-      else
-      {
-        logFile.println();
-      }
-    }
     logFile.close();
     return true;
   }
