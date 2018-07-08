@@ -55,7 +55,7 @@ with open(args.inputFile, "r") as f:
                 if apInst[1] == entry[1]:
                     foundMatch = True
                     # Compare their intensity
-                    if int(entry[5]) > int(apInst[5]):
+                    if len(entry) > 5 and len(apInst) > 5 and int(entry[5]) > int(apInst[5]):
                         # For entries that have higher intensities replace the
                         # existing entry with it
                         APs[i] = entry
@@ -74,7 +74,7 @@ f.write(header.rstrip())
 f.write('\n')
 
 for ap in APs:
-    if len(ap) > 1 and isValidUtf8(ap[1]):
+    if len(ap) > 1 and isValidUtf8(ap[0]) and isValidUtf8(ap[1]):
         outputStr = ""
         for elm in ap:
             outputStr += elm
