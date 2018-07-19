@@ -5,7 +5,7 @@
 ## What is this?
 A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. 
 
-Users can use this hardware to bike around their neighborhood to find where Wifi Hotspots are located, plot the data on popular map apps and upload the data to [wigle.net](wigle.net).
+Users can use this hardware to bike around their neighborhood to find where Wifi Hotspots are located, plot the data on popular map apps and upload the data to [wigle.net](https://wigle.net).
 
 ## What do we need?
 * [$19.95](https://www.adafruit.com/product/3213) HUZZAH ESP8266
