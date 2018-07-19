@@ -66,6 +66,8 @@ The default TX and RX connections should be cut with a knife on the bottom of th
 
 The ESP8266 and GPS module should be stacked on the top portion and the Data Logger and LCD screen should be stacked on the bottom portion. 
 
+Caution should be exercised when programming the ESP8266. Because the programming serial interface and the GPS module share the same pins, the GPS module shall be removed before programming takes place.
+
 ## Mount
 The mount source files are stored in the mount/ directory as .scad files. They can be converted to .stl files to be 3D printed by running make in the mount directory. The compiled stl files [can be downloaded off thingiverse](https://www.thingiverse.com/thing:2967852). If you want to build the stl files from scratch OpenSCAD is required for the build process. The directory contains four design files. The mounts were designed to have cantilevers so they can snap together without screws. The exception being the connection between the handle bar mounts. 
 
