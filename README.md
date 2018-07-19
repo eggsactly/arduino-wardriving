@@ -3,8 +3,7 @@
 ![Wardriving Device on Bike](https://i.imgur.com/uU2wVbf.jpg)
 
 ## What is this?
-A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. This hasn't been tested yet and much of the content will be subject to change till the end of May 2018. The parts are on order. 
-Part of the datalogging code stolen from [Sparkfun](https://learn.sparkfun.com/tutorials/gps-logger-shield-hookup-guide/example-sketch-gps-serial-passthrough) guys
+A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. 
 
 ## What do we need?
 * [$19.95](https://www.adafruit.com/product/3213) HUZZAH ESP8266
@@ -87,3 +86,9 @@ Mount to attach the Central Mount to the Handle Bar Mount Low.
 Mount to attach to the Handle Bar Mount Up to clamp around bicylce handle bars. 
 
 ![Handle Bar Mount Low](https://i.imgur.com/o8YOm9J.png)
+
+## Python Scripts
+The content written to the .CSV on the SD card is large and contains redundant information. This project contains two python scripts for compressing and converting the data. 
+* *reduce.py* takes an input .CSV file and picks out the strongest signal of each non-unique entry and puts it in an output CSV file. Example usage `python reduce.py -i input.csv -o output.csv`.
+* *kml-convert.py* takes and input .CSV file, picks out the strongest signal of each non-unique entry and writes it to an output .kml file of the same name, which can be opened with Google Earth or Gnome Maps. Example usage `python kml-convery.py -i input.csv` outputs input.kml.
+
