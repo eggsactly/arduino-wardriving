@@ -802,7 +802,12 @@ bool logGPSData()
         { 
           logFile.print(WiFi.BSSIDstr(i));
           logFile.print(',');
-          logFile.print(WiFi.SSID(i));
+          // Convert all commas and newlines in SSID to spaces 
+          // to prevent issues with CSV
+          String ssid = WiFi.SSID(i);
+          ssid.replace(',', ' ');
+          ssid.replace('\n', ' ');
+          logFile.print(ssid);
           logFile.print(',');
           logFile.print(getEncryption(i));
           logFile.print(',');
