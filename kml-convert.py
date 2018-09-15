@@ -6,6 +6,7 @@
 from argparse import ArgumentParser
 import sys
 from datetime import datetime
+import re
 
 # Returns true if string is a valid UTF-8 string
 def isValidUtf8(string):
@@ -30,7 +31,11 @@ def printPlaceMark(f, ap, style):
         f.write("</b><br/>Capabilities: <b></b><br/>Frequency: <b></b><br/>Level: <b>")
         f.write(ap[5])
         f.write("</b><br/>Timestamp: <b>")
-        sampleTime = datetime.strptime(ap[3], '%Y-%m-%d %H:%M:%S')
+        try:
+            sampleTime = datetime.strptime(ap[3], '%Y-%m-%d %H:%M:%S')
+        except ValueError:
+            sampleTime = datetime.strptime("2018-9-2 17:30:28", '%Y-%m-%d %H:%M:%S')
+            pass
         f.write(str(int((sampleTime - epoch).total_seconds())))
         f.write("</b><br/>Date: <b>")
         f.write(sampleTime.strftime("%B %d, %Y %I:%M:%S %p"))
@@ -83,23 +88,26 @@ with open(args.inputFile, "r") as f:
         # Search for entries MAC in AP
         foundMatch = False 
         i = 0;
-        # Go through all the entries in AP
-        for apInst in APs:
-            # If the MAC address matches
-            if len(apInst) > 0 and apInst[0] == entry[0]:
-                # And if the SSID matches
-                if apInst[1] == entry[1]:
-                    foundMatch = True
-                    # Compare their intensity
-                    if int(entry[5]) > int(apInst[5]):
-                        # For entries that have higher intensities replace the
-                        # existing entry with it
-                        APs[i] = entry
-            i += 1
-        # If we went through the whole loop and found no matches, append entry
-        # to APs
-        if foundMatch == False:
-            APs.append(entry) 
+        # Before conducting the search, make sure first entry is strictly in
+        # MAC address format and the number of columns in entry is 11
+        if len(entry) == 11 and re.match("[0-9a-f]{2}([-:]?)[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$", entry[0].lower()):
+            # Go through all the entries in AP
+            for apInst in APs:
+                # If the MAC address matches
+                if len(apInst) > 0 and apInst[0] == entry[0]:
+                    # And if the SSID matches
+                    if apInst[1] == entry[1]:
+                        foundMatch = True
+                        # Compare their intensity
+                        if isinstance(entry[5], int) and isinstance(apInst[5], int) and int(entry[5]) > int(apInst[5]):
+                            # For entries that have higher intensities replace the
+                            # existing entry with it
+                            APs[i] = entry
+                i += 1
+            # If we went through the whole loop and found no matches, append entry
+            # to APs
+            if foundMatch == False:
+                APs.append(entry) 
         
 f.closed
 

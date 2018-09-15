@@ -5,6 +5,7 @@
 
 from argparse import ArgumentParser
 import sys
+import re
 
 # Returns true if string is a valid UTF-8 string
 def isValidUtf8(string):
@@ -47,23 +48,26 @@ with open(args.inputFile, "r") as f:
         # Search for entries MAC in AP
         foundMatch = False 
         i = 0;
-        # Go through all the entries in AP
-        for apInst in APs:
-            # If the MAC address matches
-            if len(apInst) > 0 and apInst[0] == entry[0]:
-                # And if the SSID matches
-                if apInst[1] == entry[1]:
-                    foundMatch = True
-                    # Compare their intensity
-                    if len(entry) > 5 and len(apInst) > 5 and int(entry[5]) > int(apInst[5]):
-                        # For entries that have higher intensities replace the
-                        # existing entry with it
-                        APs[i] = entry
-            i += 1
-        # If we went through the whole loop and found no matches, append entry
-        # to APs
-        if foundMatch == False:
-            APs.append(entry) 
+        # Before conducting the search, make sure first entry is strictly in
+        # MAC address format and the number of columns in entry is 11
+        if len(entry) == 11 and re.match("[0-9a-f]{2}([-:]?)[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$", entry[0].lower()):
+            # Go through all the entries in AP
+            for apInst in APs:
+                # If the MAC address matches
+                if len(apInst) > 0 and apInst[0] == entry[0]:
+                    # And if the SSID matches
+                    if apInst[1] == entry[1]:
+                        foundMatch = True
+                        # Compare their intensity
+                        if len(entry) > 5 and len(apInst) > 5 and isinstance(entry[5], int) and isinstance(apInst[5], int) and int(entry[5]) > int(apInst[5]):
+                            # For entries that have higher intensities replace the
+                            # existing entry with it
+                            APs[i] = entry
+                i += 1
+            # If we went through the whole loop and found no matches, append entry
+            # to APs
+            if foundMatch == False:
+                APs.append(entry) 
         
 f.closed
 
