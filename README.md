@@ -5,7 +5,7 @@
 ## What is this?
 A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. 
 
-Users can use this hardware to bike around their neighborhood to find where Wifi Hotspots are located, plot the data on popular map apps and upload the data to [wigle.net](https://wigle.net).
+Use this hardware to bike around your neighborhood to find where Wifi Hotspots are located, find the encryption of each hotspot, plot the data on popular map apps and upload the data to [wigle.net](https://wigle.net).
 
 ![Plot of Wifi hotspots in Tempe](https://i.imgur.com/CTdY4qT.png)
 
@@ -38,10 +38,11 @@ Users can use this hardware to bike around their neighborhood to find where Wifi
 * This doesn't attack any network
 
 ## What is different in this fork 
-* Used parts from one vendor, Adafruit, for the A E S T H E T I C. This eliminates need to make a custom circuit board as well.
-* Took out previously recorded check, I felt checking to see if an AP was already recorded would become inefficient over time, so it was removed. 
+* Used parts from one vendor: Adafruit.
+* Used a boilerplate breadboard, eliminating need for custom circuit board.
+* Took out previously-recorded check on Arduino logging code because checking to see if an AP was already recorded would become inefficient over time. 
 * Put the output CSV into Wigle CSV format.
-* Added way to verify we have a fix on GPS location. 
+* Added FIX input from GPS to verify GPS location is up to date. 
 
 ## Electric setup
 The diagrams below show how to configure all the Feather Wings. Please read all instructions carefully. 
@@ -57,7 +58,7 @@ The Adalogger Feather Wing requires no special configuration, solder on Feather 
 ![Adalogger](https://imgur.com/OMgErBR.png)
 
 ### OLED Display Feather Wing
-All pins on the OLED Feather Wing should have the 2mm Pitch Break-apart Male Headers soldered on except for pin B.
+All pins on the OLED Feather Wing should have the 2mm Pitch Break-apart Male Headers soldered on except for pin B because this pin is used to sample the FIX pin from the GPS. 
 
 ![OLED Screen](https://imgur.com/6AdT9cG.png)
 
@@ -96,5 +97,5 @@ Mount to attach to the Handle Bar Mount Up to clamp around bicylce handle bars.
 ## Python Scripts
 The content written to the .CSV on the SD card is large and contains redundant information. This project contains two python scripts for compressing and converting the data. 
 * *reduce.py* takes an input .CSV file and picks out the strongest signal of each non-unique entry and puts it in an output CSV file. Example usage `python reduce.py -i input.csv -o output.csv`.
-* *kml-convert.py* takes and input .CSV file, picks out the strongest signal of each non-unique entry and writes it to an output .kml file of the same name, which can be opened with Google Earth or Gnome Maps. Example usage `python kml-convery.py -i input.csv` outputs input.kml.
+* *kml-convert.py* takes an input .CSV file, picks out the strongest signal of each non-unique entry and writes it to an output .kml file of the same name, which can be opened with Google Earth or Gnome Maps. Example usage `python kml-convery.py -i input.csv` outputs input.kml.
 
