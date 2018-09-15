@@ -7,6 +7,8 @@ A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as
 
 Users can use this hardware to bike around their neighborhood to find where Wifi Hotspots are located, plot the data on popular map apps and upload the data to [wigle.net](https://wigle.net).
 
+![Plot of Wifi hotspots in Tempe](https://i.imgur.com/CTdY4qT.png)
+
 ## What do we need?
 * [$19.95](https://www.adafruit.com/product/3213) HUZZAH ESP8266
 * [$8.95](https://www.adafruit.com/product/2922) Adalogger FeatherWing - RTC + SD Add-on For All Feather Boards
