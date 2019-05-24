@@ -198,7 +198,7 @@ const uint16_t buttonCheckPeriodMs = 100;
 /**
  * toggleRecordingState() transitions the enum recordingState to the next state.
  */
-void toggleRecordingState()
+void toggleRecordingState(void)
 {
   switch(recordingState)
   {
@@ -215,6 +215,7 @@ void toggleRecordingState()
 
 /**
  * Interrupt handler for timer
+ * @param unused void pointer
  */
 void timerCallback(void *pArg) {
 
@@ -277,7 +278,7 @@ void timerCallback(void *pArg) {
 /**
  * cycleRecordingSpeed() transitions the enum recordingSpeed to the next state.
  */
-void cycleRecordingSpeed()
+void cycleRecordingSpeed(void)
 {
   switch(recordingSpeed)
   {
@@ -363,9 +364,11 @@ void handleSettingStates(bool a, bool c, bool longA, bool longC)
 }
 
 /**
- * zeroOutFixRecordArray() is used by checkFix() to zero out the fixRecordArray.
+ * zeroOutFixRecordArray() is used by checkFix() to zero out the fixRecordArray, which is used 
+ * to keep track of the GPS fix signal to detect when there's no fix available and when the GPS
+ * signal is not 
  */
-void zeroOutFixRecordArray()
+void zeroOutFixRecordArray(void)
 {
   for(fixRecordIndex = 0; fixRecordIndex < sizeof(fixRecordArray)/sizeof(byte); fixRecordIndex++)
   {
@@ -378,6 +381,8 @@ void zeroOutFixRecordArray()
 /**
  * updateFixRecordIndex() is used by checkFix() as a function that updates the 
  * fixRecordVar counter.
+ * @param fixRecordVar the value of the fix
+ * @return current index of the fix record array
  */
 byte updateFixRecordIndex(byte fixRecordVar)
 {
@@ -396,7 +401,7 @@ byte updateFixRecordIndex(byte fixRecordVar)
  * checkFix() indicates if the GPS has a fix and updates a global variable 
  * hasFix to indicate to the rest of the program whether the GPS has a fix. 
  */
-void checkFix()
+void checkFix(void)
 {
   // Get and store current time
   unsigned long long currentTime = millis();
@@ -443,7 +448,7 @@ void checkFix()
 /**
  * battery_level() updates the OLED screens battery level indicator 
  */
-void battery_level() 
+void battery_level(void) 
 {
   // read the battery level from the ESP8266 analog in pin.
   // analog read level is 10 bit 0-1023 (0V-1V).
@@ -461,7 +466,7 @@ void battery_level()
 /**
  * setup() is called at the beginning of the program, it is a reserved function.
  */
-void setup() 
+void setup(void) 
 {
   recordingState = PAUSED_RECORDING;
   settingState = MAIN_MENU;
@@ -591,7 +596,7 @@ void setup()
  * called after setup(). loop() is the center of the program and corridinates 
  * all the interaction between hardware
  */
-void loop() 
+void loop(void) 
 {
 //  while (gpsSerial.available() > 0)
 //    tinyGPS.encode(gpsSerial.read());
@@ -755,8 +760,9 @@ void loop()
 
 /**
  * countNetworks() returns the number of networks found.
+ * @return number of networks found 
  */
-uint8_t countNetworks() 
+uint8_t countNetworks(void) 
 {
   File netFile = SD.open(logFileName);
   uint8_t networks = 0;
@@ -782,8 +788,9 @@ uint8_t countNetworks()
 
 /**
  * logGPSData() is called by loop() to write update sampled gps and wifi data.
+ * @return true if log line add was successful 
  */
-bool logGPSData() 
+bool logGPSData(void) 
 {
   n = WiFi.scanNetworks(); 
   if (n == 0) 
@@ -851,8 +858,9 @@ bool logGPSData()
 /**
  * printHeader() is used in setup() to print the first line of the .csv output
  * log file.
+ * @return true of SD card opened
  */
-bool printHeader() 
+bool printHeader(void) 
 {
   File logFile = SD.open(logFileName, FILE_WRITE);
   if (logFile) 
@@ -907,8 +915,9 @@ void updateFileName(uint16_t year, uint8_t month, uint8_t day)
 }
 
 /**
- * Given the network type ID getEncryption returns a string for the network type
- * for printouts to the logfile.
+ * Given the network type ID getEncryption 
+ * @param network type of network
+ * @return a string for the network type for printouts to the logfile.
  */
 String getEncryption(uint8_t network) 
 {
