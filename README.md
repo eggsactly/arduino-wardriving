@@ -1,6 +1,6 @@
 # ESP8266 based Arduino ~~wardriving~~ warcycling
 
-![Wardriving Device on Bike](https://i.imgur.com/mxxKKHC.jpg)
+![Wardriving Device on Bike](https://i.imgur.com/iSobdp6.jpg)
 
 ## What is this?
 A simple/~~cheap~~ hardware + software setup to do warcycling trips and store as much information as we can on a SD card, using a small Arduino box. This project was [forked from reynico's arduino-wardriving project](https://github.com/reynico/arduino-wardriving) and adapted to work with the Adafruit ESP8266 HUZZAH and FeatherWings. 
